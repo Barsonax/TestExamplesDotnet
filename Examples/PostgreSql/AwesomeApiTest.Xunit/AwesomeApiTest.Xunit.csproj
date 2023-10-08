@@ -10,12 +10,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FluentAssertions" Version="6.12.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="7.0.11" />
+        <PackageReference Include="FluentAssertions" Version="6.12.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="7.0.11"/>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0"/>
-        <PackageReference Include="xunit" Version="2.5.1" />
-        <PackageReference Include="Xunit.DependencyInjection" Version="8.7.1" />
-        <PackageReference Include="Xunit.DependencyInjection.Logging" Version="8.1.0" />
+        <PackageReference Include="xunit" Version="2.5.1"/>
+        <PackageReference Include="Xunit.DependencyInjection" Version="8.7.1"/>
+        <PackageReference Include="Xunit.DependencyInjection.Logging" Version="8.1.0"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
@@ -27,9 +27,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\AwesomeApiTest.PostgreSql\AwesomeApiTest.PostgreSql.csproj" />
-      <ProjectReference Include="..\AwesomeApiTest.Sut\AwesomeApiTest.Sut.csproj" />
-      <ProjectReference Include="..\AwesomeApiTest\AwesomeApiTest.csproj" />
+        <ProjectReference Include="..\AwesomeApiTest.Sut\AwesomeApiTest.Sut.csproj"/>
+        <ProjectReference Include="..\..\..\AwesomeApiTest.PostgreSql\AwesomeApiTest.PostgreSql.csproj"/>
+        <ProjectReference Include="..\..\..\AwesomeApiTest\AwesomeApiTest.csproj"/>
     </ItemGroup>
 
 </Project>

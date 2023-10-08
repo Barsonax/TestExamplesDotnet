@@ -1,10 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeApiTest.Sut", "AwesomeApiTest.Sut\AwesomeApiTest.Sut.csproj", "{8993750C-4946-49E9-954E-3400CF8D5617}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeApiTest.Sut", "Examples\PostgreSql\AwesomeApiTest.Sut\AwesomeApiTest.Sut.csproj", "{8993750C-4946-49E9-954E-3400CF8D5617}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeApiTest.Nunit", "AwesomeApiTest.Nunit\AwesomeApiTest.Nunit.csproj", "{3170F491-B99C-4C35-BF43-57EFAC238D84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeApiTest.Nunit", "Examples\PostgreSql\AwesomeApiTest.Nunit\AwesomeApiTest.Nunit.csproj", "{3170F491-B99C-4C35-BF43-57EFAC238D84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeApiTest.Xunit", "AwesomeApiTest.Xunit\AwesomeApiTest.Xunit.csproj", "{A6DD4AAD-F475-40F1-B623-CF9D2EEC8944}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeApiTest.Xunit", "Examples\PostgreSql\AwesomeApiTest.Xunit\AwesomeApiTest.Xunit.csproj", "{A6DD4AAD-F475-40F1-B623-CF9D2EEC8944}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeApiTest", "AwesomeApiTest\AwesomeApiTest.csproj", "{D3C52B1C-DF1C-41BC-919B-8C5C000B1E8C}"
 EndProject
@@ -17,6 +17,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwesomeApiTest.Sqllite", "AwesomeApiTest.Sqllite\AwesomeApiTest.Sqllite.csproj", "{518C578B-B6B8-4798-ADE6-0B20D82744A8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PostgreSql", "PostgreSql", "{3B281369-C340-4B9F-831F-8D56C4004598}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MsSql", "MsSql", "{368E993D-05B1-4EC7-86D3-8079C0FC9F0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sqllite", "Sqllite", "{543F9154-0F05-4F3A-996A-78E654E67B44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,5 +62,7 @@ Global
 		{3170F491-B99C-4C35-BF43-57EFAC238D84} = {3B281369-C340-4B9F-831F-8D56C4004598}
 		{8993750C-4946-49E9-954E-3400CF8D5617} = {3B281369-C340-4B9F-831F-8D56C4004598}
 		{A6DD4AAD-F475-40F1-B623-CF9D2EEC8944} = {3B281369-C340-4B9F-831F-8D56C4004598}
+		{368E993D-05B1-4EC7-86D3-8079C0FC9F0B} = {FB8382F9-4F4C-4080-ACD6-7112A55C2D65}
+		{543F9154-0F05-4F3A-996A-78E654E67B44} = {FB8382F9-4F4C-4080-ACD6-7112A55C2D65}
 	EndGlobalSection
 EndGlobal
