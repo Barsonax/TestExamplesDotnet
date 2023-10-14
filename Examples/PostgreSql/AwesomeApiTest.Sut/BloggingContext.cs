@@ -15,14 +15,6 @@ public class BloggingContext : DbContext
     public BloggingContext(DbContextOptions<BloggingContext> context) : base(context)
     {
     }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        if (!optionsBuilder.IsConfigured)
-        {
-            optionsBuilder.UseNpgsql("Host=localhost;Database=hr;Username=postgres;Password=postgres");
-        }
-    }
 }
 
 public class Blog
