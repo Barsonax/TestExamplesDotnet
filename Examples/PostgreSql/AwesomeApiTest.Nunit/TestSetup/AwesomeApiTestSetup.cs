@@ -1,10 +1,12 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AwesomeApiTest;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace AwesomeApiTest.Nunit.TestSetup;
-
 [SetUpFixture]
+#pragma warning disable CA1050
+// ReSharper disable once CheckNamespace this needs to be in the global namespace
 public class AwesomeApiTestSetup
+#pragma warning restore CA1050
 {
     internal static IServiceProvider Provider => _serviceProvider;
     private static ServiceProvider _serviceProvider = null!;

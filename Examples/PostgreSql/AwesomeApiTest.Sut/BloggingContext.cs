@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public class BloggingContext : DbContext
 {
-    public DbSet<Blog> Blogs { get; set; }
-    public DbSet<Post> Posts { get; set; }
+    public DbSet<Blog> Blogs => Set<Blog>();
+    public DbSet<Post> Posts => Set<Post>();
 
     public BloggingContext()
     {
