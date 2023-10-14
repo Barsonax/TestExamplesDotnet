@@ -11,7 +11,6 @@
 
   <PropertyGroup>
     <XunitStartupFullName>AwesomeApiTest.Xunit.TestSetup.Startup</XunitStartupFullName>
-    <ParallelizationMode>Force</ParallelizationMode>
   </PropertyGroup>
 
     <ItemGroup>
