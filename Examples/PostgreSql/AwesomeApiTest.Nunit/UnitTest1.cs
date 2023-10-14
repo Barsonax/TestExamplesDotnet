@@ -25,5 +25,16 @@ public class UnitTest1 : AwesomeApiTests
                 Url = "https://blog.photogrammer.net/"
             }
         });
+
+        Sut.AssertDatabase(context =>
+        {
+            context.Blogs.Should().BeEquivalentTo(new[]
+            {
+                new
+                {
+                    Url = "https://blog.photogrammer.net/"
+                }
+            });
+        });
     }
 }

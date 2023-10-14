@@ -32,5 +32,16 @@ public class UnitTest1
                 Url = "https://blog.photogrammer.net/"
             }
         });
+
+        _sut.AssertDatabase(context =>
+        {
+            context.Blogs.Should().BeEquivalentTo(new[]
+            {
+                new
+                {
+                    Url = "https://blog.photogrammer.net/"
+                }
+            });
+        });
     }
 }
