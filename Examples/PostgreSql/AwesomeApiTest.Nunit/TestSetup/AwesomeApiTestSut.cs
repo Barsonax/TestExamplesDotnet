@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace AwesomeApiTest.Xunit;
+namespace AwesomeApiTest.Nunit.TestSetup;
 
 public sealed class AwesomeApiTestSut : WebApplicationFactory<Program>
 {

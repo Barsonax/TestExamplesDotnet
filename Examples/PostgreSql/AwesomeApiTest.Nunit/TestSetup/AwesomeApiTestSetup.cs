@@ -1,8 +1,7 @@
-﻿using AwesomeApiTest.Xunit;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace AwesomeApiTest.Nunit;
+namespace AwesomeApiTest.Nunit.TestSetup;
 
 [SetUpFixture]
 public class AwesomeApiTestSetup

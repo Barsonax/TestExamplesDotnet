@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Xunit.DependencyInjection.Logging;
 
-namespace AwesomeApiTest.Xunit;
+namespace AwesomeApiTest.Xunit.TestSetup;
 
 public static class Startup
 {
