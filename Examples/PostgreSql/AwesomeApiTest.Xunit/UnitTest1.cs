@@ -1,6 +1,3 @@
-using System.Net.Http.Json;
-using FluentAssertions;
-
 namespace AwesomeApiTest.Xunit;
 
 public class UnitTest1

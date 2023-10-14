@@ -28,7 +28,11 @@ public sealed class AwesomeApiTestSut : WebApplicationFactory<Program>
             });
         });
 
-        builder.ConfigureLogging(loggingBuilder => { loggingBuilder.Services.AddSingleton(_loggerProvider); });
+        builder.ConfigureLogging(loggingBuilder =>
+        {
+            loggingBuilder.ClearProviders();
+            loggingBuilder.Services.AddSingleton(_loggerProvider);
+        });
 
         var app = base.CreateHost(builder);
         _pooledDatabase.EnsureInitialized(app);
