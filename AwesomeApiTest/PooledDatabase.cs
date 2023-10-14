@@ -9,7 +9,7 @@ public sealed class PooledDatabase : IAsyncDisposable
 
     private readonly ObjectPool<IDatabase> _pool;
 
-    public PooledDatabase(ObjectPool<IDatabase> pool)
+    internal PooledDatabase(ObjectPool<IDatabase> pool)
     {
         _pool = pool;
         _database = pool.Get();
