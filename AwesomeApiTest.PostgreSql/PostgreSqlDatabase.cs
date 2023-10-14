@@ -5,14 +5,14 @@ using Testcontainers.PostgreSql;
 
 namespace AwesomeApiTest;
 
-public class PostgreSqlDatabase : IDatabase
+public sealed class PostgreSqlDatabase : IDatabase
 {
     private readonly IDatabaseInitializer _databaseInitializer;
     private readonly RespawnerOptions _respawnerOptions;
     private Respawner? _respawner;
     private bool _initialized;
     public string ConnectionString { get; }
-    
+
     public PostgreSqlDatabase(PostgreSqlContainer container, IDatabaseInitializer databaseInitializer, RespawnerOptions respawnerOptions)
     {
         _databaseInitializer = databaseInitializer;

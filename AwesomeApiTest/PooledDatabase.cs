@@ -3,7 +3,7 @@ using Microsoft.Extensions.ObjectPool;
 
 namespace AwesomeApiTest;
 
-public class PooledDatabase : IAsyncDisposable
+public sealed class PooledDatabase : IAsyncDisposable
 {
     private readonly IDatabase _database;
 
@@ -26,6 +26,5 @@ public class PooledDatabase : IAsyncDisposable
     {
         await _database.Clean();
         _pool.Return(_database);
-        GC.SuppressFinalize(this);
     }
 }

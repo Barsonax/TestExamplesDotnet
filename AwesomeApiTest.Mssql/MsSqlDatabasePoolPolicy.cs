@@ -4,7 +4,7 @@ using Testcontainers.MsSql;
 
 namespace AwesomeApiTest;
 
-public class MsSqlDatabasePoolPolicy : IPooledObjectPolicy<IDatabase>
+public sealed class MsSqlDatabasePoolPolicy : IPooledObjectPolicy<IDatabase>
 {
     private readonly MsSqlContainer _container;
     private readonly IDatabaseInitializer _databaseInitializer;

@@ -4,7 +4,7 @@ using Testcontainers.PostgreSql;
 
 namespace AwesomeApiTest;
 
-public class PostgreSqlDatabasePoolPolicy : IPooledObjectPolicy<IDatabase>
+public sealed class PostgreSqlDatabasePoolPolicy : IPooledObjectPolicy<IDatabase>
 {
     private readonly PostgreSqlContainer _container;
     private readonly IDatabaseInitializer _databaseInitializer;

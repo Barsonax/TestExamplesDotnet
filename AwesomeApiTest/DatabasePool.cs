@@ -2,7 +2,7 @@
 
 namespace AwesomeApiTest;
 
-public class DatabasePool
+public sealed class DatabasePool
 {
     private readonly ObjectPool<IDatabase> _pool;
 

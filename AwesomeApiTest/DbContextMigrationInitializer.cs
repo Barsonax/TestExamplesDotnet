@@ -4,7 +4,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace AwesomeApiTest;
 
-public class DbContextMigrationInitializer<TDbContext> : IDatabaseInitializer
+public sealed class DbContextMigrationInitializer<TDbContext> : IDatabaseInitializer
     where TDbContext : DbContext
 {
     public void Initialize(IHost app)

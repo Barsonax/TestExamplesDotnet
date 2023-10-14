@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace AwesomeApiTest.Xunit;
 
-public class AwesomeApiTestSut : WebApplicationFactory<Program>
+public sealed class AwesomeApiTestSut : WebApplicationFactory<Program>
 {
     private readonly PooledDatabase _pooledDatabase;
     private readonly ILoggerProvider _loggerProvider;
@@ -40,7 +40,6 @@ public class AwesomeApiTestSut : WebApplicationFactory<Program>
     {
         await base.DisposeAsync();
         await _pooledDatabase.DisposeAsync();
-        GC.SuppressFinalize(this);
     }
 
     public void SeedData(Action<BloggingContext> seedAction)
