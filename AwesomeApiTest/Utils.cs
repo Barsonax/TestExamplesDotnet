@@ -1,6 +1,6 @@
 ﻿namespace AwesomeApiTest;
 
-public class Utils
+public static class Utils
 {
     public static void RunWithoutSynchronizationContext(Action action)
     {

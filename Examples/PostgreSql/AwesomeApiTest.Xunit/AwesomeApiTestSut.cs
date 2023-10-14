@@ -22,7 +22,7 @@ public class AwesomeApiTestSut : WebApplicationFactory<Program>
         builder.UseEnvironment(Environments.Development);
         builder.ConfigureAppConfiguration((_, config) =>
         {
-            config.AddInMemoryCollection(new Dictionary<string, string>
+            config.AddInMemoryCollection(new Dictionary<string, string?>
             {
                 { "DbConnectionString", _pooledDatabase.ConnectionString }
             });
@@ -40,8 +40,9 @@ public class AwesomeApiTestSut : WebApplicationFactory<Program>
     {
         await base.DisposeAsync();
         await _pooledDatabase.DisposeAsync();
+        GC.SuppressFinalize(this);
     }
-    
+
     public void SeedData(Action<BloggingContext> seedAction)
     {
         using var scope = Services.CreateScope();

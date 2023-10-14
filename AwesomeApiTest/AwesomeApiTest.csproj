@@ -9,11 +9,11 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
-        <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="7.0.11" />
+        <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="7.0.12" />
         <PackageReference Include="Respawn" Version="6.1.0" />
         <PackageReference Include="Testcontainers" Version="3.5.0" />
         <PackageReference Include="Testcontainers.MsSql" Version="3.5.0" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.4" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.12" />
     </ItemGroup>
     
 </Project>

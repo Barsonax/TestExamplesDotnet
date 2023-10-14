@@ -21,10 +21,11 @@ public class PooledDatabase : IAsyncDisposable
     {
         _database.Initialize(host);
     }
-    
+
     public async ValueTask DisposeAsync()
     {
         await _database.Clean();
         _pool.Return(_database);
+        GC.SuppressFinalize(this);
     }
 }

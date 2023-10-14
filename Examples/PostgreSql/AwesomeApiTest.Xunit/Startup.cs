@@ -3,13 +3,13 @@ using Xunit.DependencyInjection.Logging;
 
 namespace AwesomeApiTest.Xunit;
 
-public class Startup
+public static class Startup
 {
-    public void ConfigureServices(IServiceCollection services)
+    public static void ConfigureServices(IServiceCollection services)
     {
         services.RegisterPostgreSqlContainer();
         services.AddLogging(x => x.AddXunitOutput());
-        
+
         services.AddScoped<AwesomeApiTestSut>();
         services.RegisterMigrationInitializer<BloggingContext>();
     }
