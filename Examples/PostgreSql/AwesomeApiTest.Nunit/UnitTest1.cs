@@ -1,15 +1,29 @@
 namespace AwesomeApiTest.Nunit;
 
-public class Tests
+public class UnitTest1 : AwesomeApiTests
 {
-    [SetUp]
-    public void Setup()
-    {
-    }
-
     [Test]
-    public void Test1()
+    public async Task Test1()
     {
-        Assert.Pass();
+        //Arrange
+        Sut.SeedData(context =>
+        {
+            context.Blogs.Add(new Blog
+            {
+                Url = "https://blog.photogrammer.net/"
+            });
+        });
+
+        //Act
+        var result = await Sut.CreateClient().GetFromJsonAsync<Blog[]>("blogs");
+
+        //Assert
+        result.Should().BeEquivalentTo(new[]
+        {
+            new
+            {
+                Url = "https://blog.photogrammer.net/"
+            }
+        });
     }
 }
