@@ -6,6 +6,10 @@ This setup currently has the following features:
 - Databases are pooled and cleaned between runs with [Respawn](https://github.com/jbogard/Respawn). This way migrations only have to be run once which saves alot of time.
 - Tests can run in parallel.
 
+## Prerequisites
+- .NET 
+- Docker
+
 ## How to use
 I decided not to turn this into a nuget package for now. Depending on if you are using nunit or xunit copy the code that you need to your project. For instance if you are using PostgreSql then copy the code from [AwesomeApiTest](AwesomeApiTest) and [AwesomeApiTest.PostgreSql](AwesomeApiTest.PostgreSql) to your test project. For examples on how to setup nunit or xunit see the [Examples](Examples).
 
