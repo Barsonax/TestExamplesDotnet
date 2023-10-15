@@ -1,8 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Playwright.NUnit;
 
 namespace AwesomeApiTest.Nunit.TestSetup;
 
-public abstract class AwesomeApiTests
+public abstract class AwesomeApiTests : PageTest
 {
 #pragma warning disable NUnit1032
     protected AwesomeApiTestSut Sut { get; private set; } = null!;

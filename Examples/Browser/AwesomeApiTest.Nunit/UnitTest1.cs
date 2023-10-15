@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using AwesomeApiTest.Sut;
 
 namespace AwesomeApiTest.Nunit;
@@ -17,9 +18,10 @@ public class UnitTest1 : AwesomeApiTests
         });
 
         //Act
-        var result = await Sut.CreateClient().GetAsync("/");
+        await Page.GotoAsync($"{Sut.ServerAddress}");
+
 
         //Assert
-        result.Should().BeSuccessful();
+        await Expect(Page).ToHaveTitleAsync(new Regex("Home page"));
     }
 }
