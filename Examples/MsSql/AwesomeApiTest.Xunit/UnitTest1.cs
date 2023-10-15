@@ -1,5 +1,3 @@
-using AwesomeApiTest.Sut;
-
 namespace AwesomeApiTest.Xunit;
 
 public class UnitTest1

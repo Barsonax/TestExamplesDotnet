@@ -1,5 +1,4 @@
 ﻿using AwesomeApiTest;
-using AwesomeApiTest.Sut;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
