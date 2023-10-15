@@ -1,4 +1,3 @@
-using System.Text.RegularExpressions;
 using AwesomeApiTest.Sut;
 using Microsoft.Playwright;
 
