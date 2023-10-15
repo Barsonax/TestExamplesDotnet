@@ -10,7 +10,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddTransient<IDatabaseInitializer, DbContextMigrationInitializer<TContext>>();
     }
-    
+
     public static void RegisterSharedDatabaseServices(this IServiceCollection services)
     {
         services.AddSingleton<DatabasePool>();

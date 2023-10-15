@@ -15,7 +15,7 @@ public static class ServiceCollectionExtensions
             DbAdapter = DbAdapter.Postgres
         });
         services.AddTransient<IPooledObjectPolicy<IDatabase>, PostgreSqlDatabasePoolPolicy>();
-        
+
         var container = new PostgreSqlBuilder().Build();
         Utils.RunWithoutSynchronizationContext(() => container.StartAsync().Wait());
         services.AddSingleton(container);
