@@ -8,10 +8,9 @@
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
     </PropertyGroup>
-  
+
   <PropertyGroup>
     <XunitStartupFullName>AwesomeApiTest.Xunit.TestSetup.Startup</XunitStartupFullName>
-    <ParallelizationMode>Force</ParallelizationMode>
   </PropertyGroup>
 
     <ItemGroup>
