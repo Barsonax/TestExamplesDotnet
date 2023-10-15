@@ -6,5 +6,12 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <ol>
+            @foreach (var blog in Model.Blogs)
+            {
+                <li>
+                    <a href="@blog.Url">@blog.Url</a>
+                </li>
+            }
+    </ol>
 </div>

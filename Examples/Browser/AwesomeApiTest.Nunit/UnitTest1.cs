@@ -1,5 +1,6 @@
 using System.Text.RegularExpressions;
 using AwesomeApiTest.Sut;
+using Microsoft.Playwright;
 
 namespace AwesomeApiTest.Nunit;
 
@@ -21,6 +22,7 @@ public class UnitTest1 : AwesomeApiTests
         await Page.GotoAsync($"{Sut.ServerAddress}");
 
         //Assert
-        await Expect(Page).ToHaveTitleAsync(new Regex("Home page"));
+        await Expect(Page.GetByRole(AriaRole.Link, new() { Name = "https://blog.photogrammer.net/" }))
+            .ToBeVisibleAsync();
     }
 }
