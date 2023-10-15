@@ -1,7 +1,6 @@
-﻿namespace AwesomeApiTest;
+﻿using Microsoft.EntityFrameworkCore;
 
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
+namespace AwesomeApiTest.Sut;
 
 public class BloggingContext : DbContext
 {

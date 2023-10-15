@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AwesomeApiTest.Sut;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit.DependencyInjection.Logging;
 
 namespace AwesomeApiTest.Xunit.TestSetup;

@@ -1,4 +1,4 @@
-using AwesomeApiTest;
+using AwesomeApiTest.Sut;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,8 +9,6 @@ builder.Services.AddDbContext<BloggingContext>(options =>
 });
 
 var app = builder.Build();
-
-app.UseHttpsRedirection();
 
 app.MapGet("blogs", (BloggingContext context) => TypedResults.Json(context.Blogs));
 
