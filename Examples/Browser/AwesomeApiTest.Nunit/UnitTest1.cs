@@ -20,7 +20,6 @@ public class UnitTest1 : AwesomeApiTests
         //Act
         await Page.GotoAsync($"{Sut.ServerAddress}");
 
-
         //Assert
         await Expect(Page).ToHaveTitleAsync(new Regex("Home page"));
     }

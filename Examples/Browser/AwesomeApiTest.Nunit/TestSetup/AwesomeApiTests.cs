@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
 
 namespace AwesomeApiTest.Nunit.TestSetup;
@@ -16,6 +17,14 @@ public abstract class AwesomeApiTests : PageTest
     {
         _scope = AwesomeApiTestSetup.Provider.CreateAsyncScope();
         Sut = _scope.ServiceProvider.GetRequiredService<AwesomeApiTestSut>();
+    }
+
+    public override BrowserNewContextOptions ContextOptions()
+    {
+        return new BrowserNewContextOptions()
+        {
+            RecordVideoDir = "videos",
+        };
     }
 
     [TearDown]
