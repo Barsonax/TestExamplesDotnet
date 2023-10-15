@@ -30,6 +30,12 @@ public abstract class AwesomeApiTests : PageTest
     [TearDown]
     public async Task AfterTestCase()
     {
+        await Page.Context.CloseAsync();
+        var path = await Page.Video!.PathAsync();
+        var folder = Path.GetDirectoryName(path);
+        var newName = Path.Combine(folder, $"{TestContext.CurrentContext.Test.FullName}.webm");
+        File.Move(path, newName, true);
+
         await _scope.DisposeAsync();
     }
 }

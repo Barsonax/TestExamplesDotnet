@@ -100,6 +100,12 @@ public sealed class AwesomeApiTestSut : WebApplicationFactory<Program>
         return testHost;
     }
 
+    public override async ValueTask DisposeAsync()
+    {
+        await base.DisposeAsync();
+        await _pooledDatabase.DisposeAsync();
+    }
+
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);
