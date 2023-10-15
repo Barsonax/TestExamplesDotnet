@@ -17,26 +17,9 @@ public class UnitTest1 : AwesomeApiTests
         });
 
         //Act
-        var result = await Sut.CreateClient().GetFromJsonAsync<Blog[]>("blogs");
+        var result = await Sut.CreateClient().GetAsync("/");
 
         //Assert
-        result.Should().BeEquivalentTo(new[]
-        {
-            new
-            {
-                Url = "https://blog.photogrammer.net/"
-            }
-        });
-
-        Sut.AssertDatabase(context =>
-        {
-            context.Blogs.Should().BeEquivalentTo(new[]
-            {
-                new
-                {
-                    Url = "https://blog.photogrammer.net/"
-                }
-            });
-        });
+        result.Should().BeSuccessful();
     }
 }

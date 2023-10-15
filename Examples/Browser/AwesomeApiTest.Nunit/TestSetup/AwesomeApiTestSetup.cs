@@ -18,7 +18,7 @@ public class AwesomeApiTestSetup
         var services = new ServiceCollection();
 
         services.AddLogging(x => x.AddConsole());
-        services.RegisterMssqlContainer();
+        services.RegisterPostgreSqlContainer();
         services.AddScoped<AwesomeApiTestSut>();
         services.RegisterMigrationInitializer<BloggingContext>();
         _serviceProvider = services.BuildServiceProvider();

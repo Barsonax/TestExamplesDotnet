@@ -27,7 +27,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\AwesomeApiTest.Sut\AwesomeApiTest.Sut.csproj"/>
-        <ProjectReference Include="..\..\..\AwesomeApiTest.Mssql\AwesomeApiTest.Mssql.csproj"/>
+        <ProjectReference Include="..\..\..\AwesomeApiTest.PostgreSql\AwesomeApiTest.PostgreSql.csproj"/>
         <ProjectReference Include="..\..\..\AwesomeApiTest\AwesomeApiTest.csproj"/>
     </ItemGroup>
 
