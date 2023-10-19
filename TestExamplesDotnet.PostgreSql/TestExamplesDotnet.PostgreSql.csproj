@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>AwesomeApiTest.PostgreSql</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\TestExamplesDotnet\TestExamplesDotnet.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Testcontainers.PostgreSql" Version="3.5.0"/>
+        <PackageReference Include="Npgsql" Version="7.0.6" />
+    </ItemGroup>
+
+</Project>
