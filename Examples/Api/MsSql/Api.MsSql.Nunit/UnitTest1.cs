@@ -1,4 +1,7 @@
-namespace AwesomeApiTest.Nunit;
+using Api.MsSql.Nunit.TestSetup;
+using Api.MsSql.Sut;
+
+namespace Api.MsSql.Nunit;
 
 public class UnitTest1 : AwesomeApiTests
 {

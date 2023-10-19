@@ -1,4 +1,7 @@
-namespace AwesomeApiTest.Nunit;
+using Api.PostgreSql.Nunit.TestSetup;
+using Api.PostgreSql.Sut;
+
+namespace Api.PostgreSql.Nunit;
 
 public class UnitTest1 : AwesomeApiTests
 {

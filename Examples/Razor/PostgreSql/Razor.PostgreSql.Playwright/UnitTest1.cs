@@ -1,7 +1,8 @@
-using AwesomeApiTest.Sut;
 using Microsoft.Playwright;
+using Razor.PostgreSql.Playwright.TestSetup;
+using Razor.PostgreSql.Sut;
 
-namespace AwesomeApiTest.Nunit;
+namespace Razor.PostgreSql.Playwright;
 
 public class UnitTest1 : AwesomeApiTests
 {

@@ -3,7 +3,7 @@ using Npgsql;
 using Respawn;
 using Testcontainers.PostgreSql;
 
-namespace AwesomeApiTest;
+namespace TestExamplesDotnet.PostgreSql;
 
 public sealed class PostgreSqlDatabase : IDatabase
 {

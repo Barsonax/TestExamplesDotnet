@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Respawn;
 using Testcontainers.MsSql;
 
-namespace AwesomeApiTest;
+namespace TestExamplesDotnet.Mssql;
 
 public sealed class MsSqlDatabase : IDatabase
 {

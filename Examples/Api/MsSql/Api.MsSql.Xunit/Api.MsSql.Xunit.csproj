@@ -7,12 +7,7 @@
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
-        <RootNamespace>AwesomeApiTest.Xunit</RootNamespace>
     </PropertyGroup>
-
-  <PropertyGroup>
-    <XunitStartupFullName>AwesomeApiTest.Xunit.TestSetup.Startup</XunitStartupFullName>
-  </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="FluentAssertions" Version="6.12.0"/>

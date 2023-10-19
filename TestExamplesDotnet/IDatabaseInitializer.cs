@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 
-namespace AwesomeApiTest;
+namespace TestExamplesDotnet;
 
 public interface IDatabaseInitializer
 {

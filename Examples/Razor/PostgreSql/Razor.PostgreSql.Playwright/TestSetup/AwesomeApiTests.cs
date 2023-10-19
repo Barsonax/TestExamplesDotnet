@@ -2,7 +2,7 @@
 using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
 
-namespace AwesomeApiTest.Nunit.TestSetup;
+namespace Razor.PostgreSql.Playwright.TestSetup;
 
 public abstract class AwesomeApiTests : PageTest
 {

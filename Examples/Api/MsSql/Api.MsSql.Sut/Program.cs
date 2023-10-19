@@ -1,4 +1,4 @@
-using AwesomeApiTest.Sut;
+using Api.MsSql.Sut;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,4 +14,7 @@ app.MapGet("blogs", (BloggingContext context) => TypedResults.Json(context.Blogs
 
 app.Run();
 
-public partial class Program { }
+namespace Api.MsSql.Sut
+{
+    public partial class Program { }
+}

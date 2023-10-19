@@ -1,7 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Api.PostgreSql.Sut;
+using Api.PostgreSql.Xunit.TestSetup;
+using Microsoft.Extensions.DependencyInjection;
+using TestExamplesDotnet;
+using TestExamplesDotnet.PostgreSql;
 using Xunit.DependencyInjection.Logging;
 
-namespace AwesomeApiTest.Xunit.TestSetup;
+namespace Api.PostgreSql.Xunit;
 
 public static class Startup
 {

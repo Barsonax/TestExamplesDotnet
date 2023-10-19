@@ -1,7 +1,9 @@
-﻿using AwesomeApiTest;
-using AwesomeApiTest.Sut;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Razor.PostgreSql.Playwright.TestSetup;
+using Razor.PostgreSql.Sut;
+using TestExamplesDotnet;
+using TestExamplesDotnet.PostgreSql;
 
 [SetUpFixture]
 #pragma warning disable CA1050

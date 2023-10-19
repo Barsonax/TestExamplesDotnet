@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AwesomeApiTest;
+namespace TestExamplesDotnet;
 
 public static class ServiceCollectionExtensions
 {

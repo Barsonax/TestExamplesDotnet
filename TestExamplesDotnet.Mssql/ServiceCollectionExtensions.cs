@@ -3,7 +3,7 @@ using Microsoft.Extensions.ObjectPool;
 using Respawn;
 using Testcontainers.MsSql;
 
-namespace AwesomeApiTest;
+namespace TestExamplesDotnet.Mssql;
 
 public static class ServiceCollectionExtensions
 {

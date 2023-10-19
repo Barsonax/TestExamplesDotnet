@@ -1,7 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Api.MsSql.Sut;
+using Api.MsSql.Xunit.TestSetup;
+using Microsoft.Extensions.DependencyInjection;
+using TestExamplesDotnet;
+using TestExamplesDotnet.Mssql;
 using Xunit.DependencyInjection.Logging;
 
-namespace AwesomeApiTest.Xunit.TestSetup;
+namespace Api.MsSql.Xunit;
 
 public static class Startup
 {

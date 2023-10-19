@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.ObjectPool;
 
-namespace AwesomeApiTest;
+namespace TestExamplesDotnet;
 
 public sealed class PooledDatabase : IAsyncDisposable
 {

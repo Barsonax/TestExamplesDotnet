@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.ObjectPool;
 
-namespace AwesomeApiTest;
+namespace TestExamplesDotnet;
 
 public sealed class DatabasePool
 {

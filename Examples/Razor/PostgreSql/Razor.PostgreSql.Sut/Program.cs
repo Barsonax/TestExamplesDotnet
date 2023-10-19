@@ -1,5 +1,5 @@
-using AwesomeApiTest.Sut;
 using Microsoft.EntityFrameworkCore;
+using Razor.PostgreSql.Sut;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,4 +20,7 @@ app.MapRazorPages();
 
 app.Run();
 
-public partial class Program { }
+namespace Razor.PostgreSql.Sut
+{
+    public partial class Program { }
+}

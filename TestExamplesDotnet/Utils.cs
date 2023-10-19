@@ -1,4 +1,4 @@
-﻿namespace AwesomeApiTest;
+﻿namespace TestExamplesDotnet;
 
 public static class Utils
 {

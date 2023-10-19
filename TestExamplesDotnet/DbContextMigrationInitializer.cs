@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace AwesomeApiTest;
+namespace TestExamplesDotnet;
 
 public sealed class DbContextMigrationInitializer<TDbContext> : IDatabaseInitializer
     where TDbContext : DbContext

@@ -3,7 +3,7 @@ using Microsoft.Extensions.ObjectPool;
 using Respawn;
 using Testcontainers.PostgreSql;
 
-namespace AwesomeApiTest;
+namespace TestExamplesDotnet.PostgreSql;
 
 public static class ServiceCollectionExtensions
 {

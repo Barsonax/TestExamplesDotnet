@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc.Testing;
+﻿using Api.MsSql.Sut;
+using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using TestExamplesDotnet;
 
-namespace AwesomeApiTest.Xunit.TestSetup;
+namespace Api.MsSql.Xunit.TestSetup;
 
 public sealed class AwesomeApiTestSut : WebApplicationFactory<Program>
 {

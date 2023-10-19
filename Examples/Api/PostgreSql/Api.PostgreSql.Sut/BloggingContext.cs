@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace AwesomeApiTest.Sut;
+namespace Api.PostgreSql.Sut;
 
 public class BloggingContext : DbContext
 {

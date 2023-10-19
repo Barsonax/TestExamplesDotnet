@@ -2,7 +2,7 @@
 using Respawn;
 using Testcontainers.PostgreSql;
 
-namespace AwesomeApiTest;
+namespace TestExamplesDotnet.PostgreSql;
 
 public sealed class PostgreSqlDatabasePoolPolicy : IPooledObjectPolicy<IDatabase>
 {

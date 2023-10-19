@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace AwesomeApiTest.Nunit.TestSetup;
+namespace Api.PostgreSql.Nunit.TestSetup;
 
 public abstract class AwesomeApiTests
 {

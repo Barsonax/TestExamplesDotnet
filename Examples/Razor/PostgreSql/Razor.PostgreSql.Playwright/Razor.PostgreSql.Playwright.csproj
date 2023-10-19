@@ -7,7 +7,6 @@
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
-        <RootNamespace>AwesomeApiTest.Nunit</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
