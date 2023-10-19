@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace AwesomeApiTest.Migrations;
+namespace Api.MsSql.Sut.Migrations;
 
 /// <inheritdoc />
 public partial class InitialCreate : Migration

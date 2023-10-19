@@ -3,7 +3,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace AwesomeApiTest.Sut.Migrations;
+namespace Razor.PostgreSql.Sut.Migrations;
 
 /// <inheritdoc />
 public partial class InitialCreate : Migration
