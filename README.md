@@ -1,8 +1,8 @@
-# AwesomeApiTest
-This repository gives a example on how one can setup very fast and easy to run api tests that start to feel more like unit tests even though the whole app and database is being run during the tests. 
+# TestExamplesDotnet
+Whenever I start or join a new project first thing I want is good tests. These tests should be easy to setup and fast to run to make sure that inner developer feedback loop is as productive as possible. The tests in this repo have been setup with that in mind. Currently most of the tests are aimed at ASP .NET core.
 
-This setup currently has the following features:
-- Because [TestContainers](https://dotnet.testcontainers.org/) is used for the database no manual setup is required, just run `dotnet test` and you are good to go.
+Some notable features:
+- Most tests require no manual setup at all, `dotnet test` is all you need to run. For instance when testing a app that requires a database the test code itself makes sure the database is running using [TestContainers](https://dotnet.testcontainers.org/). 
 - Databases are pooled and cleaned between runs with [Respawn](https://github.com/jbogard/Respawn). This way migrations only have to be run once which saves alot of time.
 - Tests can run in parallel.
 
