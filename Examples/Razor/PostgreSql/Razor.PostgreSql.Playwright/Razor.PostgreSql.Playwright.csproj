@@ -29,8 +29,8 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Razor.PostgreSql.Sut\Razor.PostgreSql.Sut.csproj" />
-        <ProjectReference Include="..\..\..\TestExamplesDotnet.PostgreSql\TestExamplesDotnet.PostgreSql.csproj" />
-        <ProjectReference Include="..\..\..\TestExamplesDotnet\TestExamplesDotnet.csproj" />
+        <ProjectReference Include="..\..\..\..\TestExamplesDotnet.PostgreSql\TestExamplesDotnet.PostgreSql.csproj" />
+        <ProjectReference Include="..\..\..\..\TestExamplesDotnet\TestExamplesDotnet.csproj" />
     </ItemGroup>
 
 </Project>
