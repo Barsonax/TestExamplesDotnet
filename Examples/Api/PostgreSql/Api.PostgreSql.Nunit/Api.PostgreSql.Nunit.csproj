@@ -28,8 +28,8 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Api.PostgreSql.Sut\Api.PostgreSql.Sut.csproj" />
-        <ProjectReference Include="..\..\..\TestExamplesDotnet.PostgreSql\TestExamplesDotnet.PostgreSql.csproj" />
-        <ProjectReference Include="..\..\..\TestExamplesDotnet\TestExamplesDotnet.csproj" />
+        <ProjectReference Include="..\..\..\..\TestExamplesDotnet.PostgreSql\TestExamplesDotnet.PostgreSql.csproj" />
+        <ProjectReference Include="..\..\..\..\TestExamplesDotnet\TestExamplesDotnet.csproj" />
     </ItemGroup>
 
 

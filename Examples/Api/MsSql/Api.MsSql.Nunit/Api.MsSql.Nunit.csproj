@@ -28,8 +28,8 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Api.MsSql.Sut\Api.MsSql.Sut.csproj" />
-        <ProjectReference Include="..\..\..\TestExamplesDotnet.Mssql\TestExamplesDotnet.Mssql.csproj" />
-        <ProjectReference Include="..\..\..\TestExamplesDotnet\TestExamplesDotnet.csproj" />
+        <ProjectReference Include="..\..\..\..\TestExamplesDotnet.Mssql\TestExamplesDotnet.Mssql.csproj" />
+        <ProjectReference Include="..\..\..\..\TestExamplesDotnet\TestExamplesDotnet.csproj" />
     </ItemGroup>
 
 
