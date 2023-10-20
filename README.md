@@ -7,7 +7,7 @@ Whenever I start or join a new project one of the first things I want are good t
 Currently the example tests in this repo are aimed at ASP .NET core with entityframework for persistence.
 
 ## What this is not
-This is not a example repository showing you how to run end to end tests against a real environment. Every example you see here will run completely locally. This is both a advantage (higher reliability, much faster) as a disadvantage (less real than the real thing). Things like network latency will play out differently in a real environment so keep this in mind.
+This is not an example repository showing you how to run end to end tests against a real environment. Every example you see here will run completely locally. This is both an advantage (higher reliability, much faster) as a disadvantage (less real than the real thing). Things like network latency will play out differently in a real environment so keep this in mind.
 
 ## Prerequisites
 - .NET 
