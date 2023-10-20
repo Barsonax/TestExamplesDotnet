@@ -1,4 +1,6 @@
 # TestExamplesDotnet
+![example workflow](https://github.com/Barsonax/TestExamplesDotnet/actions/workflows/dotnet.yml/badge.svg)
+
 Whenever I start or join a new project first thing I want is good tests. These tests should be easy to setup and fast to run to make sure that inner developer feedback loop is as productive as possible. The tests in this repo have been setup with that in mind. Currently most of the tests are aimed at ASP .NET core.
 
 Some notable features:
