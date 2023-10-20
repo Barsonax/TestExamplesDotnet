@@ -3,11 +3,11 @@ using Api.MsSql.Xunit.TestSetup;
 
 namespace Api.MsSql.Xunit;
 
-public class UnitTest1
+public class ApiMsSqlTests
 {
-    private readonly AwesomeApiTestSut _sut;
+    private readonly ApiMsSqlSut _sut;
 
-    public UnitTest1(AwesomeApiTestSut sut)
+    public ApiMsSqlTests(ApiMsSqlSut sut)
     {
         _sut = sut;
     }

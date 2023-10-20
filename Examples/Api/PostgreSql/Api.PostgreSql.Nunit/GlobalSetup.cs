@@ -1,15 +1,17 @@
-﻿using Api.MsSql.Nunit.TestSetup;
-using Api.MsSql.Sut;
+﻿using Api.PostgreSql.Nunit.TestSetup;
+using Api.PostgreSql.Sut;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TestExamplesDotnet;
-using TestExamplesDotnet.Mssql;
+using TestExamplesDotnet.PostgreSql;
+
+[assembly: FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
+[assembly: Parallelizable(ParallelScope.Children)]
+
+namespace Api.PostgreSql.Nunit;
 
 [SetUpFixture]
-#pragma warning disable CA1050
-// ReSharper disable once CheckNamespace this needs to be in the global namespace
-public class AwesomeApiTestSetup
-#pragma warning restore CA1050
+public class GlobalSetup
 {
     internal static IServiceProvider Provider => _serviceProvider;
     private static ServiceProvider _serviceProvider = null!;
@@ -20,8 +22,8 @@ public class AwesomeApiTestSetup
         var services = new ServiceCollection();
 
         services.AddLogging(x => x.AddConsole());
-        services.RegisterMssqlContainer();
-        services.AddScoped<AwesomeApiTestSut>();
+        services.RegisterPostgreSqlContainer();
+        services.AddScoped<ApiPostgreSqlSut>();
         services.RegisterMigrationInitializer<BloggingContext>();
         _serviceProvider = services.BuildServiceProvider();
     }

@@ -14,7 +14,7 @@ public static class Startup
         services.RegisterPostgreSqlContainer();
         services.AddLogging(x => x.AddXunitOutput());
 
-        services.AddScoped<AwesomeApiTestSut>();
+        services.AddScoped<ApiPostgreSqlSut>();
         services.RegisterMigrationInitializer<BloggingContext>();
     }
 }

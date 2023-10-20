@@ -8,12 +8,12 @@ using TestExamplesDotnet;
 
 namespace Api.MsSql.Nunit.TestSetup;
 
-public sealed class AwesomeApiTestSut : WebApplicationFactory<Program>
+public sealed class ApiMsSqlSut : WebApplicationFactory<Program>
 {
     private readonly PooledDatabase _pooledDatabase;
     private readonly ILoggerProvider _loggerProvider;
 
-    public AwesomeApiTestSut(DatabasePool databasePool, ILoggerProvider loggerProvider)
+    public ApiMsSqlSut(DatabasePool databasePool, ILoggerProvider loggerProvider)
     {
         _loggerProvider = loggerProvider;
         _pooledDatabase = databasePool.Get();

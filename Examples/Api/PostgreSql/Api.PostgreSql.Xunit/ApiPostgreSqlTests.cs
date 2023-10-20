@@ -1,15 +1,22 @@
-using Api.MsSql.Nunit.TestSetup;
-using Api.MsSql.Sut;
+using Api.PostgreSql.Sut;
+using Api.PostgreSql.Xunit.TestSetup;
 
-namespace Api.MsSql.Nunit;
+namespace Api.PostgreSql.Xunit;
 
-public class UnitTest1 : AwesomeApiTests
+public class ApiPostgreSqlTests
 {
-    [Test]
+    private readonly ApiPostgreSqlSut _sut;
+
+    public ApiPostgreSqlTests(ApiPostgreSqlSut sut)
+    {
+        _sut = sut;
+    }
+
+    [Fact]
     public async Task Test1()
     {
         //Arrange
-        Sut.SeedData(context =>
+        _sut.SeedData(context =>
         {
             context.Blogs.Add(new Blog
             {
@@ -18,7 +25,7 @@ public class UnitTest1 : AwesomeApiTests
         });
 
         //Act
-        var result = await Sut.CreateClient().GetFromJsonAsync<Blog[]>("blogs");
+        var result = await _sut.CreateClient().GetFromJsonAsync<Blog[]>("blogs");
 
         //Assert
         result.Should().BeEquivalentTo(new[]
@@ -29,7 +36,7 @@ public class UnitTest1 : AwesomeApiTests
             }
         });
 
-        Sut.AssertDatabase(context =>
+        _sut.AssertDatabase(context =>
         {
             context.Blogs.Should().BeEquivalentTo(new[]
             {

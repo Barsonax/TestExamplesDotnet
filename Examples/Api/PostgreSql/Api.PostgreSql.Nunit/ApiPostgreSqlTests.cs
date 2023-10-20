@@ -3,7 +3,7 @@ using Api.PostgreSql.Sut;
 
 namespace Api.PostgreSql.Nunit;
 
-public class UnitTest1 : AwesomeApiTests
+public class ApiPostgreSqlTests : TestBase
 {
     [Test]
     public async Task Test1()

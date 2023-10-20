@@ -8,12 +8,12 @@ using TestExamplesDotnet;
 
 namespace Api.PostgreSql.Xunit.TestSetup;
 
-public sealed class AwesomeApiTestSut : WebApplicationFactory<Program>
+public sealed class ApiPostgreSqlSut : WebApplicationFactory<Program>
 {
     private readonly PooledDatabase _pooledDatabase;
     private readonly ILoggerProvider _loggerProvider;
 
-    public AwesomeApiTestSut(DatabasePool databasePool, ILoggerProvider loggerProvider)
+    public ApiPostgreSqlSut(DatabasePool databasePool, ILoggerProvider loggerProvider)
     {
         _loggerProvider = loggerProvider;
         _pooledDatabase = databasePool.Get();

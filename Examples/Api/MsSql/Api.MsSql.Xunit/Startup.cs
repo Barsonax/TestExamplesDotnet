@@ -14,7 +14,7 @@ public static class Startup
         services.RegisterMssqlContainer();
         services.AddLogging(x => x.AddXunitOutput());
 
-        services.AddScoped<AwesomeApiTestSut>();
+        services.AddScoped<ApiMsSqlSut>();
         services.RegisterMigrationInitializer<BloggingContext>();
     }
 }
