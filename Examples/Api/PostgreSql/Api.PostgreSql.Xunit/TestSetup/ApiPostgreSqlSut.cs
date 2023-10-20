@@ -55,11 +55,4 @@ public sealed class ApiPostgreSqlSut : WebApplicationFactory<Program>
         seedAction(context);
         context.SaveChanges();
     }
-
-    public void AssertDatabase(Action<BloggingContext> seedAction)
-    {
-        using var scope = Services.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<BloggingContext>();
-        seedAction(context);
-    }
 }

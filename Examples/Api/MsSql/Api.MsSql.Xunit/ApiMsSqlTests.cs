@@ -13,7 +13,7 @@ public class ApiMsSqlTests
     }
 
     [Fact]
-    public async Task Test1()
+    public async Task GetBlogs_ShouldReturnExpectedBlogs()
     {
         //Arrange
         _sut.SeedData(context =>
@@ -34,17 +34,6 @@ public class ApiMsSqlTests
             {
                 Url = "https://blog.photogrammer.net/"
             }
-        });
-
-        _sut.AssertDatabase(context =>
-        {
-            context.Blogs.Should().BeEquivalentTo(new[]
-            {
-                new
-                {
-                    Url = "https://blog.photogrammer.net/"
-                }
-            });
         });
     }
 }

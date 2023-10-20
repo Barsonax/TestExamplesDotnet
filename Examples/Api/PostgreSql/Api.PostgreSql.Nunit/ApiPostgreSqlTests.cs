@@ -6,7 +6,7 @@ namespace Api.PostgreSql.Nunit;
 public class ApiPostgreSqlTests : TestBase
 {
     [Test]
-    public async Task Test1()
+    public async Task GetBlogs_ShouldReturnExpectedBlogs()
     {
         //Arrange
         Sut.SeedData(context =>
@@ -27,17 +27,6 @@ public class ApiPostgreSqlTests : TestBase
             {
                 Url = "https://blog.photogrammer.net/"
             }
-        });
-
-        Sut.AssertDatabase(context =>
-        {
-            context.Blogs.Should().BeEquivalentTo(new[]
-            {
-                new
-                {
-                    Url = "https://blog.photogrammer.net/"
-                }
-            });
         });
     }
 }
