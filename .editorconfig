@@ -151,6 +151,7 @@ dotnet_diagnostic.CA1716.severity = none
 dotnet_diagnostic.CA1034.severity = none
 dotnet_diagnostic.CA1062.severity = none
 dotnet_diagnostic.CA2227.severity = none
+dotnet_diagnostic.CA1810.severity = none
 dotnet_code_quality.CA1062.exclude_extension_method_this_parameter = true
 dotnet_code_quality.exclude_extension_method_this_parameter = true
 dotnet_code_quality.null_check_validation_methods = ThrowIfArgumentIsNull
