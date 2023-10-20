@@ -1,13 +1,13 @@
 using Microsoft.Playwright;
-using Razor.PostgreSql.Playwright.TestSetup;
+using Razor.Playwright.TestSetup;
 using Razor.PostgreSql.Sut;
 
-namespace Razor.PostgreSql.Playwright;
+namespace Razor.Playwright;
 
-public class UnitTest1 : AwesomeApiTests
+public class RazorTests : TestBase
 {
     [Test]
-    public async Task Test1()
+    public async Task Open_Index_Page_Contains_Link_To_Photogrammer_Blog()
     {
         //Arrange
         Sut.SeedData(context =>

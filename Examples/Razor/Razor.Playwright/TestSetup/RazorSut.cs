@@ -9,9 +9,9 @@ using Microsoft.Extensions.Logging;
 using Razor.PostgreSql.Sut;
 using TestExamplesDotnet;
 
-namespace Razor.PostgreSql.Playwright.TestSetup;
+namespace Razor.Playwright.TestSetup;
 
-public sealed class AwesomeApiTestSut : WebApplicationFactory<Program>
+public sealed class RazorSut : WebApplicationFactory<Program>
 {
     private bool _disposed;
     private IHost? _host;
@@ -37,7 +37,7 @@ public sealed class AwesomeApiTestSut : WebApplicationFactory<Program>
     private readonly PooledDatabase _pooledDatabase;
     private readonly ILoggerProvider _loggerProvider;
 
-    public AwesomeApiTestSut(DatabasePool databasePool, ILoggerProvider loggerProvider)
+    public RazorSut(DatabasePool databasePool, ILoggerProvider loggerProvider)
     {
         _loggerProvider = loggerProvider;
         _pooledDatabase = databasePool.Get();

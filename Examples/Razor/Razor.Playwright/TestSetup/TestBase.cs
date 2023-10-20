@@ -2,12 +2,12 @@
 using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
 
-namespace Razor.PostgreSql.Playwright.TestSetup;
+namespace Razor.Playwright.TestSetup;
 
-public abstract class AwesomeApiTests : PageTest
+public abstract class TestBase : PageTest
 {
 #pragma warning disable NUnit1032
-    protected AwesomeApiTestSut Sut { get; private set; } = null!;
+    protected RazorSut Sut { get; private set; } = null!;
 #pragma warning restore NUnit1032
 
     private AsyncServiceScope _scope;
@@ -15,8 +15,8 @@ public abstract class AwesomeApiTests : PageTest
     [SetUp]
     public void BeforeTestCase()
     {
-        _scope = AwesomeApiTestSetup.Provider.CreateAsyncScope();
-        Sut = _scope.ServiceProvider.GetRequiredService<AwesomeApiTestSut>();
+        _scope = GlobalSetup.Provider.CreateAsyncScope();
+        Sut = _scope.ServiceProvider.GetRequiredService<RazorSut>();
     }
 
     public override BrowserNewContextOptions ContextOptions()
