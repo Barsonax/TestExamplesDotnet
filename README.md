@@ -15,7 +15,7 @@ This is not a example repository showing you how to run end to end tests against
 
 ## Notable features:
 - No manual setup required, `dotnet test` is all you need to run. This not only makes it easy for developers to run the tests but also simplifies the CI as you can see in the [github workflow file](.github/workflows/dotnet.yml). This is made possible with the magic of [TestContainers](https://dotnet.testcontainers.org/) and some custom code.
-- Uses a real database so you can be quite confident that your app is actually working.
+- Uses a real database so you can be quite confident that your app is actually working. You won't run into differences between an in memory database and a real database here.
 - Databases are pooled and cleaned between runs with [Respawn](https://github.com/jbogard/Respawn). This way migrations only have to be run once which saves alot of time. Furthermore tests run in parallel. After migrations are done and depending on how fast your app is a test might finish in less than 100ms.
 
 ## How to use
