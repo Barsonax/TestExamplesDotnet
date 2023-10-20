@@ -36,7 +36,7 @@ public class GlobalSetup
             WindowStyle = ProcessWindowStyle.Hidden,
             RedirectStandardOutput = true,
             RedirectStandardError = true,
-            FileName = "pwsh.exe",
+            FileName = "pwsh",
             Arguments = "playwright.ps1 install --with-deps"
         };
 
