@@ -14,8 +14,8 @@ namespace Razor.Playwright;
 [SetUpFixture]
 public class GlobalSetup
 {
-    internal static IServiceProvider Provider => _serviceProvider;
-    private static ServiceProvider _serviceProvider = null!;
+    internal static IServiceProvider Provider => _serviceProvider ?? throw new InvalidOperationException("GlobalSetup has not been run.");
+    private static ServiceProvider? _serviceProvider;
 
     [OneTimeSetUp]
     public void RunBeforeAnyTests()
