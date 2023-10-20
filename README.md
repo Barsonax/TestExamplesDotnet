@@ -1,9 +1,13 @@
 # TestExamplesDotnet
 ![build](https://github.com/Barsonax/TestExamplesDotnet/actions/workflows/dotnet.yml/badge.svg)
 
-Whenever I start or join a new project one of the firsts things I want are good tests. These tests should be easy to setup, fast to run and give good confidence that the application is actually working. The example tests in this repo have been setup with that in mind.
+## What is this?
+Whenever I start or join a new project one of the firsts things I want are good tests. These tests should be easy to setup, fast to run and give good confidence that the application is actually working. This is important to have a productive developer feedback loop. The example tests in this repo have been setup with that in mind.
 
-Currently the example tests in this repo are aimed at ASP .NET core with entity framework for persistence.
+Currently the example tests in this repo are aimed at ASP .NET core with entityframework for persistence.
+
+## What this is not
+This is not a example repository showing you how to run end to end tests against a real environment. Every example you see here will run completely locally. This is both a advantage (higher reliability, much faster) as a disadvantage (less real than the real thing). Things like network latency will play out differently in a real environment so keep this in mind.
 
 ## Prerequisites
 - .NET 
