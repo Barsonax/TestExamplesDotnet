@@ -32,7 +32,7 @@ public abstract class TestBase : PageTest
     {
         await Page.Context.CloseAsync();
         var path = await Page.Video!.PathAsync();
-        var folder = Path.GetDirectoryName(path);
+        var folder = Path.GetDirectoryName(path) ?? throw new InvalidOperationException($"Could not get folder for {path}");
         var newName = Path.Combine(folder, $"{TestContext.CurrentContext.Test.FullName}.webm");
         File.Move(path, newName, true);
 
