@@ -31,25 +31,9 @@ public class GlobalSetup
 
     private static void InstallPlayWright()
     {
-        ProcessStartInfo startInfo = new()
-        {
-            WindowStyle = ProcessWindowStyle.Hidden,
-            RedirectStandardOutput = true,
-            RedirectStandardError = true,
-            FileName = "pwsh",
-            Arguments = "playwright.ps1 install --with-deps"
-        };
+        var exitCode = Microsoft.Playwright.Program.Main(new[] { "install", "--with-deps" });
 
-        using Process process = new()
-        {
-            StartInfo = startInfo,
-        };
-        process.OutputDataReceived += (sender, args) => Console.WriteLine(args.Data);
-        process.ErrorDataReceived += (sender, args) => Console.WriteLine(args.Data);
-        process.Start();
-        process.WaitForExit();
-
-        if (process.ExitCode != 0)
+        if (exitCode != 0)
         {
             Console.WriteLine("Failed to install playwright.");
             Assert.Fail();
