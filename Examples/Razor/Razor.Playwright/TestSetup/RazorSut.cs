@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using System.Reflection;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -67,13 +68,14 @@ public sealed class RazorSut : WebApplicationFactory<Program>
             loggingBuilder.Services.AddSingleton(_loggerProvider);
         });
 
+        // Taken and modified from https://danieldonbavand.com/2022/06/13/using-playwright-with-the-webapplicationfactory-to-test-a-blazor-application/
         // Create the host for TestServer now before we
         // modify the builder to use Kestrel instead.
         var testHost = builder.Build();
 
         // Modify the host builder to use Kestrel instead
         // of TestServer so we can listen on a real address.
-        builder.ConfigureWebHost((p) => p.UseKestrel());
+        builder.ConfigureWebHost(p => p.UseKestrel());
 
         // Create and start the Kestrel server before the test server,
         // otherwise due to the way the deferred host builder works
@@ -81,6 +83,7 @@ public sealed class RazorSut : WebApplicationFactory<Program>
         // enough" for the address it is listening on to be available.
         _host = builder.Build();
         _host.Start();
+        _pooledDatabase.EnsureInitialized(_host);
 
         // Extract the selected dynamic port out of the Kestrel server
         // and assign it onto the client options for convenience so it
@@ -90,14 +93,14 @@ public sealed class RazorSut : WebApplicationFactory<Program>
         var addresses = server.Features.Get<IServerAddressesFeature>();
 
         ClientOptions.BaseAddress = addresses!.Addresses
-            .Select((p) => new Uri(p))
+            .Select(p => new Uri(p))
             .Last();
 
         // Return the host that uses TestServer, rather than the real one.
         // Otherwise the internals will complain about the host's server
         // not being an instance of the concrete type TestServer.
         testHost.Start();
-        _pooledDatabase.EnsureInitialized(testHost);
+
         return testHost;
     }
 
@@ -124,8 +127,9 @@ public sealed class RazorSut : WebApplicationFactory<Program>
 
     private void EnsureServer()
     {
-        // This forces WebApplicationFactory to bootstrap the server
-        var foo = base.Services;
+        typeof(WebApplicationFactory<Program>)
+            .GetMethod("EnsureServer", BindingFlags.NonPublic | BindingFlags.Instance)
+            !.Invoke(this, Array.Empty<object>());
     }
 
     public void SeedData(Action<BloggingContext> seedAction)
