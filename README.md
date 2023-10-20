@@ -18,4 +18,4 @@ I decided not to turn this into a nuget package for now. Depending on if you are
 I do suggest you flatten the code that you need into a single project to keep things simpler.
 
 ## Examples
-Some examples can be found in [Examples](Examples). For instance for postgresql you can find examples for [nunit](Examples/Api/PostgreSql/Api.PostgreSql.Nunit) and [xunit](Examples/Api/PostgreSql/Api.PostgreSql.Xunit)
+Some examples can be found in [Examples](Examples). For instance for postgresql you can find examples for [NUnit](Examples/Api/PostgreSql/Api.PostgreSql.Nunit) and [xUnit](Examples/Api/PostgreSql/Api.PostgreSql.Xunit). There's also a browser test example using [Playwright](https://github.com/Barsonax/TestExamplesDotnet/tree/master/Examples/Razor/Razor.Playwright).
