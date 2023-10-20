@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace ApiAuth.PostgreSql.Sut;
+namespace ApiJwtAuth.Sut;
 
 public class BloggingContext : DbContext
 {

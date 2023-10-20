@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
 
-namespace ApiAuth.PostgreSql.Nunit.TestSetup;
+namespace ApiJwtAuth.Nunit.TestSetup;
 
 public static class TestJwtGenerator
 {

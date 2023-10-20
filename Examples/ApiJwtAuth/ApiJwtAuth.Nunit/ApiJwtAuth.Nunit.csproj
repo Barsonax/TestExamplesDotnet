@@ -26,9 +26,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\ApiAuth.PostgreSql.Sut\ApiAuth.PostgreSql.Sut.csproj" />
-        <ProjectReference Include="..\..\..\..\TestExamplesDotnet.PostgreSql\TestExamplesDotnet.PostgreSql.csproj" />
-        <ProjectReference Include="..\..\..\..\TestExamplesDotnet\TestExamplesDotnet.csproj" />
+        <ProjectReference Include="..\ApiJwtAuth.Sut\ApiJwtAuth.Sut.csproj" />
+        <ProjectReference Include="..\..\..\TestExamplesDotnet.PostgreSql\TestExamplesDotnet.PostgreSql.csproj" />
+        <ProjectReference Include="..\..\..\TestExamplesDotnet\TestExamplesDotnet.csproj" />
     </ItemGroup>
 
 

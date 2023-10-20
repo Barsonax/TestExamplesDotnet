@@ -1,4 +1,6 @@
-﻿using ApiAuth.PostgreSql.Sut;
+﻿using System.Net.Http.Headers;
+using System.Security.Claims;
+using ApiJwtAuth.Sut;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,14 +8,14 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using TestExamplesDotnet;
 
-namespace ApiAuth.PostgreSql.Xunit.TestSetup;
+namespace ApiJwtAuth.Nunit.TestSetup;
 
-public sealed class AwesomeApiTestSut : WebApplicationFactory<Program>
+public sealed class ApiJwtAuthSut : WebApplicationFactory<Program>
 {
     private readonly PooledDatabase _pooledDatabase;
     private readonly ILoggerProvider _loggerProvider;
 
-    public AwesomeApiTestSut(DatabasePool databasePool, ILoggerProvider loggerProvider)
+    public ApiJwtAuthSut(DatabasePool databasePool, ILoggerProvider loggerProvider)
     {
         _loggerProvider = loggerProvider;
         _pooledDatabase = databasePool.Get();
@@ -29,6 +31,12 @@ public sealed class AwesomeApiTestSut : WebApplicationFactory<Program>
                 { "DbConnectionString", _pooledDatabase.ConnectionString }
             });
         });
+
+        builder.ConfigureServices(services =>
+        {
+            services.ConfigureTestJwt();
+        });
+
 
         builder.ConfigureLogging(loggingBuilder =>
         {
@@ -56,10 +64,11 @@ public sealed class AwesomeApiTestSut : WebApplicationFactory<Program>
         context.SaveChanges();
     }
 
-    public void AssertDatabase(Action<BloggingContext> seedAction)
+    public HttpClient CreateAuthorizedClient(params Claim[] claims)
     {
-        using var scope = Services.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<BloggingContext>();
-        seedAction(context);
+        var client = CreateClient();
+        var jwt = TestJwtGenerator.GenerateJwtToken(claims);
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwt);
+        return client;
     }
 }

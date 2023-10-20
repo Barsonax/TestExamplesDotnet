@@ -1,15 +1,17 @@
-﻿using ApiAuth.PostgreSql.Nunit.TestSetup;
-using ApiAuth.PostgreSql.Sut;
+﻿using ApiJwtAuth.Nunit.TestSetup;
+using ApiJwtAuth.Sut;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TestExamplesDotnet;
 using TestExamplesDotnet.PostgreSql;
 
+[assembly: FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
+[assembly: Parallelizable(ParallelScope.Children)]
+
+namespace ApiJwtAuth.Nunit;
+
 [SetUpFixture]
-#pragma warning disable CA1050
-// ReSharper disable once CheckNamespace this needs to be in the global namespace
 public class GlobalSetup
-#pragma warning restore CA1050
 {
     internal static IServiceProvider Provider => _serviceProvider;
     private static ServiceProvider _serviceProvider = null!;
@@ -21,7 +23,7 @@ public class GlobalSetup
 
         services.AddLogging(x => x.AddConsole());
         services.RegisterPostgreSqlContainer();
-        services.AddScoped<AuthApi>();
+        services.AddScoped<ApiJwtAuthSut>();
         services.RegisterMigrationInitializer<BloggingContext>();
         _serviceProvider = services.BuildServiceProvider();
     }
