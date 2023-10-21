@@ -10,4 +10,4 @@ dotnet test
 ## Lifecycle
 The flow chart below shows what happens when you run `dotnet test`:
 
-<img src="/Media/IntegrationPostgreSqlTestsFlowChart.drawio.png" height="900" />
+<img src="/Media/ApiTestsFlowChart.drawio.svg" height="900" />
