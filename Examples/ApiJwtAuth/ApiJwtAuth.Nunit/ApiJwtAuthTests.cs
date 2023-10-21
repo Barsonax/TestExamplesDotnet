@@ -8,7 +8,7 @@ namespace ApiJwtAuth.Nunit;
 public class ApiJwtAuthTests : TestBase
 {
     [Test]
-    public async Task Unauthorized_Client_ShouldRespondWith401()
+    public async Task Unauthenticated_Client_ShouldRespondWith401()
     {
         //Arrange
         Sut.SeedData(context =>
@@ -27,7 +27,7 @@ public class ApiJwtAuthTests : TestBase
     }
 
     [Test]
-    public async Task Authorized_Client_ShouldRespondWith403()
+    public async Task Authenticated_Client_ShouldRespondWith403()
     {
         //Arrange
         Sut.SeedData(context =>
