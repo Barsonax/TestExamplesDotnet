@@ -18,6 +18,10 @@ This is not an example repository showing you how to run end to end tests agains
 - Uses a real database so you can be quite confident that your app is actually working. You won't run into differences between an in memory database and a real database here.
 - Databases are pooled and cleaned between runs with [Respawn](https://github.com/jbogard/Respawn). This way migrations only have to be run once which saves alot of time. Furthermore tests run in parallel. After migrations are done and depending on how fast your app is a test might finish in less than 100ms.
 
+Just how fast is this setup? Just look at this test run from [Api.PostgreSql.Nunit](Examples/Api/PostgreSql/Api.PostgreSql.Nunit):
+<img src="https://github.com/Barsonax/TestExamplesDotnet/blob/master/Media/2000testsin10sec.gif" height="300" />
+
+
 ## How to use
 I decided not to turn this into a nuget package for now. Depending on if you are using NUnit or xUnit copy the code that you need to your project. For instance if you are using PostgreSql then copy the code from [TestExamplesDotnet](TestExamplesDotnet) and [TestExamplesDotnet.PostgreSql](TestExamplesDotnet.PostgreSql) to your test project then use [Examples](Examples) to see how to setup your test project. I do suggest you flatten the code that you need into a single project to keep things simpler.
 
