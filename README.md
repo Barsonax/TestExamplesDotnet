@@ -19,7 +19,7 @@ This is not an example repository showing you how to run end to end tests agains
 - Databases are pooled and cleaned between runs with [Respawn](https://github.com/jbogard/Respawn). This way migrations only have to be run once which saves alot of time. Furthermore tests run in parallel. After migrations are done and depending on how fast your app is a test might finish in less than 100ms.
 
 Just how fast is this setup? Just look at this test run from [Api.PostgreSql.Nunit](Examples/Api/PostgreSql/Api.PostgreSql.Nunit):
-<img src="https://github.com/Barsonax/TestExamplesDotnet/blob/master/Media/2000testsin10sec.gif" height="300" />
+<img src="/Media/2000testsin10sec.gif" height="300" />
 
 
 ## How to use
