@@ -1,2 +1,2 @@
 # Examples
-This folder contains examples of how to use nunit and xunit with this api test setup
+This folder contains several examples of how to setup tests for various types of applications.
