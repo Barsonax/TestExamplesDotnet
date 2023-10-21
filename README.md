@@ -1,5 +1,5 @@
 # TestExamplesDotnet
-![build](https://github.com/Barsonax/TestExamplesDotnet/actions/workflows/dotnet.yml/badge.svg)
+[![.NET](https://github.com/Barsonax/TestExamplesDotnet/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Barsonax/TestExamplesDotnet/actions/workflows/dotnet.yml)
 
 ## What is this?
 Whenever I start or join a new project one of the first things I want are good tests. These tests should be easy to setup, fast to run and give good confidence that the application is actually working. This is important to have a productive developer feedback loop. The example tests in this repo have been setup with that in mind.
