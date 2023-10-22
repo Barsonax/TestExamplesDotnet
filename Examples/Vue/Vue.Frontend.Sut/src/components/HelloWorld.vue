@@ -1,73 +1,41 @@
-<template>
-    <div class="post">
-        <div v-if="loading" class="loading">
-            Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationvue">https://aka.ms/jspsintegrationvue</a> for more details.
-        </div>
+<script setup lang="ts">
+defineProps<{
+  msg: string
+}>()
+</script>
 
-        <div v-if="post" class="content">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Temp. (C)</th>
-                        <th>Temp. (F)</th>
-                        <th>Summary</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="forecast in post" :key="forecast.date">
-                        <td>{{ forecast.date }}</td>
-                        <td>{{ forecast.temperatureC }}</td>
-                        <td>{{ forecast.temperatureF }}</td>
-                        <td>{{ forecast.summary }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+<template>
+  <div class="greetings">
+    <h1 class="green">{{ msg }}</h1>
+    <h3>
+      You’ve successfully created a project with
+      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
+      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
+    </h3>
+  </div>
 </template>
 
-<script lang="ts">
-    import { defineComponent } from 'vue';
+<style scoped>
+h1 {
+  font-weight: 500;
+  font-size: 2.6rem;
+  position: relative;
+  top: -10px;
+}
 
-    type Forecasts = {
-        date: string
-    }[];
+h3 {
+  font-size: 1.2rem;
+}
 
-    interface Data {
-        loading: boolean,
-        post: null | Forecasts
-    }
+.greetings h1,
+.greetings h3 {
+  text-align: center;
+}
 
-    export default defineComponent({
-        data(): Data {
-            return {
-                loading: false,
-                post: null
-            };
-        },
-        created() {
-            // fetch the data when the view is created and the data is
-            // already being observed
-            this.fetchData();
-        },
-        watch: {
-            // call again the method if the route changes
-            '$route': 'fetchData'
-        },
-        methods: {
-            fetchData(): void {
-                this.post = null;
-                this.loading = true;
-
-                fetch('weatherforecast')
-                    .then(r => r.json())
-                    .then(json => {
-                        this.post = json as Forecasts;
-                        this.loading = false;
-                        return;
-                    });
-            }
-        },
-    });
-</script>
+@media (min-width: 1024px) {
+  .greetings h1,
+  .greetings h3 {
+    text-align: left;
+  }
+}
+</style>
