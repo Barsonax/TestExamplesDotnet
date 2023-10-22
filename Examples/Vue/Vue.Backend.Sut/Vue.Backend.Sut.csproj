@@ -11,4 +11,12 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <FrontendFiles Include="../Vue.Frontend.Sut/**" Visible="false"/>
+  </ItemGroup>
+  
+  <Target Name="BuildFrontend" BeforeTargets="Compile" Inputs="@(FrontendFiles)" Outputs="wwwroot">
+    <Exec Command="npm run build" WorkingDirectory="../Vue.Frontend.Sut" />
+  </Target>
+  
 </Project>
