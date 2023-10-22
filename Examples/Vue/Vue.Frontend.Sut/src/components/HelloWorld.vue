@@ -4,22 +4,16 @@
             Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationvue">https://aka.ms/jspsintegrationvue</a> for more details.
         </div>
 
-        <div v-if="post" class="content">
+        <div v-if="blogs" class="content">
             <table>
                 <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
+                    <th>Url</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="forecast in post" :key="forecast.date">
-                    <td>{{ forecast.date }}</td>
-                    <td>{{ forecast.temperatureC }}</td>
-                    <td>{{ forecast.temperatureF }}</td>
-                    <td>{{ forecast.summary }}</td>
+                <tr v-for="blog in blogs" :key="blog.url">
+                    <td>{{ blog.url }}</td>
                 </tr>
                 </tbody>
             </table>
@@ -31,22 +25,19 @@
 import { defineComponent } from 'vue';
 
 type Forecasts = {
-    date: string
-    temperatureC: string
-    temperatureF: string
-    summary: string
+    url: string
 }[];
 
 interface Data {
     loading: boolean,
-    post: null | Forecasts
+    blogs: null | Forecasts
 }
 
 export default defineComponent({
     data(): Data {
         return {
             loading: false,
-            post: null
+            blogs: null
         };
     },
     created() {
@@ -60,13 +51,13 @@ export default defineComponent({
     },
     methods: {
         fetchData(): void {
-            this.post = null;
+            this.blogs = null;
             this.loading = true;
 
-            fetch('weatherforecast')
+            fetch('blogs')
                 .then(r => r.json())
                 .then(json => {
-                    this.post = json as Forecasts;
+                    this.blogs = json as Forecasts;
                     this.loading = false;
                     return;
                 });

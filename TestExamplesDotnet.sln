@@ -21,6 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		.editorconfig = .editorconfig
 		Directory.Build.props = Directory.Build.props
 		.gitignore = .gitignore
+		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MsSql", "MsSql", "{BE1E949A-BD83-493B-92A1-FA456FDAED16}"
@@ -59,6 +60,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vue.Backend.Sut", "Examples\Vue\Vue.Backend.Sut\Vue.Backend.Sut.csproj", "{2DD00C82-0B80-4F4C-9AC0-FBA732BAAFA0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vue.Frontend.Sut", "Examples\Vue\Vue.Frontend.Sut\Vue.Frontend.Sut.esproj", "{FC339F08-376B-42E2-820F-B581FB7CC4F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vue.Playwright", "Examples\Vue\Vue.Playwright\Vue.Playwright.csproj", "{5B899D50-BF37-414F-998C-BBCE80AC1D2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -126,6 +129,10 @@ Global
 		{FC339F08-376B-42E2-820F-B581FB7CC4F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC339F08-376B-42E2-820F-B581FB7CC4F8}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{FC339F08-376B-42E2-820F-B581FB7CC4F8}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{5B899D50-BF37-414F-998C-BBCE80AC1D2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B899D50-BF37-414F-998C-BBCE80AC1D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B899D50-BF37-414F-998C-BBCE80AC1D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B899D50-BF37-414F-998C-BBCE80AC1D2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3170F491-B99C-4C35-BF43-57EFAC238D84} = {3B281369-C340-4B9F-831F-8D56C4004598}
@@ -146,5 +153,6 @@ Global
 		{42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6} = {FB8382F9-4F4C-4080-ACD6-7112A55C2D65}
 		{2DD00C82-0B80-4F4C-9AC0-FBA732BAAFA0} = {42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6}
 		{FC339F08-376B-42E2-820F-B581FB7CC4F8} = {42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6}
+		{5B899D50-BF37-414F-998C-BBCE80AC1D2B} = {42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6}
 	EndGlobalSection
 EndGlobal
