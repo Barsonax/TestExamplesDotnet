@@ -6,3 +6,4 @@ riderModule.iml
 .idea
 *.user
 **/wwwroot/lib/
+.vs
