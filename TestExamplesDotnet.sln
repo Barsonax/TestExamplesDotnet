@@ -54,7 +54,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiJwtAuth.PostgreSql.Nunit
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vue", "Vue", "{42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6}"
 	ProjectSection(SolutionItems) = preProject
-		Examples\Razor\Readme.md = Examples\Razor\Readme.md
+		Examples\Vue\Readme.md = Examples\Vue\Readme.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vue.Backend.Sut", "Examples\Vue\Vue.Backend.Sut\Vue.Backend.Sut.csproj", "{2DD00C82-0B80-4F4C-9AC0-FBA732BAAFA0}"
