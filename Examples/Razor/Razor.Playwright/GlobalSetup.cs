@@ -31,19 +31,38 @@ public class GlobalSetup
 
     private static void InstallPlayWright()
     {
-        var exitCode = Microsoft.Playwright.Program.Main(new[] { "install", "--with-deps" });
+        var attempts = 0;
 
-        if (exitCode != 0)
+        while (true)
         {
-            Console.WriteLine("Failed to install playwright.");
-            Assert.Fail();
+            var exitCode = Microsoft.Playwright.Program.Main(new[] { "install", "--with-deps", "chromium" });
+
+            if (exitCode != 0)
+            {
+                Console.WriteLine($"Failed to install playwright installation exited with code {exitCode}");
+
+                if (attempts > 3)
+                {
+                    Assert.Fail();
+                }
+                else
+                {
+                    Console.WriteLine("Retrying playwright installation");
+                }
+            }
+            else
+            {
+                return;
+            }
+
+            attempts++;
         }
     }
 
     [OneTimeTearDown]
     public async Task RunAfterAnyTests()
     {
-        if(_serviceProvider != null)
+        if (_serviceProvider != null)
         {
             await _serviceProvider.DisposeAsync();
         }

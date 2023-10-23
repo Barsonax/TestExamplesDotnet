@@ -12,6 +12,13 @@ builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
+if (app.Environment.IsDevelopment())
+{
+    using var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
+    var context = serviceScope.ServiceProvider.GetRequiredService<BloggingContext>();
+    context.Database.Migrate();
+}
+
 app.UseStaticFiles();
 
 app.UseRouting();

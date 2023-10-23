@@ -21,6 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		.editorconfig = .editorconfig
 		Directory.Build.props = Directory.Build.props
 		.gitignore = .gitignore
+		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MsSql", "MsSql", "{BE1E949A-BD83-493B-92A1-FA456FDAED16}"
@@ -41,12 +42,24 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Razor.Playwright", "Examples\Razor\Razor.Playwright\Razor.Playwright.csproj", "{7C371BFD-6F4A-4E60-8B01-85B69BEF9A12}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{33CE3530-E3AF-40DD-9664-1EA3FE3F7726}"
+	ProjectSection(SolutionItems) = preProject
+		Examples\Api\Readme.md = Examples\Api\Readme.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiJwtAuth", "ApiJwtAuth", "{B943703D-552C-4F47-BAE9-4E86B8E3365D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiJwtAuth.PostgreSql.Sut", "Examples\ApiJwtAuth\ApiJwtAuth.Sut\ApiJwtAuth.Sut.csproj", "{893E8628-A8A6-4530-B33E-AD5EFB14C7B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiJwtAuth.PostgreSql.Nunit", "Examples\ApiJwtAuth\ApiJwtAuth.Nunit\ApiJwtAuth.Nunit.csproj", "{727F8A2A-5DA3-4FB5-BBC6-0126FACDE79A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vue", "Vue", "{42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6}"
+	ProjectSection(SolutionItems) = preProject
+		Examples\Vue\Readme.md = Examples\Vue\Readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vue.Sut", "Examples\Vue\Vue.Sut\Vue.Sut.csproj", "{2DD00C82-0B80-4F4C-9AC0-FBA732BAAFA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vue.Playwright", "Examples\Vue\Vue.Playwright\Vue.Playwright.csproj", "{5B899D50-BF37-414F-998C-BBCE80AC1D2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -106,6 +119,14 @@ Global
 		{727F8A2A-5DA3-4FB5-BBC6-0126FACDE79A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{727F8A2A-5DA3-4FB5-BBC6-0126FACDE79A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{727F8A2A-5DA3-4FB5-BBC6-0126FACDE79A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DD00C82-0B80-4F4C-9AC0-FBA732BAAFA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DD00C82-0B80-4F4C-9AC0-FBA732BAAFA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DD00C82-0B80-4F4C-9AC0-FBA732BAAFA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DD00C82-0B80-4F4C-9AC0-FBA732BAAFA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B899D50-BF37-414F-998C-BBCE80AC1D2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B899D50-BF37-414F-998C-BBCE80AC1D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B899D50-BF37-414F-998C-BBCE80AC1D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B899D50-BF37-414F-998C-BBCE80AC1D2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3170F491-B99C-4C35-BF43-57EFAC238D84} = {3B281369-C340-4B9F-831F-8D56C4004598}
@@ -123,5 +144,8 @@ Global
 		{893E8628-A8A6-4530-B33E-AD5EFB14C7B0} = {B943703D-552C-4F47-BAE9-4E86B8E3365D}
 		{7C371BFD-6F4A-4E60-8B01-85B69BEF9A12} = {4FC7EF48-5E50-4BB5-B6FC-CA9128CB693E}
 		{DB8B96A5-0B2B-4BE5-A7C5-026DD6BA9E63} = {4FC7EF48-5E50-4BB5-B6FC-CA9128CB693E}
+		{42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6} = {FB8382F9-4F4C-4080-ACD6-7112A55C2D65}
+		{2DD00C82-0B80-4F4C-9AC0-FBA732BAAFA0} = {42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6}
+		{5B899D50-BF37-414F-998C-BBCE80AC1D2B} = {42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6}
 	EndGlobalSection
 EndGlobal

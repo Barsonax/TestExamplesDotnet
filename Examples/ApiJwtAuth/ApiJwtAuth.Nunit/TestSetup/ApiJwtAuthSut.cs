@@ -23,8 +23,8 @@ public sealed class ApiJwtAuthSut : WebApplicationFactory<Program>
 
     protected override IHost CreateHost(IHostBuilder builder)
     {
-        builder.UseEnvironment(Environments.Development);
-        builder.ConfigureAppConfiguration((_, config) =>
+        builder.UseEnvironment(Environments.Production);
+        builder.ConfigureHostConfiguration(config =>
         {
             config.AddInMemoryCollection(new Dictionary<string, string?>
             {
