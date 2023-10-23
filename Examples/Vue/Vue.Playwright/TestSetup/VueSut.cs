@@ -52,9 +52,9 @@ public sealed class VueSut : WebApplicationFactory<Program>
         builder.UseUrls("http://127.0.0.1:0");
     }
 
-
     protected override IHost CreateHost(IHostBuilder builder)
     {
+        builder.UseEnvironment(Environments.Production);
         builder.ConfigureAppConfiguration((_, config) =>
         {
             config.AddInMemoryCollection(new Dictionary<string, string?>
