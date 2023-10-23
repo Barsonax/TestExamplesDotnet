@@ -43,7 +43,7 @@ public class GlobalSetup
     [OneTimeTearDown]
     public async Task RunAfterAnyTests()
     {
-        if(_serviceProvider != null)
+        if (_serviceProvider != null)
         {
             await _serviceProvider.DisposeAsync();
         }
