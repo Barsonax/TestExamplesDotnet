@@ -31,11 +31,11 @@ public class GlobalSetup
 
     private static void InstallPlayWright()
     {
-        var exitCode = Microsoft.Playwright.Program.Main(new[] { "install", "--with-deps" });
+        var exitCode = Microsoft.Playwright.Program.Main(new[] { "install", "--with-deps", "chromium" });
 
         if (exitCode != 0)
         {
-            Console.WriteLine("Failed to install playwright.");
+            Console.WriteLine($"Failed to run  Playwright exited with code {exitCode}");
             Assert.Fail();
         }
     }
