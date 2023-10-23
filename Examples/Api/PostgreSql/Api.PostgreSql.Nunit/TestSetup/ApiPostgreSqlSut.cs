@@ -22,7 +22,7 @@ public sealed class ApiPostgreSqlSut : WebApplicationFactory<Program>
     protected override IHost CreateHost(IHostBuilder builder)
     {
         builder.UseEnvironment(Environments.Production);
-        builder.ConfigureAppConfiguration((_, config) =>
+        builder.ConfigureHostConfiguration(config =>
         {
             config.AddInMemoryCollection(new Dictionary<string, string?>
             {

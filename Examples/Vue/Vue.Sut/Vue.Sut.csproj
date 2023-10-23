@@ -19,12 +19,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <FrontendFiles Include="../Vue.Frontend.Sut/**" Visible="false"/>
+    <FrontendFiles Include="ClientApp/**" Visible="false"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="ClientApp\**" />
+    <None Include="ClientApp\**" />
   </ItemGroup>
 
   <Target Name="BuildFrontend" BeforeTargets="Compile" Inputs="@(FrontendFiles)" Outputs="wwwroot">
-    <Exec Command="npm install" WorkingDirectory="../Vue.Frontend.Sut" />
-    <Exec Command="npm run build" WorkingDirectory="../Vue.Frontend.Sut" />
+    <Exec Command="npm install" WorkingDirectory="ClientApp" />
+    <Exec Command="npm run build" WorkingDirectory="ClientApp" />
   </Target>
 
 </Project>
