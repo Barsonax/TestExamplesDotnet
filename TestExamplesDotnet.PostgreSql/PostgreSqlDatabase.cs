@@ -31,11 +31,14 @@ public sealed class PostgreSqlDatabase : IDatabase
 
     public async ValueTask Clean()
     {
-        await using var conn = new NpgsqlConnection(ConnectionString);
-        await conn.OpenAsync();
+        if (_initialized)
+        {
+            await using var conn = new NpgsqlConnection(ConnectionString);
+            await conn.OpenAsync();
 
-        _respawner ??= await Respawner.CreateAsync(conn, _respawnerOptions);
+            _respawner ??= await Respawner.CreateAsync(conn, _respawnerOptions);
 
-        await _respawner.ResetAsync(conn);
+            await _respawner.ResetAsync(conn);
+        }
     }
 }
