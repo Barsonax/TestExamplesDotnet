@@ -21,7 +21,7 @@ public static class MsSqlContainerExtensions
             .ConfigureAwait(false);
     }
 
-    private record SqlContainerConnectionString(string UserId, string Password);
+    private sealed record SqlContainerConnectionString(string UserId, string Password);
     private static SqlContainerConnectionString ParseConnectionString(string connectionString)
     {
         var dic = connectionString
