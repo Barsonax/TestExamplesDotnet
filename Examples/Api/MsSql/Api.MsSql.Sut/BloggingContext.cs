@@ -9,10 +9,12 @@ public class BloggingContext : DbContext
 
     public BloggingContext()
     {
+
     }
 
     public BloggingContext(DbContextOptions<BloggingContext> context) : base(context)
     {
+
     }
 }
 
