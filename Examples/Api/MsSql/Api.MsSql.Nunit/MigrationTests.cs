@@ -1,4 +1,7 @@
-﻿using Api.MsSql.Sut;
+﻿using System.Text;
+using Api.MsSql.Sut;
+using DotNet.Testcontainers.Configurations;
+using DotNet.Testcontainers.Containers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
@@ -31,61 +34,23 @@ public class MigrationTests
     }
 
     [Test]
-    public async Task MigrationsUpAndDown_SeparateScripts_NoErrors()
+    public async Task MigrationsUpAndDown_NoErrors()
     {
+        await using DbContext context = CreateDbContext();
+        var migrations = GenerateMigrationScripts(context);
+
         var databaseName = "MigrationSeparateScriptsTest";
-        await CreateDatabase(databaseName);
-
-        await using DbContext context = CreateDbContext();
-        var pendingMigrations = context.Database.GetMigrations().ToArray();
-        var migrations = GenerateMigrationScripts(context, pendingMigrations);
-
-        foreach ((string from, string to, string upScript, string _) in migrations)
+        await _databaseContainer.CreateDatabase(databaseName);
+        var migrator = new SqlMigrator(_databaseContainer, _logger, databaseName);
+        foreach (var migration in migrations)
         {
-            await ExecuteMigrationWithLogging(from, to, upScript, _logger);
+            await migrator.Up(migration);
         }
 
-        foreach ((string from, string to, string _, string downScript) in migrations.Reverse())
+        foreach (var migration in migrations.Reverse())
         {
-            await ExecuteMigrationWithLogging(to, from, downScript, _logger);
+            await migrator.Down(migration);
         }
-    }
-
-    [Test]
-    public async Task MigrationsUpAndDown_SingleScript_NoErrors()
-    {
-        var databaseName = "MigrationSingleScriptsTest";
-        await CreateDatabase(databaseName);
-
-        await using DbContext context = CreateDbContext();
-        var latestMigration = context.Database.GetMigrations().Last();
-        var migrator = context.Database.GetInfrastructure().GetRequiredService<IMigrator>();
-
-        var upScript = GenerateScript(migrator, null, latestMigration);
-        var downScript = GenerateScript(migrator, latestMigration, Migration.InitialDatabase);
-
-        await ExecuteMigrationWithLogging("empty", latestMigration, upScript, _logger);
-        await ExecuteMigrationWithLogging(latestMigration, "empty", downScript, _logger);
-    }
-
-    private async Task ExecuteMigrationWithLogging(string fromMigration, string toMigration, string script, ILogger logger)
-    {
-        logger.LogInformation("Testing migrating from {FromMigration} to {ToMigration}", fromMigration, toMigration);
-
-        try
-        {
-            // This will use sqlcmd to execute the script. The behavior is different from executing the migration from code, for instance the script will fail if a column is referenced that does not exist.
-            await _databaseContainer.ExecScriptAsync(script);
-        }
-        catch (Exception e)
-        {
-            throw new InvalidOperationException($"Error while migrating from {fromMigration} to {toMigration}", e);
-        }
-    }
-
-    private async Task CreateDatabase(string name)
-    {
-        await _databaseContainer.ExecScriptAsync($"CREATE DATABASE {name}");
     }
 
     private static DbContext CreateDbContext()
@@ -96,31 +61,94 @@ public class MigrationTests
         return context;
     }
 
-    private static (string fromMigration, string toMigration, string upScript, string downScript)[] GenerateMigrationScripts(DbContext context, string[] migrations)
+    private static MigrationScript[] GenerateMigrationScripts(DbContext context)
     {
+        var migrations = context.Database.GetMigrations().ToArray();
         var migrator = context.Database.GetInfrastructure().GetRequiredService<IMigrator>();
 
-        var migrationScripts = new List<(string fromMigration, string toMigration, string upScript, string downScript)>();
-        string previousMigration = null;
+        var migrationScripts = new List<MigrationScript>();
+        string? previousMigration = null;
 
         foreach (string migrationName in migrations)
         {
-            var upScript = migrator.GenerateScript(previousMigration, migrationName, MigrationsSqlGenerationOptions.Idempotent)
-                .Replace($"GO", "", StringComparison.Ordinal);
-
-            string downScript = GenerateScript(migrator, migrationName, previousMigration);
-            migrationScripts.Add((previousMigration ?? "empty", migrationName, upScript, downScript));
+            migrationScripts.Add(GenerateScript(migrator, previousMigration, migrationName));
             previousMigration = migrationName;
         }
 
         return migrationScripts.ToArray();
     }
 
-    private static string GenerateScript(IMigrator migrator, string fromMigration, string toMigration)
+    private static MigrationScript GenerateScript(IMigrator migrator, string? fromMigration, string toMigration)
     {
-        var downScript = migrator.GenerateScript(fromMigration, toMigration, MigrationsSqlGenerationOptions.Idempotent)
-            .Replace($"GO", "", StringComparison.Ordinal);
-
-        return downScript;
+        var upScript = migrator.GenerateScript(fromMigration, toMigration, MigrationsSqlGenerationOptions.Idempotent);
+        var downScript = migrator.GenerateScript(toMigration, fromMigration, MigrationsSqlGenerationOptions.Idempotent);
+        return new MigrationScript(fromMigration ?? "empty", toMigration, upScript, downScript);
     }
 }
+
+public static class MsSqlContainerExtensions
+{
+    public static async Task<ExecResult> ExecScriptAsync(this MsSqlContainer container, string scriptContent, string database, CancellationToken ct = default)
+    {
+        var scriptFilePath = string.Join("/", string.Empty, "tmp", Guid.NewGuid().ToString("D"), Path.GetRandomFileName());
+
+        await container.CopyAsync(Encoding.Default.GetBytes(scriptContent), scriptFilePath, Unix.FileMode644, ct)
+            .ConfigureAwait(false);
+
+        var connectionString = ParseConnectionString(container.GetConnectionString());
+
+        return await container
+            .ExecAsync(new[] { "/opt/mssql-tools/bin/sqlcmd", "-b", "-r", "1", "-U", connectionString.UserId, "-P", connectionString.Password, "-d", database, "-i", scriptFilePath }, ct)
+            .ConfigureAwait(false);
+    }
+
+    private record SqlContainerConnectionString(string UserId, string Password);
+    private static SqlContainerConnectionString ParseConnectionString(string connectionString)
+    {
+        var dic = connectionString
+            .Split(';')
+            .Select(x => x.Split('='))
+            .ToDictionary(x => x[0], x => x[1]);
+
+        return new SqlContainerConnectionString(dic["User Id"], dic["Password"]);
+    }
+
+    public static async Task CreateDatabase(this MsSqlContainer container, string name)
+    {
+        await container.ExecScriptAsync($"CREATE DATABASE {name}");
+    }
+}
+
+public class SqlMigrator
+{
+    private readonly MsSqlContainer _container;
+    private readonly ILogger _logger;
+    private readonly string _databaseName;
+
+    public SqlMigrator(MsSqlContainer container, ILogger logger, string databaseName)
+    {
+        _container = container;
+        _logger = logger;
+        _databaseName = databaseName;
+    }
+
+    public async Task Up(MigrationScript script) => await ExecuteMigration(script.UpScript, script.FromMigration, script.ToMigration);
+
+    public async Task Down(MigrationScript script) => await ExecuteMigration(script.DownScript, script.ToMigration, script.FromMigration);
+
+    private async Task ExecuteMigration(string script, string from, string to)
+    {
+        _logger.LogInformation("Migrating from {FromMigration} to {ToMigration}", from, to);
+        try
+        {
+            // This will use sqlcmd to execute the script. The behavior is different from executing the migration from code, for instance the script will fail if a column is referenced that does not exist.
+            await _container.ExecScriptAsync(script, _databaseName);
+        }
+        catch (Exception e)
+        {
+            throw new InvalidOperationException($"Error while migrating from {to} to {from}", e);
+        }
+    }
+}
+
+public record MigrationScript(string FromMigration, string ToMigration, string UpScript, string DownScript);
