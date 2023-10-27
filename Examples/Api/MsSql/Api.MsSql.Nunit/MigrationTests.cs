@@ -74,6 +74,7 @@ public class MigrationTests
 
         try
         {
+            // This will use sqlcmd to execute the script. The behavior is different from executing the migration from code, for instance the script will fail if a column is referenced that does not exist.
             await _databaseContainer.ExecScriptAsync(script);
         }
         catch (Exception e)
