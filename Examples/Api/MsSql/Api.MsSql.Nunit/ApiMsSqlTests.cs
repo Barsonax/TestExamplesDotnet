@@ -31,7 +31,7 @@ public class ApiMsSqlTests : TestBase
     }
 
     [Test]
-    public async Task EmptyTest_ShouldPass()
+    public void EmptyTest_ShouldPass()
     {
 
     }
