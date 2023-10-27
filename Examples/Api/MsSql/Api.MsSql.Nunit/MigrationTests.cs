@@ -11,8 +11,8 @@ namespace Api.MsSql.Nunit;
 public class MigrationTests
 {
 #pragma warning disable NUnit1032
-    private MsSqlContainer _databaseContainer;
-    private ILogger<MigrationTests> _logger;
+    private MsSqlContainer _databaseContainer = null!;
+    private ILogger<MigrationTests> _logger = null!;
 #pragma warning restore NUnit1032
     private AsyncServiceScope _scope;
 
