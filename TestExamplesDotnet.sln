@@ -62,6 +62,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vue.Sut", "Examples\Vue\Vue
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vue.Playwright", "Examples\Vue\Vue.Playwright\Vue.Playwright.csproj", "{5B899D50-BF37-414F-998C-BBCE80AC1D2B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations.MsSql.EntityFrameworkCore", "Migrations.MsSql.EntityFrameworkCore", "{3B55CF53-3DB2-4FA7-89D8-1B242140EF91}"
+	ProjectSection(SolutionItems) = preProject
+		Examples\Migrations.MsSql.EntityFrameworkCore\Readme.md = Examples\Migrations.MsSql.EntityFrameworkCore\Readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migrations.MsSql.EntityFrameworkCore.Sut", "Examples\Migrations.MsSql.EntityFrameworkCore\Migrations.MsSql.EntityFrameworkCore.Sut\Migrations.MsSql.EntityFrameworkCore.Sut.csproj", "{CBB7A2A5-4D00-4319-8E30-6651F4C90355}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migrations.MsSql.EntityFrameworkCore.Nunit", "Examples\Migrations.MsSql.EntityFrameworkCore\Migrations.MsSql.EntityFrameworkCore.Nunit\Migrations.MsSql.EntityFrameworkCore.Nunit.csproj", "{19546635-9FA2-4474-8156-893EA8481FC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -128,6 +137,14 @@ Global
 		{5B899D50-BF37-414F-998C-BBCE80AC1D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B899D50-BF37-414F-998C-BBCE80AC1D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B899D50-BF37-414F-998C-BBCE80AC1D2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBB7A2A5-4D00-4319-8E30-6651F4C90355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBB7A2A5-4D00-4319-8E30-6651F4C90355}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBB7A2A5-4D00-4319-8E30-6651F4C90355}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB7A2A5-4D00-4319-8E30-6651F4C90355}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19546635-9FA2-4474-8156-893EA8481FC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19546635-9FA2-4474-8156-893EA8481FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19546635-9FA2-4474-8156-893EA8481FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19546635-9FA2-4474-8156-893EA8481FC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3170F491-B99C-4C35-BF43-57EFAC238D84} = {3B281369-C340-4B9F-831F-8D56C4004598}
@@ -148,5 +165,8 @@ Global
 		{42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6} = {FB8382F9-4F4C-4080-ACD6-7112A55C2D65}
 		{2DD00C82-0B80-4F4C-9AC0-FBA732BAAFA0} = {42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6}
 		{5B899D50-BF37-414F-998C-BBCE80AC1D2B} = {42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6}
+		{3B55CF53-3DB2-4FA7-89D8-1B242140EF91} = {FB8382F9-4F4C-4080-ACD6-7112A55C2D65}
+		{CBB7A2A5-4D00-4319-8E30-6651F4C90355} = {3B55CF53-3DB2-4FA7-89D8-1B242140EF91}
+		{19546635-9FA2-4474-8156-893EA8481FC2} = {3B55CF53-3DB2-4FA7-89D8-1B242140EF91}
 	EndGlobalSection
 EndGlobal
