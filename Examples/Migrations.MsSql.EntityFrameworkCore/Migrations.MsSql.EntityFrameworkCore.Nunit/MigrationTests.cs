@@ -2,11 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Migrations.MsSql.EntityFrameworkCore.Sut;
 using Testcontainers.MsSql;
 using TestExamplesDotnet;
 using TestExamplesDotnet.Mssql;
 
-namespace Api.MsSql.Nunit;
+namespace Migrations.MsSql.EntityFrameworkCore.Nunit;
 
 public class MigrationTests
 {
