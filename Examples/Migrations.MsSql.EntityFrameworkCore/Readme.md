@@ -1,4 +1,4 @@
-# ASP.NET Core API
+# EntityFrameworkCore Migrations
 This example shows how to test [Migrations](https://www.entityframeworktutorial.net/efcore/entity-framework-core-migration.aspx) when using EntityFrameworkCore.
 
 ## How to run
