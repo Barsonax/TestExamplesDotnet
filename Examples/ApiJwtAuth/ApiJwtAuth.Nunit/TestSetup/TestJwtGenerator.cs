@@ -18,7 +18,7 @@ public static class TestJwtGenerator
 
     static TestJwtGenerator()
     {
-        _securityKey = new SymmetricSecurityKey("A1B2C3D4E5F6A1B2C3D4E5F6"u8.ToArray()) { KeyId = Guid.NewGuid().ToString() };
+        _securityKey = new SymmetricSecurityKey("A1B2C3D4E5F6A1B2C3D4E5F6A1B2C3D4E5F6A1B2C3D4E5F6"u8.ToArray()) { KeyId = Guid.NewGuid().ToString() };
         _signingCredentials = new SigningCredentials(_securityKey, SecurityAlgorithms.HmacSha256);
     }
 
