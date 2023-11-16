@@ -4,9 +4,7 @@ namespace Api.PostgreSql.Nunit.TestSetup;
 
 public abstract class TestBase
 {
-#pragma warning disable NUnit1032
     protected ApiPostgreSqlSut Sut { get; private set; } = null!;
-#pragma warning restore NUnit1032
 
     private AsyncServiceScope _scope;
 

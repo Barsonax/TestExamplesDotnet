@@ -4,9 +4,7 @@ namespace Api.MsSql.Nunit.TestSetup;
 
 public abstract class TestBase
 {
-#pragma warning disable NUnit1032
     protected ApiMsSqlSut Sut { get; private set; } = null!;
-#pragma warning restore NUnit1032
 
     private AsyncServiceScope _scope;
 

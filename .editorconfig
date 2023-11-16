@@ -161,3 +161,6 @@ dotnet_code_quality.null_check_validation_methods = ThrowIfArgumentIsNull
 dotnet_diagnostic.CA2007.severity = none
 # CA1303: Do not pass literals as localized parameters
 dotnet_diagnostic.CA1303.severity = none
+
+# NUnit1032: An IDisposable field/property should be Disposed in a TearDown method
+dotnet_diagnostic.NUnit1032.severity = none

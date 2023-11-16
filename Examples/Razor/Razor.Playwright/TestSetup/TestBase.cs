@@ -6,9 +6,7 @@ namespace Razor.Playwright.TestSetup;
 
 public abstract class TestBase : PageTest
 {
-#pragma warning disable NUnit1032
     protected RazorSut Sut { get; private set; } = null!;
-#pragma warning restore NUnit1032
 
     private AsyncServiceScope _scope;
 
