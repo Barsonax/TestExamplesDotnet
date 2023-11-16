@@ -1,5 +1,4 @@
-﻿using Api.MsSql.Sut;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Migrations.MsSql.EntityFrameworkCore.Sut;
