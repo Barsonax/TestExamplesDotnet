@@ -2,6 +2,8 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
 
@@ -29,6 +31,7 @@ public static class TestJwtGenerator
 
     public static IServiceCollection ConfigureTestJwt(this IServiceCollection services)
     {
+        services.RemoveAll(typeof(IConfigureOptions<JwtBearerOptions>)); // Remove any already configured jwt bearer options configurators as we want to be in control of this in the tests.
         services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, options =>
         {
             options.Configuration = new OpenIdConnectConfiguration
