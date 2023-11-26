@@ -45,7 +45,7 @@ public class MigrationTests
         upResult.ExitCode.Should().Be(0, $"Error during migration up2: {upResult2.Stderr}");
     }
 
-    private class MigrationTestCases : IEnumerable
+    private sealed class MigrationTestCases : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {

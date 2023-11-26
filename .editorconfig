@@ -166,3 +166,5 @@ dotnet_diagnostic.CA1303.severity = none
 dotnet_diagnostic.NUnit1032.severity = none
 # Avoid constant arrays as arguments
 dotnet_diagnostic.CA1861.severity = none
+# CA1812: Avoid uninstantiated internal classes
+dotnet_diagnostic.CA1812.severity = none
