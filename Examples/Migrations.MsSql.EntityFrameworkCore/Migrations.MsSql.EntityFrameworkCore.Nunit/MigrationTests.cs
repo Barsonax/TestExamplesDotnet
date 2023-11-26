@@ -9,6 +9,8 @@ using TestExamplesDotnet.Mssql;
 
 namespace Migrations.MsSql.EntityFrameworkCore.Nunit;
 
+[FixtureLifeCycle(LifeCycle.SingleInstance)]
+[Parallelizable(ParallelScope.Self)]
 public class MigrationTests
 {
     private MsSqlContainer _databaseContainer = null!;
