@@ -164,3 +164,5 @@ dotnet_diagnostic.CA1303.severity = none
 
 # NUnit1032: An IDisposable field/property should be Disposed in a TearDown method
 dotnet_diagnostic.NUnit1032.severity = none
+# Avoid constant arrays as arguments
+dotnet_diagnostic.CA1861.severity = none
