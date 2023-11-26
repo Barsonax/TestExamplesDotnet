@@ -7,7 +7,7 @@ public sealed class NunitLoggerProvider : ILoggerProvider
 {
     public ILogger CreateLogger(string categoryName)
     {
-        return new NunitLogger(TestContext.Out);
+        return new NunitLogger(TestContext.Out, categoryName);
     }
 
     public void Dispose()
