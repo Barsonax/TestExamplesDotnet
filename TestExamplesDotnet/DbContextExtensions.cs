@@ -5,7 +5,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace TestExamplesDotnet;
 
-public record MigrationScript(string FromMigration, string ToMigration, string UpScript, string DownScript);
+public record MigrationScript(string FromMigration, string ToMigration, string UpScript, string DownScript)
+{
+    public override string ToString() => ToMigration;
+}
 
 public static class DbContextExtensions
 {

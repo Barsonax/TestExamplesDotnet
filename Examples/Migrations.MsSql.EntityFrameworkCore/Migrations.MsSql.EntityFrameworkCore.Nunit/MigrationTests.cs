@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Collections;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Migrations.MsSql.EntityFrameworkCore.Sut;
@@ -28,23 +29,28 @@ public class MigrationTests
         await _scope.DisposeAsync();
     }
 
-    [Test]
-    public async Task MigrationsUpAndDown_NoErrors()
+    [TestCaseSource(typeof(MigrationTestCases))]
+    public async Task MigrationsUpAndDown_NoErrors2(MigrationScript migration)
     {
-        await using DbContext context = new BloggingContext(new DbContextOptionsBuilder<BloggingContext>().UseSqlServer().Options);
-        var migrations = context.GenerateMigrationScripts();
-
         var databaseName = "MigrationsTest";
         await _databaseContainer.CreateDatabase(databaseName);
         var migrator = new SqlMigrator(_databaseContainer, _logger, databaseName);
-        foreach (var migration in migrations)
-        {
-            await migrator.Up(migration);
-        }
+        await migrator.Up(migration);
+        await migrator.Down(migration);
+        await migrator.Up(migration);
+    }
 
-        foreach (var migration in migrations.Reverse())
+    private class MigrationTestCases : IEnumerable
+    {
+        public IEnumerator GetEnumerator()
         {
-            await migrator.Down(migration);
+            using DbContext context = new BloggingContext(new DbContextOptionsBuilder<BloggingContext>().UseSqlServer().Options);
+            var migrations = context.GenerateMigrationScripts();
+
+            foreach (var migration in migrations)
+            {
+                yield return new TestCaseData(migration);
+            }
         }
     }
 }
