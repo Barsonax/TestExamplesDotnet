@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
@@ -26,6 +26,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\TestExamplesDotnet.Nunit\TestExamplesDotnet.Nunit.csproj" />
         <ProjectReference Include="..\ApiJwtAuth.Sut\ApiJwtAuth.Sut.csproj" />
         <ProjectReference Include="..\..\..\TestExamplesDotnet.PostgreSql\TestExamplesDotnet.PostgreSql.csproj" />
         <ProjectReference Include="..\..\..\TestExamplesDotnet\TestExamplesDotnet.csproj" />

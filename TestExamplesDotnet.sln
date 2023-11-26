@@ -23,6 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		.gitignore = .gitignore
 		docker-compose.yml = docker-compose.yml
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+		global.json = global.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MsSql", "MsSql", "{BE1E949A-BD83-493B-92A1-FA456FDAED16}"
@@ -70,6 +71,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migrations.MsSql.EntityFrameworkCore.Sut", "Examples\Migrations.MsSql.EntityFrameworkCore\Migrations.MsSql.EntityFrameworkCore.Sut\Migrations.MsSql.EntityFrameworkCore.Sut.csproj", "{CBB7A2A5-4D00-4319-8E30-6651F4C90355}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migrations.MsSql.EntityFrameworkCore.Nunit", "Examples\Migrations.MsSql.EntityFrameworkCore\Migrations.MsSql.EntityFrameworkCore.Nunit\Migrations.MsSql.EntityFrameworkCore.Nunit.csproj", "{19546635-9FA2-4474-8156-893EA8481FC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamplesDotnet.Nunit", "TestExamplesDotnet.Nunit\TestExamplesDotnet.Nunit.csproj", "{8FB27539-A755-4B92-83FA-5D64EBDB6C8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -145,6 +148,10 @@ Global
 		{19546635-9FA2-4474-8156-893EA8481FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19546635-9FA2-4474-8156-893EA8481FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19546635-9FA2-4474-8156-893EA8481FC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FB27539-A755-4B92-83FA-5D64EBDB6C8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FB27539-A755-4B92-83FA-5D64EBDB6C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FB27539-A755-4B92-83FA-5D64EBDB6C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FB27539-A755-4B92-83FA-5D64EBDB6C8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3170F491-B99C-4C35-BF43-57EFAC238D84} = {3B281369-C340-4B9F-831F-8D56C4004598}
