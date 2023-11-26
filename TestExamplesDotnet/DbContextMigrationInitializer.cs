@@ -11,6 +11,6 @@ public sealed class DbContextMigrationInitializer<TDbContext> : IDatabaseInitial
     {
         using var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
         var context = serviceScope.ServiceProvider.GetRequiredService<TDbContext>();
-        context.Database.Migrate();
+        context.Database.EnsureCreated();
     }
 }
