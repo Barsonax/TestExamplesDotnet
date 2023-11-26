@@ -74,6 +74,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migrations.MsSql.EntityFram
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamplesDotnet.Nunit", "TestExamplesDotnet.Nunit\TestExamplesDotnet.Nunit.csproj", "{8FB27539-A755-4B92-83FA-5D64EBDB6C8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamplesDotnet.Xunit", "TestExamplesDotnet.Xunit\TestExamplesDotnet.Xunit.csproj", "{5686166F-B95E-4196-B442-5341F161C09F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -152,6 +154,10 @@ Global
 		{8FB27539-A755-4B92-83FA-5D64EBDB6C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FB27539-A755-4B92-83FA-5D64EBDB6C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FB27539-A755-4B92-83FA-5D64EBDB6C8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5686166F-B95E-4196-B442-5341F161C09F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5686166F-B95E-4196-B442-5341F161C09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5686166F-B95E-4196-B442-5341F161C09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5686166F-B95E-4196-B442-5341F161C09F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3170F491-B99C-4C35-BF43-57EFAC238D84} = {3B281369-C340-4B9F-831F-8D56C4004598}

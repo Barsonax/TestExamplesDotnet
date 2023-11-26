@@ -1,13 +1,14 @@
 using Api.MsSql.Sut;
 using Api.MsSql.Xunit.TestSetup;
+using Xunit.Abstractions;
 
 namespace Api.MsSql.Xunit;
 
-public class ApiMsSqlTests
+public class ApiMsSqlTests : XunitContextBase
 {
     private readonly ApiMsSqlSut _sut;
 
-    public ApiMsSqlTests(ApiMsSqlSut sut)
+    public ApiMsSqlTests(ApiMsSqlSut sut, ITestOutputHelper output) : base(output)
     {
         _sut = sut;
     }

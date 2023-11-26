@@ -15,7 +15,6 @@
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
         <PackageReference Include="xunit" Version="2.6.2" />
         <PackageReference Include="Xunit.DependencyInjection" Version="8.9.0" />
-        <PackageReference Include="Xunit.DependencyInjection.Logging" Version="8.1.0"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="2.5.4">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
@@ -27,6 +26,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\..\TestExamplesDotnet.Xunit\TestExamplesDotnet.Xunit.csproj" />
         <ProjectReference Include="..\Api.PostgreSql.Sut\Api.PostgreSql.Sut.csproj" />
         <ProjectReference Include="..\..\..\..\TestExamplesDotnet.PostgreSql\TestExamplesDotnet.PostgreSql.csproj" />
         <ProjectReference Include="..\..\..\..\TestExamplesDotnet\TestExamplesDotnet.csproj" />

@@ -3,7 +3,7 @@ using Api.PostgreSql.Xunit.TestSetup;
 using Microsoft.Extensions.DependencyInjection;
 using TestExamplesDotnet;
 using TestExamplesDotnet.PostgreSql;
-using Xunit.DependencyInjection.Logging;
+using TestExamplesDotnet.Xunit;
 
 namespace Api.PostgreSql.Xunit;
 
@@ -12,7 +12,7 @@ public static class Startup
     public static void ConfigureServices(IServiceCollection services)
     {
         services.RegisterPostgreSqlContainer();
-        services.AddLogging(x => x.AddXunitOutput());
+        services.AddLogging(x => x.AddXunitLogging());
 
         services.AddScoped<ApiPostgreSqlSut>();
         services.RegisterMigrationInitializer<BloggingContext>();
