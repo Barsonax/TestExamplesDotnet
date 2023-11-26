@@ -27,7 +27,7 @@ public static class DbContextExtensions
     private static MigrationScript GenerateScript(IMigrator migrator, string? fromMigration, string toMigration)
     {
         var upScript = migrator.GenerateScript(fromMigration, toMigration, MigrationsSqlGenerationOptions.Idempotent);
-        var downScript = migrator.GenerateScript(toMigration, fromMigration, MigrationsSqlGenerationOptions.Idempotent);
+        var downScript = migrator.GenerateScript(toMigration, fromMigration ?? Migration.InitialDatabase, MigrationsSqlGenerationOptions.Idempotent);
         return new MigrationScript(fromMigration ?? "empty", toMigration, upScript, downScript);
     }
 }
