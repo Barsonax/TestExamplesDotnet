@@ -3,6 +3,7 @@ using Api.PostgreSql.Sut;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TestExamplesDotnet;
+using TestExamplesDotnet.Nunit;
 using TestExamplesDotnet.PostgreSql;
 
 [assembly: FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
@@ -21,7 +22,7 @@ public class GlobalSetup
     {
         var services = new ServiceCollection();
 
-        services.AddLogging(x => x.AddConsole());
+        services.AddLogging(x => x.AddNunitLogging());
         services.RegisterPostgreSqlContainer();
         services.AddScoped<ApiPostgreSqlSut>();
         services.RegisterMigrationInitializer<BloggingContext>();

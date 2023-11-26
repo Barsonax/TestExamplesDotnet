@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using Razor.Playwright.TestSetup;
 using Razor.PostgreSql.Sut;
 using TestExamplesDotnet;
+using TestExamplesDotnet.Nunit;
 using TestExamplesDotnet.PostgreSql;
 
 [assembly: FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
@@ -21,7 +22,7 @@ public class GlobalSetup
     {
         InstallPlayWright();
         var services = new ServiceCollection();
-        services.AddLogging(x => x.AddConsole());
+        services.AddLogging(x => x.AddNunitLogging());
         services.RegisterPostgreSqlContainer();
         services.AddScoped<RazorSut>();
         services.RegisterMigrationInitializer<BloggingContext>();

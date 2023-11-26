@@ -4,6 +4,7 @@ using Migrations.MsSql.EntityFrameworkCore.Nunit.TestSetup;
 using Migrations.MsSql.EntityFrameworkCore.Sut;
 using TestExamplesDotnet;
 using TestExamplesDotnet.Mssql;
+using TestExamplesDotnet.Nunit;
 
 [assembly: FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
 [assembly: Parallelizable(ParallelScope.Children)]
@@ -21,7 +22,7 @@ public class GlobalSetup
     {
         var services = new ServiceCollection();
 
-        services.AddLogging(x => x.AddConsole());
+        services.AddLogging(x => x.AddNunitLogging());
         services.RegisterMssqlContainer();
         services.AddScoped<ApiMsSqlSut>();
         services.RegisterMigrationInitializer<BloggingContext>();

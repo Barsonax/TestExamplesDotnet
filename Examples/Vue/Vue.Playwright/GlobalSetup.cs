@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TestExamplesDotnet;
+using TestExamplesDotnet.Nunit;
 using TestExamplesDotnet.PostgreSql;
 using Vue.Backend.Sut;
 using Vue.Playwright.TestSetup;
@@ -21,7 +22,7 @@ public class GlobalSetup
     {
         InstallPlayWright();
         var services = new ServiceCollection();
-        services.AddLogging(x => x.AddConsole());
+        services.AddLogging(x => x.AddNunitLogging());
         services.RegisterPostgreSqlContainer();
         services.AddScoped<VueSut>();
         services.RegisterMigrationInitializer<BloggingContext>();

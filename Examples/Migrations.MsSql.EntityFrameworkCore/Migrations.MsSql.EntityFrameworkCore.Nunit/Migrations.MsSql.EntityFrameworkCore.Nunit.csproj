@@ -26,6 +26,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\TestExamplesDotnet.Nunit\TestExamplesDotnet.Nunit.csproj" />
         <ProjectReference Include="..\Migrations.MsSql.EntityFrameworkCore.Sut\Migrations.MsSql.EntityFrameworkCore.Sut.csproj" />
         <ProjectReference Include="..\..\..\TestExamplesDotnet.Mssql\TestExamplesDotnet.Mssql.csproj" />
         <ProjectReference Include="..\..\..\TestExamplesDotnet\TestExamplesDotnet.csproj" />
