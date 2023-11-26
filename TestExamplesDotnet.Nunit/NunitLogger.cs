@@ -2,7 +2,7 @@
 
 namespace TestExamplesDotnet.Nunit;
 
-public sealed class NunitLogger(TextWriter output) : ILogger, IDisposable
+public sealed class NunitLogger(TextWriter output, string name) : ILogger, IDisposable
 {
     public IDisposable? BeginScope<TState>(TState state) where TState : notnull => this;
 
@@ -10,7 +10,9 @@ public sealed class NunitLogger(TextWriter output) : ILogger, IDisposable
 
     public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
     {
-        output.WriteLine(formatter(state, exception));
+
+        output.WriteLine($"[{DateTime.Now}] {logLevel}: {name}[{eventId.Id}]{output.NewLine}" +
+                         $"{formatter(state, exception)}");
     }
 
     public void Dispose() { }
