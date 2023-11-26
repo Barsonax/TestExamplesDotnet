@@ -37,9 +37,12 @@ public class MigrationTests
         var databaseName = "MigrationsTest";
         await _databaseContainer.CreateDatabase(databaseName);
         var migrator = new SqlMigrator(_databaseContainer, _logger, databaseName);
-        await migrator.Up(migration);
-        await migrator.Down(migration);
-        await migrator.Up(migration);
+        var upResult = await migrator.Up(migration);
+        upResult.ExitCode.Should().Be(0, $"Error during migration up: {upResult.Stderr}");
+        var downResult = await migrator.Down(migration);
+        downResult.ExitCode.Should().Be(0, $"Error during migration down: {downResult.Stderr}");
+        var upResult2 = await migrator.Up(migration);
+        upResult.ExitCode.Should().Be(0, $"Error during migration up2: {upResult2.Stderr}");
     }
 
     private class MigrationTestCases : IEnumerable
