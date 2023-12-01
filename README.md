@@ -25,7 +25,10 @@ Just how fast is this setup? Just look at this test run from [Api.PostgreSql.Nun
 ## How to use
 I decided not to turn this into a nuget package for now. Depending on if you are using NUnit or xUnit copy the code that you need to your project. For instance if you are using PostgreSql then merge the code from [TestExamplesDotnet](TestExamplesDotnet) and [TestExamplesDotnet.PostgreSql](TestExamplesDotnet.PostgreSql) into your test project then use [Examples](Examples) to see how to setup your test project. I do suggest you flatten the code that you need into a single project to keep things simpler.
 
-If you can choose which testframework to use then I suggest going with NUnit as NUnit achieves a higher level of parallelism because it will even run test cases in the same class in parallel where xUnit will not run tests in the same class in parallel. As such most examples will be for NUnit but the setup is very similar. 
+If you can choose which testframework to use then I suggest going with NUnit for the following reason:
+- Higher level of parallelism due to NUnit running individual test cases in parallel while xUnit is limited to running classes in parallel. This will lead to significantly shorter test suite run times.
+
+As such most examples will be for NUnit but the setup is very similar. 
 
 ## Examples
 [Examples](Examples) contain example projects which will show you how to setup the tests for various types of applications. For instance for postgresql you can find examples for [NUnit](Examples/Api/PostgreSql/Api.PostgreSql.Nunit) and [xUnit](Examples/Api/PostgreSql/Api.PostgreSql.Xunit). There's also a browser test example using [Playwright](Examples/Razor/Razor.Playwright).
