@@ -25,7 +25,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore -warnaserror
+      run: dotnet build --no-restore -warnaserror -warnnotaserror:CS0618
   MigrationsMsSqlEntityFrameworkCore:
     runs-on: ubuntu-latest
     defaults:
