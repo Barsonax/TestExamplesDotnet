@@ -7,11 +7,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Razor.PostgreSql.Sut;
 using TestExamplesDotnet;
-using Vue.Backend.Sut;
+using VueAuth.Sut;
 
-namespace Vue.Playwright.TestSetup;
+namespace VueAuth.Playwright.TestSetup;
 
 public sealed class VueSut : WebApplicationFactory<Program>
 {

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Vue.Backend.Sut;
+using VueAuth.Sut;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +24,7 @@ app.MapGet("blogs", (BloggingContext context) => TypedResults.Json(context.Blogs
 
 app.Run();
 
-namespace Razor.PostgreSql.Sut
+namespace VueAuth.Sut
 {
     public partial class Program { }
 }

@@ -2,13 +2,13 @@
 using Microsoft.Extensions.Logging;
 using TestExamplesDotnet;
 using TestExamplesDotnet.PostgreSql;
-using Vue.Backend.Sut;
-using Vue.Playwright.TestSetup;
+using VueAuth.Playwright.TestSetup;
+using VueAuth.Sut;
 
 [assembly: FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
 [assembly: Parallelizable(ParallelScope.Children)]
 
-namespace Vue.Playwright;
+namespace VueAuth.Playwright;
 
 [SetUpFixture]
 public class GlobalSetup

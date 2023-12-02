@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Vue.Backend.Sut;
+namespace VueAuth.Sut;
 
 public class BloggingContext : DbContext
 {

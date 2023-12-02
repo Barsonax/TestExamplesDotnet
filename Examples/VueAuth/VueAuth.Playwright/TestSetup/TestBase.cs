@@ -2,7 +2,7 @@
 using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
 
-namespace Vue.Playwright.TestSetup;
+namespace VueAuth.Playwright.TestSetup;
 
 public abstract class TestBase : PageTest
 {
