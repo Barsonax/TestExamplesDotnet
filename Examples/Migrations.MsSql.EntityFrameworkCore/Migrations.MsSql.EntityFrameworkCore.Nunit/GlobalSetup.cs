@@ -1,6 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Migrations.MsSql.EntityFrameworkCore.Nunit.TestSetup;
 using Migrations.MsSql.EntityFrameworkCore.Sut;
 using TestExamplesDotnet;
 using TestExamplesDotnet.Mssql;
@@ -24,7 +22,6 @@ public class GlobalSetup
 
         services.AddLogging(x => x.AddNunitLogging());
         services.RegisterMssqlContainer();
-        services.AddScoped<ApiMsSqlSut>();
         services.RegisterMigrationInitializer<BloggingContext>();
         _serviceProvider = services.BuildServiceProvider();
     }
