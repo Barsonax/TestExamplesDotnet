@@ -19,7 +19,8 @@ public class VueTests : TestBase
         });
 
         //Act
-        await Page.GotoAsync($"{Sut.ServerAddress}");
+        await Page.GotoAsync(Sut.ServerAddress);
+        var state = await Page.Context.StorageStateAsync();
 
         //Assert
         await Expect(Page.GetByRole(AriaRole.Link, new() { Name = "https://blog.photogrammer.net/" }))

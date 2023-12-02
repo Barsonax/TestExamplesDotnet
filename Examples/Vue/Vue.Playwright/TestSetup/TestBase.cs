@@ -15,6 +15,7 @@ public abstract class TestBase : PageTest
     {
         _scope = GlobalSetup.Provider.CreateAsyncScope();
         Sut = _scope.ServiceProvider.GetRequiredService<VueSut>();
+        Page.PageError += (_, e) => TestContext.Error.WriteLine(e);
     }
 
     public override BrowserNewContextOptions ContextOptions()
@@ -28,12 +29,27 @@ public abstract class TestBase : PageTest
     [TearDown]
     public async Task AfterTestCase()
     {
-        await Page.Context.CloseAsync();
+        await Page.CloseAsync();
         var path = await Page.Video!.PathAsync();
         var folder = Path.GetDirectoryName(path) ?? throw new InvalidOperationException($"Could not get folder for {path}");
         var newName = Path.Combine(folder, $"{TestContext.CurrentContext.Test.FullName}.webm");
-        File.Move(path, newName, true);
 
         await _scope.DisposeAsync();
+        await WaitForFileToBeFreed(path);
+        File.Move(path, newName, true);
+    }
+
+    private static async Task WaitForFileToBeFreed(string filename)
+    {
+        while (true)
+        {
+            try
+            {
+                await using FileStream inputStream = File.Open(filename, FileMode.Open, FileAccess.Read, FileShare.None);
+                return;
+            }
+            catch (IOException) { }
+            await Task.Delay(200);
+        }
     }
 }

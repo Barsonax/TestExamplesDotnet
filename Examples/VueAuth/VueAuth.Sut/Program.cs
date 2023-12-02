@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using VueAuth.Sut;
 
@@ -7,6 +8,10 @@ builder.Services.AddDbContext<BloggingContext>(options =>
 {
     options.UseNpgsql(builder.Configuration["DbConnectionString"]);
 });
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme);
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -20,7 +25,9 @@ if (app.Environment.IsDevelopment())
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
-app.MapGet("blogs", (BloggingContext context) => TypedResults.Json(context.Blogs));
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapGet("blogs", (BloggingContext context) => TypedResults.Json(context.Blogs)).RequireAuthorization();
 
 app.Run();
 

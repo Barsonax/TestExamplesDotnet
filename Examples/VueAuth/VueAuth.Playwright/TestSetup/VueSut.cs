@@ -68,6 +68,11 @@ public sealed class VueSut : WebApplicationFactory<Program>
             loggingBuilder.Services.AddSingleton(_loggerProvider);
         });
 
+        builder.ConfigureServices(services =>
+        {
+            services.ConfigureTestJwt();
+        });
+
         // The next part is going to look hacky (and it is). The problem is by default the TestServer created by the WebApplicationFactory is not reachable by the Playwright browser.
         // To fix this we will use Kestrel instead of TestServer. Unfortunately WebApplicationFactory does not support this out of the box but with this hack it will.
         // Taken and modified from https://danieldonbavand.com/2022/06/13/using-playwright-with-the-webapplicationfactory-to-test-a-blazor-application/

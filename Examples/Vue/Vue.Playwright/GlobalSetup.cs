@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Diagnostics;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TestExamplesDotnet;
 using TestExamplesDotnet.Nunit;
@@ -20,6 +21,11 @@ public class GlobalSetup
     [OneTimeSetUp]
     public void RunBeforeAnyTests()
     {
+        if (Debugger.IsAttached)
+        {
+            Environment.SetEnvironmentVariable("HEADED", "1");
+        }
+
         InstallPlayWright();
         var services = new ServiceCollection();
         services.AddLogging(x => x.AddNunitLogging());
