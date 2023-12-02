@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using VueAuth.Sut;
+using Vue.Backend.Sut;
 
 var builder = WebApplication.CreateBuilder(args);
 

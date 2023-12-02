@@ -24,7 +24,7 @@ app.MapGet("blogs", (BloggingContext context) => TypedResults.Json(context.Blogs
 
 app.Run();
 
-namespace Razor.PostgreSql.Sut
+namespace Vue.Sut
 {
     public partial class Program { }
 }
