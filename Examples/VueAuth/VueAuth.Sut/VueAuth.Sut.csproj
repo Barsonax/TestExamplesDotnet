@@ -19,12 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <FrontendFiles Include="ClientApp/**" Visible="false"/>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="ClientApp\**" />
-    <None Include="ClientApp\**" />
+    <FrontendFiles Include="ClientApp/**" Exclude="ClientApp/node_modules/**" />
   </ItemGroup>
 
   <Target Name="BuildFrontend" BeforeTargets="Compile" Inputs="@(FrontendFiles)" Outputs="wwwroot">
