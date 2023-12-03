@@ -19,13 +19,28 @@
     </PackageReference>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
   </ItemGroup>
-
+  
   <ItemGroup>
-    <FrontendFiles Include="ClientApp/**" Exclude="ClientApp/node_modules/**" />
+    <FrontendPackageFiles Include="ClientApp/package-lock.json" Visible="false" />
   </ItemGroup>
 
+  <ItemGroup>
+    <FrontendFiles Include="ClientApp/**" Exclude="ClientApp\node_modules\**;ClientApp\dist\**;ClientApp\.angular\**;ClientApp\.vscode\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ClientApp\**" />
+    <EmbeddedResource Remove="ClientApp\**" />
+    <Content Remove="ClientApp\**" />
+    <None Remove="ClientApp\**" />
+  </ItemGroup>
+
+  <Target Name="RestoreFrontend" BeforeTargets="BuildFrontend" Inputs="@(FrontendPackageFiles)" Outputs="ClientApp/node_modules/.install-stamp">
+    <Exec Command="npm ci" WorkingDirectory="ClientApp" />
+    <Touch Files="ClientApp/node_modules/.install-stamp" AlwaysCreate="true" />
+  </Target>
+
   <Target Name="BuildFrontend" BeforeTargets="Compile" Inputs="@(FrontendFiles)" Outputs="wwwroot">
-    <Exec Command="npm install" WorkingDirectory="ClientApp" />
     <Exec Command="npm run build" WorkingDirectory="ClientApp" />
   </Target>
 

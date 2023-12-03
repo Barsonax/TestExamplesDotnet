@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --output-path ../wwwroot",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:angular-auth": "node dist/angular-auth/server/server.mjs"
