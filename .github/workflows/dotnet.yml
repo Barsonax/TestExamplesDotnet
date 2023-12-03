@@ -162,11 +162,11 @@ jobs:
       run: dotnet build --no-restore -warnaserror
     - name: Test
       run: dotnet test --no-build --verbosity normal
-  VueAuthPlaywright:
+  AngularAuthPlaywright:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./Examples/VueAuth/VueAuth.Playwright
+        working-directory: ./Examples/AngularAuth/AngularAuth.Playwright
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET

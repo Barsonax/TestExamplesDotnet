@@ -74,14 +74,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migrations.MsSql.EntityFram
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamplesDotnet.Nunit", "TestExamplesDotnet.Nunit\TestExamplesDotnet.Nunit.csproj", "{8FB27539-A755-4B92-83FA-5D64EBDB6C8F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VueAuth", "VueAuth", "{954C3F42-2996-4570-8483-F65993B6B80D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AngularAuth", "AngularAuth", "{954C3F42-2996-4570-8483-F65993B6B80D}"
 	ProjectSection(SolutionItems) = preProject
-		Examples\VueAuth\Readme.md = Examples\VueAuth\Readme.md
+		Examples\AngularAuth\Readme.md = Examples\AngularAuth\Readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VueAuth.Sut", "Examples\VueAuth\VueAuth.Sut\VueAuth.Sut.csproj", "{A88591AC-A1FC-4DCC-BFB6-9ED93BEEA931}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularAuth.Sut", "Examples\AngularAuth\AngularAuth.Sut\AngularAuth.Sut.csproj", "{A88591AC-A1FC-4DCC-BFB6-9ED93BEEA931}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VueAuth.Playwright", "Examples\VueAuth\VueAuth.Playwright\VueAuth.Playwright.csproj", "{C71FF336-C9C8-4883-A8BF-521F6C378631}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularAuth.Playwright", "Examples\AngularAuth\AngularAuth.Playwright\AngularAuth.Playwright.csproj", "{C71FF336-C9C8-4883-A8BF-521F6C378631}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
