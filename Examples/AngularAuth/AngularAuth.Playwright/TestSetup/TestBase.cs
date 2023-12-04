@@ -71,7 +71,6 @@ public abstract class TestBase : BrowserTest
             "foo@bar.com");
 
         var storageState = new BrowserStorageState {
-            Cookies = Array.Empty<BrowserStorageStateCookie>(),
             Origins = new BrowserStorageStateOrigin[]
             {
                 new()
@@ -129,11 +128,9 @@ public record MsalTenantProfile(bool IsHomeTenant, string LocalAccountId, string
 public record MsalAccessToken(string CachedAt, string ClientId, string CredentialType, string Environment, string ExpiresOn, string ExtendedExpiresOn, string HomeAccountId, string Realm, string Secret, string Target, string TokenType);
 public class BrowserStorageState
 {
-    public BrowserStorageStateCookie[] Cookies { get; init; } = Array.Empty<BrowserStorageStateCookie>();
     public BrowserStorageStateOrigin[] Origins { get; init; } = Array.Empty<BrowserStorageStateOrigin>();
 }
 
-public record BrowserStorageStateCookie(string Name, string Value, string Domain, string Path, float Expires,  bool HttpOnly, bool Secure, string SameSite);
 public class BrowserStorageStateOrigin
 {
     public required string Origin { get; init; }
