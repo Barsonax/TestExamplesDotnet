@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using System.Runtime.InteropServices.JavaScript;
 using System.Security.Claims;
 using System.Text.Json;
 using Microsoft.Extensions.DependencyInjection;
@@ -141,7 +140,7 @@ public class MsalTenantProfile
     public required string TenantId { get; init; }
 }
 
-public class MsalAccessToken()
+public class MsalAccessToken
 {
     public string CachedAt { get; init; } = DateTimeOffset.MinValue.ToUnixTimeSeconds().ToString(CultureInfo.InvariantCulture);
     public required string ClientId { get; init; }
