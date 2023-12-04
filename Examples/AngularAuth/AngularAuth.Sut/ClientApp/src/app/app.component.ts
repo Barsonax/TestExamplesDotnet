@@ -29,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private msalBroadcastService: MsalBroadcastService,
     private httpClient: HttpClient
   ) {
-    
+
   }
 
   ngOnInit(): void {
@@ -59,7 +59,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.setLoginDisplay();
         this.checkAndSetActiveAccount();
       });
-      this.httpClient.get("https://localhost:7067/blogs").subscribe(x => console.log(x)); 
+      this.httpClient.get("/api/blogs").subscribe(x => console.log(x));
   }
 
   setLoginDisplay() {

@@ -8,6 +8,6 @@ export const environment = {
     },
     apiConfig: {
         scopes: ['user.read'],
-        uri: 'https://localhost:7067'
+        uri: '/api/*'
     }
 };

@@ -31,7 +31,7 @@ app.UseStaticFiles();
 
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapGet("blogs", (BloggingContext context) => TypedResults.Json(context.Blogs)).RequireAuthorization();
+app.MapGet("/api/blogs", (BloggingContext context) => TypedResults.Json(context.Blogs)).RequireAuthorization();
 
 app.Run();
 

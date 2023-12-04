@@ -45,7 +45,8 @@ public abstract class TestBase : BrowserTest
                 }
             }
         };
-        return new BrowserNewContextOptions { RecordVideoDir = "videos", StorageState = JsonSerializer.Serialize(storageState) };
+        var serializedStorageState = JsonSerializer.Serialize(storageState, JsonSerializerOptions);
+        return new BrowserNewContextOptions { RecordVideoDir = "videos", StorageState = serializedStorageState};
     }
 
     [TearDown]
@@ -74,4 +75,23 @@ public abstract class TestBase : BrowserTest
             await Task.Delay(200);
         }
     }
+}
+
+
+public class BrowserStorageState
+{
+    public BrowserStorageStateCookie[] Cookies { get; init; } = Array.Empty<BrowserStorageStateCookie>();
+    public BrowserStorageStateOrigin[] Origins { get; init; } = Array.Empty<BrowserStorageStateOrigin>();
+}
+
+public record BrowserStorageStateCookie(string Name, string Value, string Domain, string Path, float Expires,  bool HttpOnly, bool Secure, string SameSite);
+public class BrowserStorageStateOrigin
+{
+    public required string Origin { get; init; }
+    public required BrowserStorageStateLocalStorage[] LocalStorage { get; init; }
+}
+public class BrowserStorageStateLocalStorage
+{
+    public required string Name { get; init; }
+    public required string Value { get; init; }
 }
