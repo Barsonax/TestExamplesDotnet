@@ -131,19 +131,6 @@ public class MsalAccountInfo
     public required string Realm { get; init; }
     public required MsalTenantProfile[] TenantProfiles { get; init; }
     public string Username { get; init; } = "foo@bar.com";
-
-    public void Deconstruct(out string AuthorityType, out string ClientInfo, out string Environment, out string HomeAccountId, out string LocalAccountId, out string Name, out string Realm, out MsalTenantProfile[] TenantProfiles, out string Username)
-    {
-        AuthorityType = this.AuthorityType;
-        ClientInfo = this.ClientInfo;
-        Environment = this.Environment;
-        HomeAccountId = this.HomeAccountId;
-        LocalAccountId = this.LocalAccountId;
-        Name = this.Name;
-        Realm = this.Realm;
-        TenantProfiles = this.TenantProfiles;
-        Username = this.Username;
-    }
 }
 
 public class MsalTenantProfile
@@ -167,21 +154,6 @@ public class MsalAccessToken()
     public required string Secret { get; init; }
     public required string Target { get; init; }
     public string TokenType { get; init; } = "Bearer";
-
-    public void Deconstruct(out string CachedAt, out string ClientId, out string CredentialType, out string Environment, out string ExpiresOn, out string ExtendedExpiresOn, out string HomeAccountId, out string Realm, out string Secret, out string Target, out string TokenType)
-    {
-        CachedAt = this.CachedAt;
-        ClientId = this.ClientId;
-        CredentialType = this.CredentialType;
-        Environment = this.Environment;
-        ExpiresOn = this.ExpiresOn;
-        ExtendedExpiresOn = this.ExtendedExpiresOn;
-        HomeAccountId = this.HomeAccountId;
-        Realm = this.Realm;
-        Secret = this.Secret;
-        Target = this.Target;
-        TokenType = this.TokenType;
-    }
 }
 
 public class BrowserStorageState
