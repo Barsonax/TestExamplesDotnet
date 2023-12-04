@@ -41,34 +41,31 @@ public abstract class TestBase : BrowserTest
         var localAccountId = Guid.NewGuid().ToString();
         var tenantId = Guid.NewGuid().ToString();
         var homeAccountId = $"{localAccountId}.{tenantId}";
-        var expiresOn = DateTimeOffset.Now.AddDays(1).ToUnixTimeSeconds().ToString(CultureInfo.InvariantCulture);
         var jwtToken = TestJwtGenerator.GenerateJwtToken(Array.Empty<Claim>());
-        var accessToken = new MsalAccessToken(
-            DateTimeOffset.MinValue.ToUnixTimeSeconds().ToString(CultureInfo.InvariantCulture),
-            clientId,
-            "AccessToken",
-            environment,
-            expiresOn,
-            expiresOn,
-            homeAccountId,
-            tenantId,
-            jwtToken,
-            "User.Read openid profile",
-            "Bearer");
 
-        var accountInfo = new MsalAccountInfo(
-            "foobar",
-            "foobar",
-            environment,
-            homeAccountId,
-            localAccountId,
-            "foobar",
-            tenantId,
-            new MsalTenantProfile[]
+        var accessToken = new MsalAccessToken
+        {
+            ClientId = clientId,
+            HomeAccountId = homeAccountId,
+            Realm = tenantId,
+            Secret = jwtToken,
+            Target = "User.Read"
+        };
+
+        var accountInfo = new MsalAccountInfo
+        {
+            HomeAccountId = homeAccountId,
+            LocalAccountId = localAccountId,
+            Realm = tenantId,
+            TenantProfiles = new MsalTenantProfile[]
             {
-                new (true, localAccountId, "foobar", tenantId)
+                new()
+                {
+                    LocalAccountId = localAccountId,
+                    TenantId = tenantId
+                }
             },
-            "foo@bar.com");
+        };
 
         var storageState = new BrowserStorageState {
             Origins = new BrowserStorageStateOrigin[]
@@ -123,9 +120,70 @@ public abstract class TestBase : BrowserTest
         }
     }
 }
-public record MsalAccountInfo(string AuthorityType, string ClientInfo, string Environment, string HomeAccountId, string LocalAccountId, string Name, string Realm, MsalTenantProfile[] TenantProfiles, string Username);
-public record MsalTenantProfile(bool IsHomeTenant, string LocalAccountId, string Name, string TenantId);
-public record MsalAccessToken(string CachedAt, string ClientId, string CredentialType, string Environment, string ExpiresOn, string ExtendedExpiresOn, string HomeAccountId, string Realm, string Secret, string Target, string TokenType);
+public class MsalAccountInfo
+{
+    public string AuthorityType { get; init; } = "foobar";
+    public string ClientInfo { get; init; } = "foobar";
+    public string Environment { get; init; } = "login.windows.net";
+    public required string HomeAccountId { get; init; }
+    public required string LocalAccountId { get; init; }
+    public string Name { get; init; } = "foobar";
+    public required string Realm { get; init; }
+    public required MsalTenantProfile[] TenantProfiles { get; init; }
+    public string Username { get; init; } = "foo@bar.com";
+
+    public void Deconstruct(out string AuthorityType, out string ClientInfo, out string Environment, out string HomeAccountId, out string LocalAccountId, out string Name, out string Realm, out MsalTenantProfile[] TenantProfiles, out string Username)
+    {
+        AuthorityType = this.AuthorityType;
+        ClientInfo = this.ClientInfo;
+        Environment = this.Environment;
+        HomeAccountId = this.HomeAccountId;
+        LocalAccountId = this.LocalAccountId;
+        Name = this.Name;
+        Realm = this.Realm;
+        TenantProfiles = this.TenantProfiles;
+        Username = this.Username;
+    }
+}
+
+public class MsalTenantProfile
+{
+    public bool IsHomeTenant { get; init; } = true;
+    public required string LocalAccountId { get; init; }
+    public string Name { get; init; } = "foobar";
+    public required string TenantId { get; init; }
+}
+
+public class MsalAccessToken()
+{
+    public string CachedAt { get; init; } = DateTimeOffset.MinValue.ToUnixTimeSeconds().ToString(CultureInfo.InvariantCulture);
+    public required string ClientId { get; init; }
+    public string CredentialType { get; init; } = "AccessToken";
+    public string Environment { get; init; } = "login.windows.net";
+    public string ExpiresOn { get; init; } = DateTimeOffset.MaxValue.ToUnixTimeSeconds().ToString(CultureInfo.InvariantCulture);
+    public string ExtendedExpiresOn { get; init; } = DateTimeOffset.MaxValue.ToUnixTimeSeconds().ToString(CultureInfo.InvariantCulture);
+    public required  string HomeAccountId { get; init; }
+    public required string Realm { get; init; }
+    public required string Secret { get; init; }
+    public required string Target { get; init; }
+    public string TokenType { get; init; } = "Bearer";
+
+    public void Deconstruct(out string CachedAt, out string ClientId, out string CredentialType, out string Environment, out string ExpiresOn, out string ExtendedExpiresOn, out string HomeAccountId, out string Realm, out string Secret, out string Target, out string TokenType)
+    {
+        CachedAt = this.CachedAt;
+        ClientId = this.ClientId;
+        CredentialType = this.CredentialType;
+        Environment = this.Environment;
+        ExpiresOn = this.ExpiresOn;
+        ExtendedExpiresOn = this.ExtendedExpiresOn;
+        HomeAccountId = this.HomeAccountId;
+        Realm = this.Realm;
+        Secret = this.Secret;
+        Target = this.Target;
+        TokenType = this.TokenType;
+    }
+}
+
 public class BrowserStorageState
 {
     public BrowserStorageStateOrigin[] Origins { get; init; } = Array.Empty<BrowserStorageStateOrigin>();
