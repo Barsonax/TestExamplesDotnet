@@ -25,22 +25,23 @@ public abstract class TestBase : BrowserTest
         Page.PageError += (_, e) => TestContext.Error.WriteLine(e);
     }
 
+    private static JsonSerializerOptions JsonSerializerOptions => new()
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        PropertyNameCaseInsensitive = true
+    };
     private BrowserNewContextOptions ContextOptions()
     {
-        var storageState = new {
-            cookies = new string[] { },
-            origins = new object[]
+        var storageState = new BrowserStorageState {
+            Cookies = Array.Empty<BrowserStorageStateCookie>(),
+            Origins = new BrowserStorageStateOrigin[]
             {
-                new
+                new()
                 {
-                    origin = Sut.ServerAddress,
-                    localStorage = new object[]
+                    Origin = Sut.ServerAddress,
+                    LocalStorage = new BrowserStorageStateLocalStorage[]
                     {
-                        new
-                        {
-                            name = "foobar",
-                            value = "123"
-                        }
+
                     }
                 }
             }
