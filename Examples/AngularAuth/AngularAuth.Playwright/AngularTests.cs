@@ -5,7 +5,7 @@ using Microsoft.Playwright;
 
 namespace AngularAuth.Playwright;
 
-public class VueTests : TestBase
+public class AngularTests : TestBase
 {
     [Test]
     public async Task Open_Index_Page_Contains_Link_To_Photogrammer_Blog()
@@ -21,7 +21,7 @@ public class VueTests : TestBase
 
         //Act
         await Page.GotoAsync(Sut.ServerAddress);
-        
+
         await Page.GetByRole(AriaRole.Link, new() { NameRegex = new Regex("Profile", RegexOptions.IgnoreCase) }).ClickAsync();
 
         //Assert
