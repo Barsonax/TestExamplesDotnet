@@ -7,7 +7,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
 
-namespace VueAuth.Playwright.TestSetup;
+namespace AngularAuth.Playwright.TestSetup;
 
 public static class TestJwtGenerator
 {

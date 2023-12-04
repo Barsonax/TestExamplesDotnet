@@ -1,10 +1,9 @@
 ﻿using System.Text.Json;
-using System.Text.Json.Serialization;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
 
-namespace VueAuth.Playwright.TestSetup;
+namespace AngularAuth.Playwright.TestSetup;
 
 public abstract class TestBase : BrowserTest
 {

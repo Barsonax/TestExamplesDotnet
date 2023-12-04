@@ -1,8 +1,8 @@
+using AngularAuth.Playwright.TestSetup;
+using AngularAuth.Sut;
 using Microsoft.Playwright;
-using VueAuth.Playwright.TestSetup;
-using VueAuth.Sut;
 
-namespace VueAuth.Playwright;
+namespace AngularAuth.Playwright;
 
 public class VueTests : TestBase
 {

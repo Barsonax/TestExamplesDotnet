@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using AngularAuth.Sut;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
@@ -8,9 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using TestExamplesDotnet;
-using VueAuth.Sut;
 
-namespace VueAuth.Playwright.TestSetup;
+namespace AngularAuth.Playwright.TestSetup;
 
 public sealed class VueSut : WebApplicationFactory<Program>
 {

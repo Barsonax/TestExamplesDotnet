@@ -1,6 +1,6 @@
+using AngularAuth.Sut;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using VueAuth.Sut;
 
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions()
 {
@@ -35,7 +35,7 @@ app.MapGet("blogs", (BloggingContext context) => TypedResults.Json(context.Blogs
 
 app.Run();
 
-namespace VueAuth.Sut
+namespace AngularAuth.Sut
 {
     public partial class Program { }
 }

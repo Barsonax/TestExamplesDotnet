@@ -1,15 +1,15 @@
 ﻿using System.Diagnostics;
+using AngularAuth.Playwright.TestSetup;
+using AngularAuth.Sut;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TestExamplesDotnet;
 using TestExamplesDotnet.PostgreSql;
-using VueAuth.Playwright.TestSetup;
-using VueAuth.Sut;
 
 [assembly: FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
 [assembly: Parallelizable(ParallelScope.Children)]
 
-namespace VueAuth.Playwright;
+namespace AngularAuth.Playwright;
 
 [SetUpFixture]
 public class GlobalSetup

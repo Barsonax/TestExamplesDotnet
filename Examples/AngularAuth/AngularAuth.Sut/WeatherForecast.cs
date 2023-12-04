@@ -1,4 +1,4 @@
-namespace VueAuth.Sut;
+namespace AngularAuth.Sut;
 
 public class WeatherForecast
 {
