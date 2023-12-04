@@ -38,8 +38,9 @@
     <Touch Files="ClientApp/node_modules/.install-stamp" AlwaysCreate="true" />
   </Target>
 
-  <Target Name="BuildFrontend" BeforeTargets="Compile" Inputs="@(FrontendFiles)" Outputs="wwwroot">
+  <Target Name="BuildFrontend" BeforeTargets="Compile" Inputs="@(FrontendFiles)" Outputs="wwwroot/.frontendbuild-stamp">
     <Exec Command="npm run build" WorkingDirectory="ClientApp" />
+    <Touch Files="wwwroot/.frontendbuild-stamp" AlwaysCreate="true" />
   </Target>
 
 </Project>
