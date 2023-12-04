@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using AngularAuth.Playwright.TestSetup;
 using AngularAuth.Sut;
 using Microsoft.Playwright;
@@ -20,7 +21,8 @@ public class VueTests : TestBase
 
         //Act
         await Page.GotoAsync(Sut.ServerAddress);
-        var state = await Page.Context.StorageStateAsync();
+        
+        await Page.GetByRole(AriaRole.Link, new() { NameRegex = new Regex("Profile", RegexOptions.IgnoreCase) }).ClickAsync();
 
         //Assert
         await Expect(Page.GetByRole(AriaRole.Link, new() { Name = "https://blog.photogrammer.net/" }))

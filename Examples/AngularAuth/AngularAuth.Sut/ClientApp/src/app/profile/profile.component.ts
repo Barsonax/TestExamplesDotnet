@@ -2,11 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
-type ProfileType = {
-  givenName?: string,
-  surname?: string,
-  userPrincipalName?: string,
-  id?: string
+type BlogType = {
+  blogId: number,
+  url: string,
+  posts: PostType[],
+};
+
+type PostType = {
+  postId: number,
+  title: string,
+  content: string,
 };
 
 @Component({
@@ -16,7 +21,7 @@ type ProfileType = {
   standalone: true
 })
 export class ProfileComponent implements OnInit {
-  profile: ProfileType | undefined;
+  profile: BlogType | undefined;
 
   constructor(
     private http: HttpClient
@@ -29,9 +34,9 @@ export class ProfileComponent implements OnInit {
   }
 
   getProfile(url: string) {
-    this.http.get(url)
+    this.http.get<BlogType[]>(url)
       .subscribe(profile => {
-        this.profile = profile;
+        this.profile = profile[0];
       });
   }
 }
