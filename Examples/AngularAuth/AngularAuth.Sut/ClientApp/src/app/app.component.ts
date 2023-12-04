@@ -59,7 +59,6 @@ export class AppComponent implements OnInit, OnDestroy {
         this.setLoginDisplay();
         this.checkAndSetActiveAccount();
       });
-      this.httpClient.get("/api/blogs").subscribe(x => console.log(x));
   }
 
   setLoginDisplay() {

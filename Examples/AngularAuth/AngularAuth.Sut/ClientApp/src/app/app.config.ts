@@ -7,7 +7,8 @@ import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi, withFetch
 import { MsalInterceptor, MsalGuard, MsalService, MsalBroadcastService, MSAL_INSTANCE, MSAL_GUARD_CONFIG, MSAL_INTERCEPTOR_CONFIG, MsalGuardConfiguration, MsalInterceptorConfiguration } from '@azure/msal-angular';
 import { BrowserCacheLocation, IPublicClientApplication, InteractionType, LogLevel, PublicClientApplication } from '@azure/msal-browser';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
-import { environment } from './environments/environment';
+import { environment } from '../environments/environment';
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -75,11 +76,12 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   };
 }
 
-function MSALGuardConfigFactory(): MsalGuardConfiguration {
-  return {
+export function MSALGuardConfigFactory(): MsalGuardConfiguration {
+  return { 
     interactionType: InteractionType.Redirect,
     authRequest: {
-      scopes: []
+      scopes: [...environment.apiConfig.scopes]
     },
+    loginFailedRoute: '/login-failed'
   };
 }

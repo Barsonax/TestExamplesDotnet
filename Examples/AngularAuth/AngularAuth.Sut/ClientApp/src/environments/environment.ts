@@ -1,3 +1,5 @@
+const apiBase = ''
+
 export const environment = {
     production: false,
     msalConfig: {
@@ -8,6 +10,7 @@ export const environment = {
     },
     apiConfig: {
         scopes: ['user.read'],
-        uri: '/api/*'
-    }
+        uri: `${apiBase}/api/*`
+    },
+    apiBase: apiBase,
 };

@@ -16,11 +16,17 @@ builder.Services.AddDbContext<BloggingContext>(options =>
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme);
 builder.Services.AddAuthorization();
+builder.Services.AddCors();
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
+    app.UseCors(options => options.AllowAnyMethod()
+        .AllowAnyOrigin()
+        .AllowAnyHeader()
+        .Build());
+
     using var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
     var context = serviceScope.ServiceProvider.GetRequiredService<BloggingContext>();
     context.Database.Migrate();
