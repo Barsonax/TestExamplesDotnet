@@ -2,7 +2,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using VueAuth.Sut;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions()
+{
+    Args = args,
+    WebRootPath = "wwwroot/browser"
+});
 
 builder.Services.AddDbContext<BloggingContext>(options =>
 {
