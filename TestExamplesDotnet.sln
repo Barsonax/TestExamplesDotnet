@@ -1,26 +1,29 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.PostgreSql.Sut", "Examples\Api\PostgreSql\Api.PostgreSql.Sut\Api.PostgreSql.Sut.csproj", "{8993750C-4946-49E9-954E-3400CF8D5617}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.PostgreSql.Sut", "Examples\Api\PostgreSql\Api.PostgreSql.Sut\Api.PostgreSql.Sut.csproj", "{8993750C-4946-49E9-954E-3400CF8D5617}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.PostgreSql.Nunit", "Examples\Api\PostgreSql\Api.PostgreSql.Nunit\Api.PostgreSql.Nunit.csproj", "{3170F491-B99C-4C35-BF43-57EFAC238D84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.PostgreSql.Nunit", "Examples\Api\PostgreSql\Api.PostgreSql.Nunit\Api.PostgreSql.Nunit.csproj", "{3170F491-B99C-4C35-BF43-57EFAC238D84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.PostgreSql.Xunit", "Examples\Api\PostgreSql\Api.PostgreSql.Xunit\Api.PostgreSql.Xunit.csproj", "{A6DD4AAD-F475-40F1-B623-CF9D2EEC8944}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.PostgreSql.Xunit", "Examples\Api\PostgreSql\Api.PostgreSql.Xunit\Api.PostgreSql.Xunit.csproj", "{A6DD4AAD-F475-40F1-B623-CF9D2EEC8944}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamplesDotnet", "TestExamplesDotnet\TestExamplesDotnet.csproj", "{D3C52B1C-DF1C-41BC-919B-8C5C000B1E8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestExamplesDotnet", "TestExamplesDotnet\TestExamplesDotnet.csproj", "{D3C52B1C-DF1C-41BC-919B-8C5C000B1E8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamplesDotnet.Mssql", "TestExamplesDotnet.Mssql\TestExamplesDotnet.Mssql.csproj", "{63520038-CA8F-4188-BE1D-C36069469BA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestExamplesDotnet.Mssql", "TestExamplesDotnet.Mssql\TestExamplesDotnet.Mssql.csproj", "{63520038-CA8F-4188-BE1D-C36069469BA7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{FB8382F9-4F4C-4080-ACD6-7112A55C2D65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamplesDotnet.PostgreSql", "TestExamplesDotnet.PostgreSql\TestExamplesDotnet.PostgreSql.csproj", "{BD7FF713-E39A-45AC-8FF7-861F09F0CF3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestExamplesDotnet.PostgreSql", "TestExamplesDotnet.PostgreSql\TestExamplesDotnet.PostgreSql.csproj", "{BD7FF713-E39A-45AC-8FF7-861F09F0CF3F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PostgreSql", "PostgreSql", "{3B281369-C340-4B9F-831F-8D56C4004598}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{9D6FCCAE-2495-43C7-862C-A5FBB5EC31C0}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
-		Directory.Build.props = Directory.Build.props
 		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
 		docker-compose.yml = docker-compose.yml
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 		global.json = global.json
@@ -28,20 +31,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MsSql", "MsSql", "{BE1E949A-BD83-493B-92A1-FA456FDAED16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.MsSql.Nunit", "Examples\Api\MsSql\Api.MsSql.Nunit\Api.MsSql.Nunit.csproj", "{9C68E12B-BDF7-4E0A-A132-8A15A5EE1C6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.MsSql.Nunit", "Examples\Api\MsSql\Api.MsSql.Nunit\Api.MsSql.Nunit.csproj", "{9C68E12B-BDF7-4E0A-A132-8A15A5EE1C6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.MsSql.Sut", "Examples\Api\MsSql\Api.MsSql.Sut\Api.MsSql.Sut.csproj", "{352CE069-D4DB-46C1-8D0E-752E386BAD20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.MsSql.Sut", "Examples\Api\MsSql\Api.MsSql.Sut\Api.MsSql.Sut.csproj", "{352CE069-D4DB-46C1-8D0E-752E386BAD20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.MsSql.Xunit", "Examples\Api\MsSql\Api.MsSql.Xunit\Api.MsSql.Xunit.csproj", "{8F7D577E-EFFF-495E-8F2E-87A3DAD0987A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.MsSql.Xunit", "Examples\Api\MsSql\Api.MsSql.Xunit\Api.MsSql.Xunit.csproj", "{8F7D577E-EFFF-495E-8F2E-87A3DAD0987A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Razor", "Razor", "{4FC7EF48-5E50-4BB5-B6FC-CA9128CB693E}"
 	ProjectSection(SolutionItems) = preProject
 		Examples\Razor\Readme.md = Examples\Razor\Readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Razor.Sut", "Examples\Razor\Razor.Sut\Razor.Sut.csproj", "{DB8B96A5-0B2B-4BE5-A7C5-026DD6BA9E63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Razor.Sut", "Examples\Razor\Razor.Sut\Razor.Sut.csproj", "{DB8B96A5-0B2B-4BE5-A7C5-026DD6BA9E63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Razor.Playwright", "Examples\Razor\Razor.Playwright\Razor.Playwright.csproj", "{7C371BFD-6F4A-4E60-8B01-85B69BEF9A12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Razor.Playwright", "Examples\Razor\Razor.Playwright\Razor.Playwright.csproj", "{7C371BFD-6F4A-4E60-8B01-85B69BEF9A12}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{33CE3530-E3AF-40DD-9664-1EA3FE3F7726}"
 	ProjectSection(SolutionItems) = preProject
@@ -50,38 +53,40 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{33CE3530-E3A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiJwtAuth", "ApiJwtAuth", "{B943703D-552C-4F47-BAE9-4E86B8E3365D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiJwtAuth.PostgreSql.Sut", "Examples\ApiJwtAuth\ApiJwtAuth.Sut\ApiJwtAuth.Sut.csproj", "{893E8628-A8A6-4530-B33E-AD5EFB14C7B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiJwtAuth.Sut", "Examples\ApiJwtAuth\ApiJwtAuth.Sut\ApiJwtAuth.Sut.csproj", "{893E8628-A8A6-4530-B33E-AD5EFB14C7B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiJwtAuth.PostgreSql.Nunit", "Examples\ApiJwtAuth\ApiJwtAuth.Nunit\ApiJwtAuth.Nunit.csproj", "{727F8A2A-5DA3-4FB5-BBC6-0126FACDE79A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiJwtAuth.Nunit", "Examples\ApiJwtAuth\ApiJwtAuth.Nunit\ApiJwtAuth.Nunit.csproj", "{727F8A2A-5DA3-4FB5-BBC6-0126FACDE79A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vue", "Vue", "{42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6}"
 	ProjectSection(SolutionItems) = preProject
 		Examples\Vue\Readme.md = Examples\Vue\Readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vue.Sut", "Examples\Vue\Vue.Sut\Vue.Sut.csproj", "{2DD00C82-0B80-4F4C-9AC0-FBA732BAAFA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vue.Sut", "Examples\Vue\Vue.Sut\Vue.Sut.csproj", "{2DD00C82-0B80-4F4C-9AC0-FBA732BAAFA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vue.Playwright", "Examples\Vue\Vue.Playwright\Vue.Playwright.csproj", "{5B899D50-BF37-414F-998C-BBCE80AC1D2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vue.Playwright", "Examples\Vue\Vue.Playwright\Vue.Playwright.csproj", "{5B899D50-BF37-414F-998C-BBCE80AC1D2B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations.MsSql.EntityFrameworkCore", "Migrations.MsSql.EntityFrameworkCore", "{3B55CF53-3DB2-4FA7-89D8-1B242140EF91}"
 	ProjectSection(SolutionItems) = preProject
 		Examples\Migrations.MsSql.EntityFrameworkCore\Readme.md = Examples\Migrations.MsSql.EntityFrameworkCore\Readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migrations.MsSql.EntityFrameworkCore.Sut", "Examples\Migrations.MsSql.EntityFrameworkCore\Migrations.MsSql.EntityFrameworkCore.Sut\Migrations.MsSql.EntityFrameworkCore.Sut.csproj", "{CBB7A2A5-4D00-4319-8E30-6651F4C90355}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Migrations.MsSql.EntityFrameworkCore.Sut", "Examples\Migrations.MsSql.EntityFrameworkCore\Migrations.MsSql.EntityFrameworkCore.Sut\Migrations.MsSql.EntityFrameworkCore.Sut.csproj", "{CBB7A2A5-4D00-4319-8E30-6651F4C90355}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migrations.MsSql.EntityFrameworkCore.Nunit", "Examples\Migrations.MsSql.EntityFrameworkCore\Migrations.MsSql.EntityFrameworkCore.Nunit\Migrations.MsSql.EntityFrameworkCore.Nunit.csproj", "{19546635-9FA2-4474-8156-893EA8481FC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Migrations.MsSql.EntityFrameworkCore.Nunit", "Examples\Migrations.MsSql.EntityFrameworkCore\Migrations.MsSql.EntityFrameworkCore.Nunit\Migrations.MsSql.EntityFrameworkCore.Nunit.csproj", "{19546635-9FA2-4474-8156-893EA8481FC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamplesDotnet.Nunit", "TestExamplesDotnet.Nunit\TestExamplesDotnet.Nunit.csproj", "{8FB27539-A755-4B92-83FA-5D64EBDB6C8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestExamplesDotnet.Nunit", "TestExamplesDotnet.Nunit\TestExamplesDotnet.Nunit.csproj", "{8FB27539-A755-4B92-83FA-5D64EBDB6C8F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AngularAuth", "AngularAuth", "{954C3F42-2996-4570-8483-F65993B6B80D}"
 	ProjectSection(SolutionItems) = preProject
 		Examples\AngularAuth\Readme.md = Examples\AngularAuth\Readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularAuth.Sut", "Examples\AngularAuth\AngularAuth.Sut\AngularAuth.Sut.csproj", "{A88591AC-A1FC-4DCC-BFB6-9ED93BEEA931}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularAuth.Sut", "Examples\AngularAuth\AngularAuth.Sut\AngularAuth.Sut.csproj", "{A88591AC-A1FC-4DCC-BFB6-9ED93BEEA931}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularAuth.Playwright", "Examples\AngularAuth\AngularAuth.Playwright\AngularAuth.Playwright.csproj", "{C71FF336-C9C8-4883-A8BF-521F6C378631}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularAuth.Playwright", "Examples\AngularAuth\AngularAuth.Playwright\AngularAuth.Playwright.csproj", "{C71FF336-C9C8-4883-A8BF-521F6C378631}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "AngularAuth.Frontend.Sut", "Examples\AngularAuth\AngularAuth.Frontend.Sut\AngularAuth.Frontend.Sut.esproj", "{122D8E51-7E45-4C83-BF43-15868214DF6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -169,23 +174,32 @@ Global
 		{C71FF336-C9C8-4883-A8BF-521F6C378631}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C71FF336-C9C8-4883-A8BF-521F6C378631}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C71FF336-C9C8-4883-A8BF-521F6C378631}.Release|Any CPU.Build.0 = Release|Any CPU
+		{122D8E51-7E45-4C83-BF43-15868214DF6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{122D8E51-7E45-4C83-BF43-15868214DF6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{122D8E51-7E45-4C83-BF43-15868214DF6A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{122D8E51-7E45-4C83-BF43-15868214DF6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{122D8E51-7E45-4C83-BF43-15868214DF6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{122D8E51-7E45-4C83-BF43-15868214DF6A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{3170F491-B99C-4C35-BF43-57EFAC238D84} = {3B281369-C340-4B9F-831F-8D56C4004598}
 		{8993750C-4946-49E9-954E-3400CF8D5617} = {3B281369-C340-4B9F-831F-8D56C4004598}
+		{3170F491-B99C-4C35-BF43-57EFAC238D84} = {3B281369-C340-4B9F-831F-8D56C4004598}
 		{A6DD4AAD-F475-40F1-B623-CF9D2EEC8944} = {3B281369-C340-4B9F-831F-8D56C4004598}
+		{3B281369-C340-4B9F-831F-8D56C4004598} = {33CE3530-E3AF-40DD-9664-1EA3FE3F7726}
+		{BE1E949A-BD83-493B-92A1-FA456FDAED16} = {33CE3530-E3AF-40DD-9664-1EA3FE3F7726}
 		{9C68E12B-BDF7-4E0A-A132-8A15A5EE1C6F} = {BE1E949A-BD83-493B-92A1-FA456FDAED16}
 		{352CE069-D4DB-46C1-8D0E-752E386BAD20} = {BE1E949A-BD83-493B-92A1-FA456FDAED16}
 		{8F7D577E-EFFF-495E-8F2E-87A3DAD0987A} = {BE1E949A-BD83-493B-92A1-FA456FDAED16}
 		{4FC7EF48-5E50-4BB5-B6FC-CA9128CB693E} = {FB8382F9-4F4C-4080-ACD6-7112A55C2D65}
-		{33CE3530-E3AF-40DD-9664-1EA3FE3F7726} = {FB8382F9-4F4C-4080-ACD6-7112A55C2D65}
-		{BE1E949A-BD83-493B-92A1-FA456FDAED16} = {33CE3530-E3AF-40DD-9664-1EA3FE3F7726}
-		{3B281369-C340-4B9F-831F-8D56C4004598} = {33CE3530-E3AF-40DD-9664-1EA3FE3F7726}
-		{B943703D-552C-4F47-BAE9-4E86B8E3365D} = {FB8382F9-4F4C-4080-ACD6-7112A55C2D65}
-		{727F8A2A-5DA3-4FB5-BBC6-0126FACDE79A} = {B943703D-552C-4F47-BAE9-4E86B8E3365D}
-		{893E8628-A8A6-4530-B33E-AD5EFB14C7B0} = {B943703D-552C-4F47-BAE9-4E86B8E3365D}
-		{7C371BFD-6F4A-4E60-8B01-85B69BEF9A12} = {4FC7EF48-5E50-4BB5-B6FC-CA9128CB693E}
 		{DB8B96A5-0B2B-4BE5-A7C5-026DD6BA9E63} = {4FC7EF48-5E50-4BB5-B6FC-CA9128CB693E}
+		{7C371BFD-6F4A-4E60-8B01-85B69BEF9A12} = {4FC7EF48-5E50-4BB5-B6FC-CA9128CB693E}
+		{33CE3530-E3AF-40DD-9664-1EA3FE3F7726} = {FB8382F9-4F4C-4080-ACD6-7112A55C2D65}
+		{B943703D-552C-4F47-BAE9-4E86B8E3365D} = {FB8382F9-4F4C-4080-ACD6-7112A55C2D65}
+		{893E8628-A8A6-4530-B33E-AD5EFB14C7B0} = {B943703D-552C-4F47-BAE9-4E86B8E3365D}
+		{727F8A2A-5DA3-4FB5-BBC6-0126FACDE79A} = {B943703D-552C-4F47-BAE9-4E86B8E3365D}
 		{42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6} = {FB8382F9-4F4C-4080-ACD6-7112A55C2D65}
 		{2DD00C82-0B80-4F4C-9AC0-FBA732BAAFA0} = {42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6}
 		{5B899D50-BF37-414F-998C-BBCE80AC1D2B} = {42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6}
@@ -195,5 +209,9 @@ Global
 		{954C3F42-2996-4570-8483-F65993B6B80D} = {FB8382F9-4F4C-4080-ACD6-7112A55C2D65}
 		{A88591AC-A1FC-4DCC-BFB6-9ED93BEEA931} = {954C3F42-2996-4570-8483-F65993B6B80D}
 		{C71FF336-C9C8-4883-A8BF-521F6C378631} = {954C3F42-2996-4570-8483-F65993B6B80D}
+		{122D8E51-7E45-4C83-BF43-15868214DF6A} = {954C3F42-2996-4570-8483-F65993B6B80D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84A1D680-ABEE-46A5-B342-CD8C47FC5AB0}
 	EndGlobalSection
 EndGlobal

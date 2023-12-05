@@ -1,13 +1,12 @@
 {
-  "name": "angular-auth",
+  "name": "angular-auth.frontend.sut",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --configuration development",
-    "build": "ng build --output-path ../wwwroot",
+    "build": "ng build --output-path ../AngularAuth.Sut/wwwroot",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:angular-auth": "node dist/angular-auth/server/server.mjs"
+    "test": "ng test "
   },
   "private": true,
   "dependencies": {
