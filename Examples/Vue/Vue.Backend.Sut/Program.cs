@@ -24,7 +24,7 @@ app.MapGet("blogs", (BloggingContext context) => TypedResults.Json(context.Blogs
 
 app.Run();
 
-namespace Vue.Sut
+namespace Vue.Backend.Sut
 {
     public partial class Program { }
 }

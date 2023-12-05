@@ -1,4 +1,4 @@
-namespace webapi;
+namespace Vue.Backend.Sut;
 
 public class WeatherForecast
 {
