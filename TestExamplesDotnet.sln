@@ -82,7 +82,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AngularAuth", "AngularAuth"
 		Examples\AngularAuth\Readme.md = Examples\AngularAuth\Readme.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularAuth.Sut", "Examples\AngularAuth\AngularAuth.Sut\AngularAuth.Sut.csproj", "{A88591AC-A1FC-4DCC-BFB6-9ED93BEEA931}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularAuth.Backend.Sut", "Examples\AngularAuth\AngularAuth.Backend.Sut\AngularAuth.Backend.Sut.csproj", "{A88591AC-A1FC-4DCC-BFB6-9ED93BEEA931}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularAuth.Playwright", "Examples\AngularAuth\AngularAuth.Playwright\AngularAuth.Playwright.csproj", "{C71FF336-C9C8-4883-A8BF-521F6C378631}"
 EndProject

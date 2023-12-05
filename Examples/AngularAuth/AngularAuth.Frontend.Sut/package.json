@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --configuration development",
-    "build": "ng build --output-path ../AngularAuth.Sut/wwwroot",
-    "watch": "ng build --watch --configuration development",
+    "build": "ng build --output-path ../AngularAuth.Backend.Sut/wwwroot",
+    "watch": "ng build --output-path ../AngularAuth.Backend.Sut/wwwroot --watch --configuration development",
     "test": "ng test "
   },
   "private": true,

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace AngularAuth.Sut;
+namespace AngularAuth.Backend.Sut;
 
 public class BloggingContext : DbContext
 {

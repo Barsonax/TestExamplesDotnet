@@ -1,4 +1,4 @@
-using AngularAuth.Sut;
+using AngularAuth.Backend.Sut;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 
@@ -41,7 +41,7 @@ app.MapGet("/api/blogs", (BloggingContext context) => TypedResults.Json(context.
 
 app.Run();
 
-namespace AngularAuth.Sut
+namespace AngularAuth.Backend.Sut
 {
     public partial class Program { }
 }

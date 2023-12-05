@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using AngularAuth.Sut;
+using AngularAuth.Backend.Sut;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;

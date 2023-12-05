@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using AngularAuth.Playwright.TestSetup;
-using AngularAuth.Sut;
+using AngularAuth.Backend.Sut;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TestExamplesDotnet;

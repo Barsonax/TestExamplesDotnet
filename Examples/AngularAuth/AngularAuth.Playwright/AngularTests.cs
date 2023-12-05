@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
+using AngularAuth.Backend.Sut;
 using AngularAuth.Playwright.TestSetup;
-using AngularAuth.Sut;
 using Microsoft.Playwright;
 
 namespace AngularAuth.Playwright;

@@ -1,4 +1,4 @@
-namespace AngularAuth.Sut;
+namespace AngularAuth.Backend.Sut;
 
 public class WeatherForecast
 {
