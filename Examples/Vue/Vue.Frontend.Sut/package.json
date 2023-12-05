@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
-    "build-only": "vite build --outDir ../wwwroot",
+    "build-only": "vite build --outDir ../Vue.Backend.Sut/wwwroot --emptyOutDir",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
   },
   "dependencies": {

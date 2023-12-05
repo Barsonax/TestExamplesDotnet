@@ -4,7 +4,6 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,17 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <FrontendFiles Include="ClientApp/**" Visible="false"/>
+    <ProjectReference Include="..\Vue.Frontend.Sut\Vue.Frontend.Sut.esproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
   </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="ClientApp\**" />
-    <None Include="ClientApp\**" />
-  </ItemGroup>
-
-  <Target Name="BuildFrontend" BeforeTargets="Compile" Inputs="@(FrontendFiles)" Outputs="wwwroot">
-    <Exec Command="npm install" WorkingDirectory="ClientApp" />
-    <Exec Command="npm run build" WorkingDirectory="ClientApp" />
-  </Target>
-
+  
 </Project>

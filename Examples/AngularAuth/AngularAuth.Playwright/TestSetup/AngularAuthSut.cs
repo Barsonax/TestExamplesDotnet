@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using AngularAuth.Backend.Sut;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
@@ -8,11 +9,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using TestExamplesDotnet;
-using Vue.Backend.Sut;
 
-namespace Vue.Playwright.TestSetup;
+namespace AngularAuth.Playwright.TestSetup;
 
-public sealed class VueSut : WebApplicationFactory<Program>
+public sealed class AngularAuthSut : WebApplicationFactory<Program>
 {
     private bool _disposed;
     private IHost? _host;
@@ -38,7 +38,7 @@ public sealed class VueSut : WebApplicationFactory<Program>
     private readonly PooledDatabase _pooledDatabase;
     private readonly ILoggerProvider _loggerProvider;
 
-    public VueSut(DatabasePool databasePool, ILoggerProvider loggerProvider)
+    public AngularAuthSut(DatabasePool databasePool, ILoggerProvider loggerProvider)
     {
         _loggerProvider = loggerProvider;
         _pooledDatabase = databasePool.Get();
@@ -66,6 +66,11 @@ public sealed class VueSut : WebApplicationFactory<Program>
         {
             loggingBuilder.ClearProviders();
             loggingBuilder.Services.AddSingleton(_loggerProvider);
+        });
+
+        builder.ConfigureServices(services =>
+        {
+            services.ConfigureTestJwt();
         });
 
         // The next part is going to look hacky (and it is). The problem is by default the TestServer created by the WebApplicationFactory is not reachable by the Playwright browser.

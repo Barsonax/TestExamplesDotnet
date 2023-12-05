@@ -1,28 +1,47 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Security.Claims;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
 
-namespace Vue.Playwright.TestSetup;
+namespace AngularAuth.Playwright.TestSetup;
 
-public abstract class TestBase : PageTest
+public abstract class TestBase : BrowserTest
 {
-    protected VueSut Sut { get; private set; } = null!;
+    public IBrowserContext Context { get; private set; } = null!;
+    public IPage Page { get; private set; } = null!;
+    protected AngularAuthSut Sut { get; private set; } = null!;
 
     private AsyncServiceScope _scope;
 
     [SetUp]
-    public void BeforeTestCase()
+    public async Task BeforeTestCase()
     {
         _scope = GlobalSetup.Provider.CreateAsyncScope();
-        Sut = _scope.ServiceProvider.GetRequiredService<VueSut>();
+        Sut = _scope.ServiceProvider.GetRequiredService<AngularAuthSut>();
+
+        Context = await NewContext(ContextOptions()).ConfigureAwait(false);
+        Page = await Context.NewPageAsync().ConfigureAwait(false);
+
+        Page.Console += (_, e) => TestContext.Out.WriteLine(e.Text);
         Page.PageError += (_, e) => TestContext.Error.WriteLine(e);
     }
 
-    public override BrowserNewContextOptions ContextOptions()
+    private BrowserNewContextOptions ContextOptions()
     {
-        return new BrowserNewContextOptions()
+        return new BrowserNewContextOptions
         {
             RecordVideoDir = "videos",
+            StorageState = new BrowserStorageState
+            {
+                Origins = new BrowserStorageStateOrigin[]
+                {
+                    new()
+                    {
+                        Origin = Sut.ServerAddress,
+                        LocalStorage = MsalLocalStorageTestGenerator.Generate(Array.Empty<Claim>())
+                    }
+                }
+            }.Serialize()
         };
     }
 

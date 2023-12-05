@@ -1,16 +1,15 @@
 ﻿using System.Diagnostics;
+using AngularAuth.Playwright.TestSetup;
+using AngularAuth.Backend.Sut;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TestExamplesDotnet;
-using TestExamplesDotnet.Nunit;
 using TestExamplesDotnet.PostgreSql;
-using Vue.Backend.Sut;
-using Vue.Playwright.TestSetup;
 
 [assembly: FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
 [assembly: Parallelizable(ParallelScope.Children)]
 
-namespace Vue.Playwright;
+namespace AngularAuth.Playwright;
 
 [SetUpFixture]
 public class GlobalSetup
@@ -28,9 +27,9 @@ public class GlobalSetup
 
         InstallPlayWright();
         var services = new ServiceCollection();
-        services.AddLogging(x => x.AddNunitLogging());
+        services.AddLogging(x => x.AddConsole());
         services.RegisterPostgreSqlContainer();
-        services.AddScoped<VueSut>();
+        services.AddScoped<AngularAuthSut>();
         services.RegisterMigrationInitializer<BloggingContext>();
         _serviceProvider = services.BuildServiceProvider();
     }

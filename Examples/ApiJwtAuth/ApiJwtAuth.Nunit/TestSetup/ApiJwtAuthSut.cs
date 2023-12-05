@@ -37,7 +37,6 @@ public sealed class ApiJwtAuthSut : WebApplicationFactory<Program>
             services.ConfigureTestJwt();
         });
 
-
         builder.ConfigureLogging(loggingBuilder =>
         {
             loggingBuilder.ClearProviders();
