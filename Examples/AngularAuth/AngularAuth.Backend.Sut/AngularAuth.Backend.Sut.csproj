@@ -20,7 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AngularAuth.Frontend.Sut\AngularAuth.Frontend.Sut.esproj" PrivateAssets="All" />
+    <ProjectReference Include="..\AngularAuth.Frontend.Sut\AngularAuth.Frontend.Sut.esproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
   </ItemGroup>
 
 </Project>
