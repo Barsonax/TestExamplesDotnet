@@ -29,7 +29,7 @@ public class GlobalSetup
         var services = new ServiceCollection();
         services.AddLogging(x => x.AddConsole());
         services.RegisterPostgreSqlContainer();
-        services.AddScoped<VueSut>();
+        services.AddScoped<AngularAuthSut>();
         services.RegisterMigrationInitializer<BloggingContext>();
         _serviceProvider = services.BuildServiceProvider();
     }

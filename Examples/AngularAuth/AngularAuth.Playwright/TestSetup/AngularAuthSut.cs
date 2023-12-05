@@ -12,7 +12,7 @@ using TestExamplesDotnet;
 
 namespace AngularAuth.Playwright.TestSetup;
 
-public sealed class VueSut : WebApplicationFactory<Program>
+public sealed class AngularAuthSut : WebApplicationFactory<Program>
 {
     private bool _disposed;
     private IHost? _host;
@@ -38,7 +38,7 @@ public sealed class VueSut : WebApplicationFactory<Program>
     private readonly PooledDatabase _pooledDatabase;
     private readonly ILoggerProvider _loggerProvider;
 
-    public VueSut(DatabasePool databasePool, ILoggerProvider loggerProvider)
+    public AngularAuthSut(DatabasePool databasePool, ILoggerProvider loggerProvider)
     {
         _loggerProvider = loggerProvider;
         _pooledDatabase = databasePool.Get();

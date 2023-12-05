@@ -9,7 +9,7 @@ public abstract class TestBase : BrowserTest
 {
     public IBrowserContext Context { get; private set; } = null!;
     public IPage Page { get; private set; } = null!;
-    protected VueSut Sut { get; private set; } = null!;
+    protected AngularAuthSut Sut { get; private set; } = null!;
 
     private AsyncServiceScope _scope;
 
@@ -17,7 +17,7 @@ public abstract class TestBase : BrowserTest
     public async Task BeforeTestCase()
     {
         _scope = GlobalSetup.Provider.CreateAsyncScope();
-        Sut = _scope.ServiceProvider.GetRequiredService<VueSut>();
+        Sut = _scope.ServiceProvider.GetRequiredService<AngularAuthSut>();
 
         Context = await NewContext(ContextOptions()).ConfigureAwait(false);
         Page = await Context.NewPageAsync().ConfigureAwait(false);
