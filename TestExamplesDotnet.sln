@@ -62,7 +62,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vue", "Vue", "{42CF9A64-C1C
 		Examples\Vue\Readme.md = Examples\Vue\Readme.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vue.Sut", "Examples\Vue\Vue.Sut\Vue.Sut.csproj", "{2DD00C82-0B80-4F4C-9AC0-FBA732BAAFA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vue.Backend.Sut", "Examples\Vue\Vue.Backend.Sut\Vue.Backend.Sut.csproj", "{2DD00C82-0B80-4F4C-9AC0-FBA732BAAFA0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vue.Playwright", "Examples\Vue\Vue.Playwright\Vue.Playwright.csproj", "{5B899D50-BF37-414F-998C-BBCE80AC1D2B}"
 EndProject
@@ -87,6 +87,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularAuth.Playwright", "Examples\AngularAuth\AngularAuth.Playwright\AngularAuth.Playwright.csproj", "{C71FF336-C9C8-4883-A8BF-521F6C378631}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "AngularAuth.Frontend.Sut", "Examples\AngularAuth\AngularAuth.Frontend.Sut\AngularAuth.Frontend.Sut.esproj", "{122D8E51-7E45-4C83-BF43-15868214DF6A}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Vue.Frontend.Sut", "Examples\Vue\Vue.Frontend.Sut\Vue.Frontend.Sut.esproj", "{13FE5A2F-CA1A-4B83-B82E-C05B679DD0DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -180,6 +182,10 @@ Global
 		{122D8E51-7E45-4C83-BF43-15868214DF6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{122D8E51-7E45-4C83-BF43-15868214DF6A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{122D8E51-7E45-4C83-BF43-15868214DF6A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{13FE5A2F-CA1A-4B83-B82E-C05B679DD0DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13FE5A2F-CA1A-4B83-B82E-C05B679DD0DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13FE5A2F-CA1A-4B83-B82E-C05B679DD0DD}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{13FE5A2F-CA1A-4B83-B82E-C05B679DD0DD}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -210,6 +216,7 @@ Global
 		{A88591AC-A1FC-4DCC-BFB6-9ED93BEEA931} = {954C3F42-2996-4570-8483-F65993B6B80D}
 		{C71FF336-C9C8-4883-A8BF-521F6C378631} = {954C3F42-2996-4570-8483-F65993B6B80D}
 		{122D8E51-7E45-4C83-BF43-15868214DF6A} = {954C3F42-2996-4570-8483-F65993B6B80D}
+		{13FE5A2F-CA1A-4B83-B82E-C05B679DD0DD} = {42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {84A1D680-ABEE-46A5-B342-CD8C47FC5AB0}

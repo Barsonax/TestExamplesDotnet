@@ -28,7 +28,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\..\TestExamplesDotnet.Nunit\TestExamplesDotnet.Nunit.csproj" />
-        <ProjectReference Include="..\Vue.Sut\Vue.Sut.csproj" />
+        <ProjectReference Include="..\Vue.Backend.Sut\Vue.Backend.Sut.csproj" />
         <ProjectReference Include="..\..\..\TestExamplesDotnet.PostgreSql\TestExamplesDotnet.PostgreSql.csproj" />
         <ProjectReference Include="..\..\..\TestExamplesDotnet\TestExamplesDotnet.csproj" />
     </ItemGroup>
