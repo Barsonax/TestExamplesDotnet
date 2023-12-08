@@ -27,6 +27,6 @@ public class HttpTrigger1
         response.WriteString("Welcome to Azure Functions!");
 
         return response;
-        
+
     }
 }

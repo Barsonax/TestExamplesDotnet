@@ -80,7 +80,7 @@ public static class MsalLocalStorageTestGenerator
         public string Environment { get; init; } = "login.windows.net";
         public string ExpiresOn { get; init; } = DateTimeOffset.MaxValue.ToUnixTimeSeconds().ToString(CultureInfo.InvariantCulture);
         public string ExtendedExpiresOn { get; init; } = DateTimeOffset.MaxValue.ToUnixTimeSeconds().ToString(CultureInfo.InvariantCulture);
-        public required  string HomeAccountId { get; init; }
+        public required string HomeAccountId { get; init; }
         public required string Realm { get; init; }
         public required string Secret { get; init; }
         public required string Target { get; init; }
