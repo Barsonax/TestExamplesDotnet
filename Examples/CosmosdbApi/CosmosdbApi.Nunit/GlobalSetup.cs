@@ -1,14 +1,10 @@
-﻿using Api.MsSql.Nunit.TestSetup;
-using Api.MsSql.Sut;
+﻿using CosmosdbApi.Nunit.TestSetup;
 using Microsoft.Extensions.DependencyInjection;
-using TestExamplesDotnet;
-using TestExamplesDotnet.Mssql;
-using TestExamplesDotnet.Nunit;
 
 [assembly: FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
 [assembly: Parallelizable(ParallelScope.Children)]
 
-namespace Api.MsSql.Nunit;
+namespace CosmosdbApi.Nunit;
 
 [SetUpFixture]
 public class GlobalSetup
@@ -23,8 +19,7 @@ public class GlobalSetup
 
         services.AddLogging(x => x.AddNunitLogging());
         services.RegisterMssqlContainer();
-        services.AddScoped<ApiMsSqlSut>();
-        services.RegisterMigrationInitializer<BloggingContext>();
+        services.AddScoped<CosmosdbApiSut>();
         _serviceProvider = services.BuildServiceProvider();
     }
 

@@ -1,5 +1,6 @@
 using System.Net.Security;
 using Microsoft.Azure.Cosmos;
+using Microsoft.Azure.Cosmos.Linq;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,10 +8,7 @@ builder.Services.AddSingleton<CosmosClient>(_ =>
 {
     CosmosClientOptions cosmosClientOptions = new()
     {
-        SerializerOptions = new CosmosSerializationOptions
-        {
-            PropertyNamingPolicy = CosmosPropertyNamingPolicy.CamelCase
-        },
+        SerializerOptions = new CosmosSerializationOptions { PropertyNamingPolicy = CosmosPropertyNamingPolicy.CamelCase },
         ConnectionMode = ConnectionMode.Gateway,
         RequestTimeout = TimeSpan.FromSeconds(5),
         HttpClientFactory = () => new HttpClient(new SocketsHttpHandler
@@ -18,43 +16,34 @@ builder.Services.AddSingleton<CosmosClient>(_ =>
             PooledConnectionLifetime = TimeSpan.FromMinutes(5),
             SslOptions = new SslClientAuthenticationOptions
             {
-                // Leave certs unvalidated for debugging
-                RemoteCertificateValidationCallback = delegate { return true; },
+                RemoteCertificateValidationCallback = (sender, certificate, chain, errors) => true,
             },
         }, disposeHandler: false)
     };
 
-    return new CosmosClient("AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
-        cosmosClientOptions);
+    return new CosmosClient(builder.Configuration["DbConnectionString"], cosmosClientOptions);
 });
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+using var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
+var context = serviceScope.ServiceProvider.GetRequiredService<CosmosClient>();
+var databaseResponse = await context.CreateDatabaseIfNotExistsAsync("CosmosdbApi");
+var containerResponse = await databaseResponse.Database.CreateContainerIfNotExistsAsync(new ContainerProperties
 {
-    using var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope();
-    var context = serviceScope.ServiceProvider.GetRequiredService<CosmosClient>();
-    var databaseResponse = await context.CreateDatabaseIfNotExistsAsync("CosmosdbApi");
-    var containerResponse = await databaseResponse.Database.CreateContainerIfNotExistsAsync(new ContainerProperties()
-    {
-        Id = "Blogs",
-        PartitionKeyPath = "/Url"
-    });
-    await containerResponse.Container.UpsertItemAsync(new Blog
-    {
-        Id = "1",
-        Url = "https://blog.photogrammer.net/"
-    });
-}
+    Id = "Blogs",
+    PartitionKeyPath = "/Url"
+});
 
-app.MapGet("blogs", async (CosmosClient cosmosClient) =>
+app.MapGet("blogs", (CosmosClient cosmosClient) =>
 {
-    var result = await cosmosClient
+    var results = cosmosClient
         .GetDatabase("CosmosdbApi")
         .GetContainer("Blogs")
-        .ReadManyItemsAsync<Blog>(new (string id, PartitionKey partitionKey)[] { new("1", PartitionKey.None) });
+        .GetItemQueryIterator<Blog>()
+        .GetAllAsync();
 
-    return TypedResults.Json(result);
+    return Task.FromResult(TypedResults.Json(results));
 });
 
 await app.RunAsync();
@@ -68,6 +57,16 @@ namespace Api.MsSql.Sut
 
 public class Blog
 {
-    public string Id { get; set; }
+    public required string Id { get; set; }
     public required string Url { get; set; }
+}
+
+public static class FeedIteratorExtensions
+{
+    public static async IAsyncEnumerable<T> GetAllAsync<T>(this FeedIterator<T> iterator)
+    {
+        while (iterator.HasMoreResults)
+            foreach (var item in await iterator.ReadNextAsync().ConfigureAwait(false))
+                yield return item;
+    }
 }

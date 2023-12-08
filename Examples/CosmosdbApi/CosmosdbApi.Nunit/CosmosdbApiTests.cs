@@ -1,17 +1,19 @@
-using Api.MsSql.Nunit.TestSetup;
+using CosmosdbApi.Nunit.TestSetup;
 
-namespace CosmosdbApi;
+namespace CosmosdbApi.Nunit;
 
-public class CosmosdbApi : TestBase
+public class CosmosdbApiTests : TestBase
 {
     [Test]
     public async Task GetBlogs_ShouldReturnExpectedBlogs()
     {
         //Arrange
-        Sut.SeedData(context =>
+        await Sut.SeedDataAsync(async context =>
         {
-            context.Blogs.Add(new Blog
+            var container = context.GetContainer("CosmosdbApi", "Blogs");
+            await container.UpsertItemAsync(new Blog
             {
+                Id = "1",
                 Url = "https://blog.photogrammer.net/"
             });
         });
@@ -24,6 +26,7 @@ public class CosmosdbApi : TestBase
         {
             new
             {
+                Id = "1",
                 Url = "https://blog.photogrammer.net/"
             }
         });

@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Api.MsSql.Nunit.TestSetup;
+namespace CosmosdbApi.Nunit.TestSetup;
 
 public abstract class TestBase
 {
-    protected ApiMsSqlSut Sut { get; private set; } = null!;
+    protected CosmosdbApiSut Sut { get; private set; } = null!;
 
     private AsyncServiceScope _scope;
 
@@ -12,7 +12,7 @@ public abstract class TestBase
     public void BeforeTestCase()
     {
         _scope = GlobalSetup.Provider.CreateAsyncScope();
-        Sut = _scope.ServiceProvider.GetRequiredService<ApiMsSqlSut>();
+        Sut = _scope.ServiceProvider.GetRequiredService<CosmosdbApiSut>();
     }
 
     [TearDown]

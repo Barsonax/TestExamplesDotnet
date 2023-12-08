@@ -1,32 +1,37 @@
 ﻿using Api.MsSql.Sut;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Azure.Cosmos;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using TestExamplesDotnet;
+using Testcontainers.CosmosDb;
 
-namespace Api.MsSql.Nunit.TestSetup;
+namespace CosmosdbApi.Nunit.TestSetup;
 
-public sealed class ApiMsSqlSut : WebApplicationFactory<Program>
+public sealed class CosmosdbApiSut : WebApplicationFactory<Program>
 {
-    private readonly PooledDatabase _pooledDatabase;
     private readonly ILoggerProvider _loggerProvider;
+    private readonly CosmosDbContainer _cosmosDbContainer;
 
-    public ApiMsSqlSut(DatabasePool databasePool, ILoggerProvider loggerProvider)
+    public CosmosdbApiSut(ILoggerProvider loggerProvider)
     {
+        _cosmosDbContainer = new CosmosDbBuilder()
+            .WithImage("mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest")
+            .Build();
         _loggerProvider = loggerProvider;
-        _pooledDatabase = databasePool.Get();
     }
 
     protected override IHost CreateHost(IHostBuilder builder)
     {
+
+
         builder.UseEnvironment(Environments.Production);
         builder.ConfigureHostConfiguration(config =>
         {
             config.AddInMemoryCollection(new Dictionary<string, string?>
             {
-                { "DbConnectionString", _pooledDatabase.ConnectionString }
+                { "DbConnectionString", _cosmosDbContainer.GetConnectionString() }
             });
         });
 
@@ -37,7 +42,6 @@ public sealed class ApiMsSqlSut : WebApplicationFactory<Program>
         });
 
         var app = base.CreateHost(builder);
-        _pooledDatabase.EnsureInitialized(app);
 
         return app;
     }
@@ -45,14 +49,13 @@ public sealed class ApiMsSqlSut : WebApplicationFactory<Program>
     public override async ValueTask DisposeAsync()
     {
         await base.DisposeAsync();
-        await _pooledDatabase.DisposeAsync();
+        await _cosmosDbContainer.DisposeAsync();
     }
 
-    public void SeedData(Action<BloggingContext> seedAction)
+    public async Task SeedDataAsync(Func<CosmosClient, Task> seedAction)
     {
         using var scope = Services.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<BloggingContext>();
-        seedAction(context);
-        context.SaveChanges();
+        var client = scope.ServiceProvider.GetRequiredService<CosmosClient>();
+        await seedAction(client);
     }
 }

@@ -7,7 +7,6 @@
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
-        <RootNamespace>CosmosdbApi</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -24,9 +23,11 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Testcontainers.CosmosDb" Version="3.6.0" />
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\TestExamplesDotnet\TestExamplesDotnet.csproj" />
         <ProjectReference Include="..\CosmosdbApi.Sut\CosmosdbApi.Sut.csproj" />
     </ItemGroup>
 
