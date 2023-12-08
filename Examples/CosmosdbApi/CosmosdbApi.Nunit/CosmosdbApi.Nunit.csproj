@@ -27,6 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\TestExamplesDotnet.Nunit\TestExamplesDotnet.Nunit.csproj" />
         <ProjectReference Include="..\..\..\TestExamplesDotnet\TestExamplesDotnet.csproj" />
         <ProjectReference Include="..\CosmosdbApi.Sut\CosmosdbApi.Sut.csproj" />
     </ItemGroup>

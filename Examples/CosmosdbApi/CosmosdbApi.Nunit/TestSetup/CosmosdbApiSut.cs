@@ -14,18 +14,14 @@ public sealed class CosmosdbApiSut : WebApplicationFactory<Program>
     private readonly ILoggerProvider _loggerProvider;
     private readonly CosmosDbContainer _cosmosDbContainer;
 
-    public CosmosdbApiSut(ILoggerProvider loggerProvider)
+    public CosmosdbApiSut(ILoggerProvider loggerProvider, CosmosDbContainer cosmosDbContainer)
     {
-        _cosmosDbContainer = new CosmosDbBuilder()
-            .WithImage("mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest")
-            .Build();
         _loggerProvider = loggerProvider;
+        _cosmosDbContainer = cosmosDbContainer;
     }
 
     protected override IHost CreateHost(IHostBuilder builder)
     {
-
-
         builder.UseEnvironment(Environments.Production);
         builder.ConfigureHostConfiguration(config =>
         {
