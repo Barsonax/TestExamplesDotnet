@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TestExamplesDotnet;
+using TestExamplesDotnet.EntityFrameworkCore;
 using TestExamplesDotnet.Nunit;
 using TestExamplesDotnet.PostgreSql;
 using Vue.Backend.Sut;

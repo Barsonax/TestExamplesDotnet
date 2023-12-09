@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Migrations.MsSql.EntityFrameworkCore.Sut;
 using TestExamplesDotnet;
+using TestExamplesDotnet.EntityFrameworkCore;
 using TestExamplesDotnet.Mssql;
 using TestExamplesDotnet.Nunit;
 

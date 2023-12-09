@@ -90,6 +90,8 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "AngularAuth.Frontend.Sut", 
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Vue.Frontend.Sut", "Examples\Vue\Vue.Frontend.Sut\Vue.Frontend.Sut.esproj", "{13FE5A2F-CA1A-4B83-B82E-C05B679DD0DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamplesDotnet.EntityFrameworkCore", "TestExamplesDotnet.EntityFrameworkCore\TestExamplesDotnet.EntityFrameworkCore.csproj", "{A8EF269C-4C15-424E-AB00-FD4F7B0B5F13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -186,6 +188,10 @@ Global
 		{13FE5A2F-CA1A-4B83-B82E-C05B679DD0DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13FE5A2F-CA1A-4B83-B82E-C05B679DD0DD}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{13FE5A2F-CA1A-4B83-B82E-C05B679DD0DD}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{A8EF269C-4C15-424E-AB00-FD4F7B0B5F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8EF269C-4C15-424E-AB00-FD4F7B0B5F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8EF269C-4C15-424E-AB00-FD4F7B0B5F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8EF269C-4C15-424E-AB00-FD4F7B0B5F13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

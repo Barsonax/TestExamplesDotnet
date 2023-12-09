@@ -8,3 +8,18 @@
       - POSTGRES_DB=postgres
     ports:
       - "5432:5432"
+
+  cosmosdb:
+    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
+    container_name: "cosmosdb"
+    environment:
+      - AZURE_COSMOS_EMULATOR_PARTITION_COUNT=1
+      - AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE=true
+      - AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE=127.0.0.1
+    volumes:
+      - vol_cosmos:/tmp/cosmos/appdata
+    ports:
+      - 8081:8081
+
+volumes:
+  vol_cosmos:
