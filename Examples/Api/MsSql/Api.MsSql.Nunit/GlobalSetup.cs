@@ -2,6 +2,7 @@
 using Api.MsSql.Sut;
 using Microsoft.Extensions.DependencyInjection;
 using TestExamplesDotnet;
+using TestExamplesDotnet.EntityFrameworkCore;
 using TestExamplesDotnet.Mssql;
 using TestExamplesDotnet.Nunit;
 

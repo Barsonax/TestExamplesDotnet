@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using Razor.Playwright.TestSetup;
 using Razor.PostgreSql.Sut;
 using TestExamplesDotnet;
+using TestExamplesDotnet.EntityFrameworkCore;
 using TestExamplesDotnet.Nunit;
 using TestExamplesDotnet.PostgreSql;
 
