@@ -10,6 +10,12 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
         <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="8.0.0" />
+        <PackageReference Include="Testcontainers" Version="3.6.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\TestExamplesDotnet\TestExamplesDotnet.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,9 +1,0 @@
-{
-  "profiles": {
-    "CosmosDb.AzureFunction.Sut": {
-      "commandName": "Project",
-      "commandLineArgs": "--port 7198",
-      "launchBrowser": false
-    }
-  }
-}

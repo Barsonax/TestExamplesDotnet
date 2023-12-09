@@ -2,6 +2,7 @@
 using Api.PostgreSql.Xunit.TestSetup;
 using Microsoft.Extensions.DependencyInjection;
 using TestExamplesDotnet;
+using TestExamplesDotnet.EntityFrameworkCore;
 using TestExamplesDotnet.PostgreSql;
 using Xunit.DependencyInjection.Logging;
 

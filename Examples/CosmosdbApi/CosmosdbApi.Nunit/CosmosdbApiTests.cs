@@ -1,4 +1,5 @@
 using CosmosdbApi.Nunit.TestSetup;
+using CosmosdbApi.Sut;
 
 namespace CosmosdbApi.Nunit;
 
@@ -8,9 +9,9 @@ public class CosmosdbApiTests : TestBase
     public async Task GetBlogs_ShouldReturnExpectedBlogs()
     {
         //Arrange
-        await Sut.SeedDataAsync(async context =>
+        await Sut.SeedDataAsync(async database =>
         {
-            var container = context.GetContainer("CosmosdbApi", "Blogs");
+            var container = database.GetContainer("Blogs");
             await container.UpsertItemAsync(new Blog
             {
                 Id = "1",

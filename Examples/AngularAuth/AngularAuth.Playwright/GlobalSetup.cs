@@ -4,6 +4,7 @@ using AngularAuth.Playwright.TestSetup;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using TestExamplesDotnet;
+using TestExamplesDotnet.EntityFrameworkCore;
 using TestExamplesDotnet.PostgreSql;
 
 [assembly: FixtureLifeCycle(LifeCycle.InstancePerTestCase)]

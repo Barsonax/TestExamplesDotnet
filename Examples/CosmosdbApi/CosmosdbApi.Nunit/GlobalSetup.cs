@@ -1,11 +1,10 @@
 ﻿using CosmosdbApi.Nunit.TestSetup;
 using Microsoft.Extensions.DependencyInjection;
-using Testcontainers.CosmosDb;
-using TestExamplesDotnet;
+using TestExamplesDotnet.CosmosDb;
 using TestExamplesDotnet.Nunit;
 
 [assembly: FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
-[assembly: Parallelizable(ParallelScope.Children)]
+[assembly: Parallelizable(ParallelScope.None)] // Unfortunately the cosmos db emulator will give 503 errors if we stress it too much
 
 namespace CosmosdbApi.Nunit;
 
@@ -20,18 +19,7 @@ public class GlobalSetup
     {
         var services = new ServiceCollection();
 
-        var cosmosDbContainer = new CosmosDbBuilder()
-            .WithImage("mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest")
-            .WithEnvironment(new Dictionary<string, string>
-            {
-                { "AZURE_COSMOS_EMULATOR_PARTITION_COUNT", "1" },
-                { "AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE", "127.0.0.1" }
-            })
-            .WithPortBinding("8081", "8081")
-            .Build();
-        Utils.RunWithoutSynchronizationContext(() => cosmosDbContainer.StartAsync().Wait());
-
-        services.AddSingleton(cosmosDbContainer);
+        services.RegisterCosmosDbContainer();
         services.AddLogging(x => x.AddNunitLogging());
         services.AddScoped<CosmosdbApiSut>();
         _serviceProvider = services.BuildServiceProvider();

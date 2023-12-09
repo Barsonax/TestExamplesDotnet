@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TestExamplesDotnet.EntityFrameworkCore\TestExamplesDotnet.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\TestExamplesDotnet\TestExamplesDotnet.csproj"/>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Testcontainers.MsSql" Version="3.6.0" />
-    <PackageReference Include="Respawn" Version="6.1.0" />
+    <PackageReference Include="Testcontainers.CosmosDb" Version="3.6.0"/>
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.34.0" />
   </ItemGroup>
 
 </Project>
