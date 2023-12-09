@@ -16,7 +16,9 @@ builder.Services.AddSingleton<CosmosClient>(_ =>
             PooledConnectionLifetime = TimeSpan.FromMinutes(5),
             SslOptions = new SslClientAuthenticationOptions
             {
+#pragma warning disable CA5359
                 RemoteCertificateValidationCallback = (sender, certificate, chain, errors) => true,
+#pragma warning restore CA5359
             },
         }, disposeHandler: false)
     };
