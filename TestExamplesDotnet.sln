@@ -91,6 +91,9 @@ EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Vue.Frontend.Sut", "Examples\Vue\Vue.Frontend.Sut\Vue.Frontend.Sut.esproj", "{13FE5A2F-CA1A-4B83-B82E-C05B679DD0DD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CosmosdbApi", "CosmosdbApi", "{634BEF50-3023-483C-A5B9-5504D884D48C}"
+	ProjectSection(SolutionItems) = preProject
+		Examples\CosmosdbApi\Readme.md = Examples\CosmosdbApi\Readme.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmosdbApi.Sut", "Examples\CosmosdbApi\CosmosdbApi.Sut\CosmosdbApi.Sut.csproj", "{93603E3D-6927-4A55-BEF4-9C22D6B428DB}"
 EndProject
