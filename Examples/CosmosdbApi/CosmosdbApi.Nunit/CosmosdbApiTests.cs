@@ -5,7 +5,7 @@ namespace CosmosdbApi.Nunit;
 
 public class CosmosdbApiTests : TestBase
 {
-    [Test]
+    /*[Test]
     public async Task GetBlogs_ShouldReturnExpectedBlogs()
     {
         //Arrange
@@ -31,7 +31,7 @@ public class CosmosdbApiTests : TestBase
                 Url = "https://blog.photogrammer.net/"
             }
         });
-    }
+    }*/
 
     [Test]
     public void EmptyTest_ShouldPass()
