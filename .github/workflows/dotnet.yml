@@ -8,10 +8,6 @@ on:
     branches: [ "master", "feature/*" ]
     paths-ignore:
       - '**.md'
-  pull_request:
-    branches: [ "master" ]
-    paths-ignore:
-      - '**.md'
 
 jobs:
   BuildSolution:
@@ -20,168 +16,66 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v4
       with:
-        node-version: 20
+        node-version-file: '.nvmrc'
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         global-json-file: global.json
+    - name: Cache npm packages
+      id: cache-npm
+      uses: actions/cache@v3
+      with:
+        path: |
+          **/node_modules
+        key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json', '.nvmrc') }}
+    - name: Cache nuget packages
+      id: cache-nuget
+      uses: actions/cache@v3
+      with:
+        path: |
+         ~/.nuget/packages
+         **/obj/*
+        key: ${{ runner.os }}-nuget_obj-${{ hashFiles('**/*.csproj', 'global.json', 'Directory.Build.props') }}
     - name: Restore dependencies
+      if: steps.cache-nuget.outputs.cache-hit != 'true'
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore -warnaserror -warnnotaserror:CS0618
+      run: dotnet build --configuration Release --no-restore -warnaserror -warnnotaserror:CS0618,CS0612
   MigrationsMsSqlEntityFrameworkCore:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Examples/Migrations.MsSql.EntityFrameworkCore/Migrations.MsSql.EntityFrameworkCore.Nunit
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          global-json-file: global.json
-      - name: Restore dependencies
-        run: dotnet restore
-      - name: Build
-        run: dotnet build --no-restore -warnaserror
-      - name: Test
-        run: dotnet test --no-build --verbosity normal
+    uses: ./.github/workflows/build_and_test.yml
+    with:
+      working-directory: ./Examples/Migrations.MsSql.EntityFrameworkCore/Migrations.MsSql.EntityFrameworkCore.Nunit
   ApiMsSqlNunit:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Examples/Api/MsSql/Api.MsSql.Nunit
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        global-json-file: global.json
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore -warnaserror
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    uses: ./.github/workflows/build_and_test.yml
+    with:
+      working-directory: ./Examples/Api/MsSql/Api.MsSql.Nunit
   ApiMsSqlXunit:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Examples/Api/MsSql/Api.MsSql.Xunit
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        global-json-file: global.json
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore -warnaserror
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    uses: ./.github/workflows/build_and_test.yml
+    with:
+      working-directory: ./Examples/Api/MsSql/Api.MsSql.Xunit
   ApiPostgreSqlNunit:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Examples/Api/PostgreSql/Api.PostgreSql.Nunit
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        global-json-file: global.json
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore -warnaserror
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    uses: ./.github/workflows/build_and_test.yml
+    with:
+      working-directory: ./Examples/Api/PostgreSql/Api.PostgreSql.Nunit
   ApiPostgreSqlXunit:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Examples/Api/PostgreSql/Api.PostgreSql.Xunit
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        global-json-file: global.json
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore -warnaserror
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    uses: ./.github/workflows/build_and_test.yml
+    with:
+      working-directory: ./Examples/Api/PostgreSql/Api.PostgreSql.Xunit
   ApiJwtAuthNunit:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Examples/ApiJwtAuth/ApiJwtAuth.Nunit
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        global-json-file: global.json
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore -warnaserror
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    uses: ./.github/workflows/build_and_test.yml
+    with:
+      working-directory: ./Examples/ApiJwtAuth/ApiJwtAuth.Nunit
   RazorPlaywright:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Examples/Razor/Razor.Playwright
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        global-json-file: global.json
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore -warnaserror
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    uses: ./.github/workflows/build_and_test.yml
+    with:
+      working-directory: ./Examples/Razor/Razor.Playwright
   VuePlaywright:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Examples/Vue/Vue.Playwright
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        global-json-file: global.json
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore -warnaserror
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    uses: ./.github/workflows/build_and_test.yml
+    with:
+      setup-node: true
+      working-directory: ./Examples/Vue/Vue.Playwright
   AngularAuthPlaywright:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Examples/AngularAuth/AngularAuth.Playwright
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          global-json-file: global.json
-      - name: Restore dependencies
-        run: dotnet restore
-      - name: Build
-        run: dotnet build --no-restore -warnaserror
-      - name: Test
-        run: dotnet test --no-build --verbosity normal
+    uses: ./.github/workflows/build_and_test.yml
+    with:
+      setup-node: true
+      working-directory: ./Examples/AngularAuth/AngularAuth.Playwright

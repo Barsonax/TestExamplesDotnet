@@ -1,0 +1,31 @@
+﻿on:
+  workflow_call:
+    inputs:
+      setup-node:
+        type: boolean
+      working-directory:
+        required: true
+        type: string
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        if: inputs.setup-node == true
+        with:
+          node-version: 20
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          global-json-file: global.json
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore -warnaserror -warnnotaserror:CS0618,CS0612
+      - name: Test
+        run: dotnet test --configuration Release --no-build --verbosity normal
