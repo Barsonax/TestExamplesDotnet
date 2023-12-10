@@ -31,6 +31,7 @@ jobs:
         name: my-artifact
         path: |
           ./**/bin/*
+          ./**/obj/*
           !**/node_modules
   MigrationsMsSqlEntityFrameworkCore:
     runs-on: ubuntu-latest
