@@ -46,107 +46,29 @@ jobs:
     with:
       working-directory: ./Examples/Migrations.MsSql.EntityFrameworkCore/Migrations.MsSql.EntityFrameworkCore.Nunit
   ApiMsSqlNunit:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Examples/Api/MsSql/Api.MsSql.Nunit
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        global-json-file: global.json
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore -warnaserror
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    uses: ./.github/workflows/build_and_test.yml
+    with:
+      working-directory: ./Examples/Api/MsSql/Api.MsSql.Nunit
   ApiMsSqlXunit:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Examples/Api/MsSql/Api.MsSql.Xunit
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        global-json-file: global.json
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore -warnaserror
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    uses: ./.github/workflows/build_and_test.yml
+    with:
+      working-directory: ./Examples/Api/MsSql/Api.MsSql.Xunit
   ApiPostgreSqlNunit:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Examples/Api/PostgreSql/Api.PostgreSql.Nunit
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        global-json-file: global.json
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore -warnaserror
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    uses: ./.github/workflows/build_and_test.yml
+    with:
+      working-directory: ./Examples/Api/PostgreSql/Api.PostgreSql.Nunit
   ApiPostgreSqlXunit:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Examples/Api/PostgreSql/Api.PostgreSql.Xunit
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        global-json-file: global.json
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore -warnaserror
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    uses: ./.github/workflows/build_and_test.yml
+    with:
+      working-directory: ./Examples/Api/PostgreSql/Api.PostgreSql.Xunit
   ApiJwtAuthNunit:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Examples/ApiJwtAuth/ApiJwtAuth.Nunit
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        global-json-file: global.json
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore -warnaserror
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    uses: ./.github/workflows/build_and_test.yml
+    with:
+      working-directory: ./Examples/ApiJwtAuth/ApiJwtAuth.Nunit
   RazorPlaywright:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Examples/Razor/Razor.Playwright
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        global-json-file: global.json
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore -warnaserror
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    uses: ./.github/workflows/build_and_test.yml
+    with:
+      working-directory: ./Examples/Razor/Razor.Playwright
   VuePlaywright:
     runs-on: ubuntu-latest
     defaults:
