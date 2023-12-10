@@ -21,6 +21,10 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         global-json-file: global.json
+    - uses: actions/cache@v3
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', 'global.json', 'Directory.Build.props') }}
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
