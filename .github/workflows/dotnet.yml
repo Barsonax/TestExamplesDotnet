@@ -52,7 +52,7 @@ jobs:
         with:
           global-json-file: global.json
       - name: Verify code formatting
-        run: dotnet format --no-restore --verify-no-changes
+        run: dotnet format --no-restore --verify-no-changes -v diag
   MigrationsMsSqlEntityFrameworkCore:
     uses: ./.github/workflows/build_and_test.yml
     with:
