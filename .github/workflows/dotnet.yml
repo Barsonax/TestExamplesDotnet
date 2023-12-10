@@ -28,7 +28,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore -warnaserror -warnnotaserror:CS0618
+      run: dotnet build --configuration Release --no-restore -warnaserror -warnnotaserror:CS0618
     - uses: actions/upload-artifact@v4-beta
       with:
         name: Example artifacts
