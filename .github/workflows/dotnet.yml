@@ -5,6 +5,7 @@ name: .NET
 
 on:
   push:
+  pull_request:
     branches: [ "master", "feature/*" ]
     paths-ignore:
       - '**.md'
