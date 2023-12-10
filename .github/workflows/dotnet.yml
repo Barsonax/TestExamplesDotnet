@@ -43,6 +43,16 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore -warnaserror -warnnotaserror:CS0618,CS0612
+  VerifyStyle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          global-json-file: global.json
+      - name: Verify code formatting
+        run: dotnet format --no-restore --verify-no-changes
   MigrationsMsSqlEntityFrameworkCore:
     uses: ./.github/workflows/build_and_test.yml
     with:
