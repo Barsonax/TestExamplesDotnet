@@ -26,7 +26,7 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore -warnaserror -warnnotaserror:CS0618
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4-beta
       with:
         name: my-artifact
         path: ./**/bin/*
