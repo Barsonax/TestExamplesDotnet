@@ -1,6 +1,8 @@
 ﻿on:
   workflow_call:
     inputs:
+      setup-node:
+        type: boolean
       working-directory:
         required: true
         type: string
@@ -13,6 +15,10 @@ jobs:
         working-directory: ${{ inputs.working-directory }}
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        if: inputs.setup-node == true
+        with:
+          node-version: 20
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
