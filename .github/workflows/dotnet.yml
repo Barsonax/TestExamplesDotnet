@@ -21,6 +21,13 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         global-json-file: global.json
+    - name: Cache npm packages
+      id: cache-npm
+      uses: actions/cache@v3
+      with:
+        path: |
+          **/node_modules
+        key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
     - name: Cache nuget packages
       id: cache-nuget
       uses: actions/cache@v3
@@ -34,14 +41,6 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore -warnaserror -warnnotaserror:CS0618
-    - uses: actions/upload-artifact@v4-beta
-      with:
-        name: Example artifacts
-        path: |
-          ./Examples/**/bin/*
-          ./Examples/**/obj/*
-          !**/*.Sut
-          !**/node_modules
   MigrationsMsSqlEntityFrameworkCore:
     runs-on: ubuntu-latest
     defaults:
