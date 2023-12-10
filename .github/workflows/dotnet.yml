@@ -29,7 +29,9 @@ jobs:
     - uses: actions/upload-artifact@v4-beta
       with:
         name: my-artifact
-        path: ./**/bin/*
+        path: |
+          ./**/bin/*
+          !**/node_modules
   MigrationsMsSqlEntityFrameworkCore:
     runs-on: ubuntu-latest
     defaults:
