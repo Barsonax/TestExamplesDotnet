@@ -20,6 +20,6 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build --configuration Release --no-restore -warnaserror -warnnotaserror:CS0618;CS0612
+        run: dotnet build --configuration Release --no-restore -warnaserror -warnnotaserror:CS0618,CS0612
       - name: Test
         run: dotnet test --configuration Release --no-build --verbosity normal
