@@ -90,6 +90,7 @@ csharp_style_namespace_declarations = file_scoped:warning
 dotnet_sort_system_directives_first = true
 csharp_preserve_single_line_blocks = true
 csharp_preserve_single_line_statements = false
+csharp_style_prefer_primary_constructors = false
 
 # Expression-level preferences
 dotnet_style_object_initializer = true:suggestion

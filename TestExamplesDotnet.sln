@@ -93,6 +93,10 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Vue.Frontend.Sut", "Example
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestExamplesDotnet.EntityFrameworkCore", "TestExamplesDotnet.EntityFrameworkCore\TestExamplesDotnet.EntityFrameworkCore.csproj", "{A8EF269C-4C15-424E-AB00-FD4F7B0B5F13}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureFunction", "AzureFunction", "{E700E671-F1E6-48BE-8771-35976CB26E5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunction.Sut", "Examples\AzureFunction\AzureFunction.Sut\AzureFunction.Sut.csproj", "{E3FD6459-8DFF-4555-8B22-8B653E01F79F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -193,6 +197,10 @@ Global
 		{A8EF269C-4C15-424E-AB00-FD4F7B0B5F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8EF269C-4C15-424E-AB00-FD4F7B0B5F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8EF269C-4C15-424E-AB00-FD4F7B0B5F13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3FD6459-8DFF-4555-8B22-8B653E01F79F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3FD6459-8DFF-4555-8B22-8B653E01F79F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3FD6459-8DFF-4555-8B22-8B653E01F79F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3FD6459-8DFF-4555-8B22-8B653E01F79F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -224,6 +232,8 @@ Global
 		{C71FF336-C9C8-4883-A8BF-521F6C378631} = {954C3F42-2996-4570-8483-F65993B6B80D}
 		{122D8E51-7E45-4C83-BF43-15868214DF6A} = {954C3F42-2996-4570-8483-F65993B6B80D}
 		{13FE5A2F-CA1A-4B83-B82E-C05B679DD0DD} = {42CF9A64-C1CC-4F8A-91EC-D46B948F0BF6}
+		{E700E671-F1E6-48BE-8771-35976CB26E5D} = {FB8382F9-4F4C-4080-ACD6-7112A55C2D65}
+		{E3FD6459-8DFF-4555-8B22-8B653E01F79F} = {E700E671-F1E6-48BE-8771-35976CB26E5D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {84A1D680-ABEE-46A5-B342-CD8C47FC5AB0}
