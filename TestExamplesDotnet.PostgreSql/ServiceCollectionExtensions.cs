@@ -16,8 +16,11 @@ public static class ServiceCollectionExtensions
         });
         services.AddTransient<IPooledObjectPolicy<IDatabase>, PostgreSqlDatabasePoolPolicy>();
 
-        var container = new PostgreSqlBuilder().Build();
+        var container = new PostgreSqlBuilder()
+            .WithReuse(true)
+            .Build();
         Utils.RunWithoutSynchronizationContext(() => container.StartAsync().Wait());
+
         services.AddSingleton(container);
     }
 }

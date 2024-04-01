@@ -13,11 +13,11 @@ public sealed class PostgreSqlDatabase : IDatabase
     private bool _initialized;
     public string ConnectionString { get; }
 
-    public PostgreSqlDatabase(PostgreSqlContainer container, IDatabaseInitializer databaseInitializer, RespawnerOptions respawnerOptions)
+    public PostgreSqlDatabase(PostgreSqlContainer container, IDatabaseInitializer databaseInitializer, RespawnerOptions respawnerOptions, IDataBaseNameGenerator dataBaseNameGenerator)
     {
         _databaseInitializer = databaseInitializer;
         _respawnerOptions = respawnerOptions;
-        ConnectionString = $"Host=127.0.0.1;Port={container.GetMappedPublicPort(5432)};Database={Guid.NewGuid()};Username=postgres;Password=postgres;Include Error Detail=true";
+        ConnectionString = $"Host=127.0.0.1;Port={container.GetMappedPublicPort(5432)};Database={dataBaseNameGenerator.GetDataBaseName()};Username=postgres;Password=postgres;Include Error Detail=true";
     }
 
     public void Initialize(IHost host)

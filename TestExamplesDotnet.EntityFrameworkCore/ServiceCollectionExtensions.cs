@@ -9,5 +9,6 @@ public static class ServiceCollectionExtensions
         where TContext : DbContext
     {
         services.AddTransient<IDatabaseInitializer, DbContextMigrationInitializer<TContext>>();
+        services.AddSingleton<IDataBaseNameGenerator, DataBaseNameGenerator<TContext>>();
     }
 }
