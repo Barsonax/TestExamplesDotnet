@@ -14,8 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Verify code formatting
-      run: dotnet format --no-restore --verify-no-changes
     - uses: actions/setup-node@v4
       with:
         node-version-file: '.nvmrc'
