@@ -20,7 +20,10 @@ public sealed class PooledDatabase : IAsyncDisposable
     public void EnsureDatabaseIsReadyForTest(IHost host)
     {
         _database.Initialize(host);
-        _database.Clean().GetAwaiter().GetResult();
+        Utils.RunWithoutSynchronizationContext(() =>
+        {
+            _database.Clean().GetAwaiter().GetResult();
+        });
     }
 
     public async ValueTask DisposeAsync()
