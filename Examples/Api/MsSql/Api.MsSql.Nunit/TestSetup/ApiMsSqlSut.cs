@@ -37,7 +37,7 @@ public sealed class ApiMsSqlSut : WebApplicationFactory<Program>
         });
 
         var app = base.CreateHost(builder);
-        _pooledDatabase.EnsureInitialized(app);
+        _pooledDatabase.EnsureDatabaseIsReadyForTest(app);
 
         return app;
     }

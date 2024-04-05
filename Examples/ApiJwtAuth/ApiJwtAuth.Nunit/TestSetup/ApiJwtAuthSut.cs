@@ -44,7 +44,7 @@ public sealed class ApiJwtAuthSut : WebApplicationFactory<Program>
         });
 
         var app = base.CreateHost(builder);
-        _pooledDatabase.EnsureInitialized(app);
+        _pooledDatabase.EnsureDatabaseIsReadyForTest(app);
 
         return app;
     }

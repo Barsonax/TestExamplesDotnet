@@ -90,7 +90,7 @@ public sealed class AngularAuthSut : WebApplicationFactory<Program>
         // enough" for the address it is listening on to be available.
         _host = builder.Build();
         _host.Start();
-        _pooledDatabase.EnsureInitialized(_host);
+        _pooledDatabase.EnsureDatabaseIsReadyForTest(_host);
 
         // Extract the selected dynamic port out of the Kestrel server
         // and assign it onto the client options for convenience so it

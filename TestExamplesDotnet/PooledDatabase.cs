@@ -17,14 +17,14 @@ public sealed class PooledDatabase : IAsyncDisposable
 
     public string ConnectionString => _database.ConnectionString;
 
-    public void EnsureInitialized(IHost host)
+    public void EnsureDatabaseIsReadyForTest(IHost host)
     {
         _database.Initialize(host);
+        _database.Clean().GetAwaiter().GetResult();
     }
 
     public async ValueTask DisposeAsync()
     {
-        await _database.Clean();
         _pool.Return(_database);
     }
 }
