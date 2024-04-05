@@ -6,9 +6,8 @@ namespace TestExamplesDotnet.EntityFrameworkCore;
 public static class ServiceCollectionExtensions
 {
     public static void RegisterMigrationInitializer<TContext>(this IServiceCollection services)
-        where TContext : DbContext
+        where TContext : DbContext, new()
     {
-        services.AddTransient<IDatabaseInitializer, DbContextMigrationInitializer<TContext>>();
-        services.AddSingleton<IDataBaseNameGenerator, DataBaseNameGenerator<TContext>>();
+        services.AddSingleton<IDatabaseInitializer, DbContextMigrationInitializer<TContext>>();
     }
 }
