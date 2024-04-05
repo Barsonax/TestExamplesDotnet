@@ -10,7 +10,6 @@ public sealed class PostgreSqlDatabasePoolPolicy : IPooledObjectPolicy<IDatabase
     private readonly IDatabaseInitializer _databaseInitializer;
     private readonly RespawnerOptions _respawnerOptions;
 
-
     public PostgreSqlDatabasePoolPolicy(PostgreSqlContainer container, IDatabaseInitializer databaseInitializer, RespawnerOptions respawnerOptions)
     {
         _container = container;

@@ -18,10 +18,10 @@ public sealed class MsSqlDatabase : IDatabase
     {
         _databaseInitializer = databaseInitializer;
         _respawnerOptions = respawnerOptions;
-        ConnectionString = $"Server=127.0.0.1,{container.GetMappedPublicPort(1433)};Database={Guid.NewGuid()};User Id=sa;Password=yourStrong(!)Password;TrustServerCertificate=True";
+        ConnectionString = $"Server=127.0.0.1,{container.GetMappedPublicPort(1433)};Database={databaseInitializer.GetUniqueDataBaseName()};User Id=sa;Password=yourStrong(!)Password;TrustServerCertificate=True";
     }
 
-    public void Initialize(IHost host)
+    public void EnsureInitialized(IHost host)
     {
         if (!_initialized)
         {
@@ -30,16 +30,13 @@ public sealed class MsSqlDatabase : IDatabase
         }
     }
 
-    public async ValueTask Clean()
+    public async Task Clean()
     {
-        if (_initialized)
-        {
-            await using var conn = new SqlConnection(ConnectionString);
-            await conn.OpenAsync();
+        await using var conn = new SqlConnection(ConnectionString);
+        await conn.OpenAsync();
 
-            _respawner ??= await Respawner.CreateAsync(conn, _respawnerOptions);
+        _respawner ??= await Respawner.CreateAsync(conn, _respawnerOptions);
 
-            await _respawner.ResetAsync(conn);
-        }
+        await _respawner.ResetAsync(conn);
     }
 }

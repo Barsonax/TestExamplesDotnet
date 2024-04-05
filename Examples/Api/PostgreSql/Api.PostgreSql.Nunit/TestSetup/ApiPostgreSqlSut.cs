@@ -37,15 +37,15 @@ public sealed class ApiPostgreSqlSut : WebApplicationFactory<Program>
         });
 
         var app = base.CreateHost(builder);
-        _pooledDatabase.EnsureInitialized(app);
+        _pooledDatabase.EnsureDatabaseIsReadyForTest(app);
 
         return app;
     }
 
-    public override async ValueTask DisposeAsync()
+    protected override void Dispose(bool disposing)
     {
-        await base.DisposeAsync();
-        await _pooledDatabase.DisposeAsync();
+        base.Dispose(disposing);
+        _pooledDatabase.Dispose();
     }
 
     public void SeedData(Action<BloggingContext> seedAction)

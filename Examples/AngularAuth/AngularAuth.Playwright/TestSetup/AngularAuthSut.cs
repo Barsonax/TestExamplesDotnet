@@ -56,10 +56,7 @@ public sealed class AngularAuthSut : WebApplicationFactory<Program>
         builder.UseEnvironment(Environments.Production);
         builder.ConfigureHostConfiguration(config =>
         {
-            config.AddInMemoryCollection(new Dictionary<string, string?>
-            {
-                { "DbConnectionString", _pooledDatabase.ConnectionString }
-            });
+            config.AddInMemoryCollection(new Dictionary<string, string?> { { "DbConnectionString", _pooledDatabase.ConnectionString } });
         });
 
         builder.ConfigureLogging(loggingBuilder =>
@@ -90,7 +87,7 @@ public sealed class AngularAuthSut : WebApplicationFactory<Program>
         // enough" for the address it is listening on to be available.
         _host = builder.Build();
         _host.Start();
-        _pooledDatabase.EnsureInitialized(_host);
+        _pooledDatabase.EnsureDatabaseIsReadyForTest(_host);
 
         // Extract the selected dynamic port out of the Kestrel server
         // and assign it onto the client options for convenience so it
@@ -111,12 +108,6 @@ public sealed class AngularAuthSut : WebApplicationFactory<Program>
         return testHost;
     }
 
-    public override async ValueTask DisposeAsync()
-    {
-        await base.DisposeAsync();
-        await _pooledDatabase.DisposeAsync();
-    }
-
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);
@@ -128,6 +119,7 @@ public sealed class AngularAuthSut : WebApplicationFactory<Program>
                 _host?.Dispose();
             }
 
+            _pooledDatabase.Dispose();
             _disposed = true;
         }
     }

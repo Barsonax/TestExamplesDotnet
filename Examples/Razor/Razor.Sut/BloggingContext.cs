@@ -4,15 +4,20 @@ namespace Razor.PostgreSql.Sut;
 
 public class BloggingContext : DbContext
 {
+    private readonly string? _connectionString;
     public DbSet<Blog> Blogs => Set<Blog>();
     public DbSet<Post> Posts => Set<Post>();
 
-    public BloggingContext()
+    public BloggingContext() { }
+
+    public BloggingContext(IConfiguration configuration)
     {
+        _connectionString = configuration["DbConnectionString"];
     }
 
-    public BloggingContext(DbContextOptions<BloggingContext> context) : base(context)
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+        optionsBuilder.UseNpgsql(_connectionString);
     }
 }
 

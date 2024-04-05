@@ -49,7 +49,7 @@ public class MigrationTests
     {
         public IEnumerator GetEnumerator()
         {
-            using DbContext context = new BloggingContext(new DbContextOptionsBuilder<BloggingContext>().UseSqlServer().Options);
+            using DbContext context = new BloggingContext();
             var migrations = context.GenerateMigrationScripts();
 
             foreach (var migration in migrations)

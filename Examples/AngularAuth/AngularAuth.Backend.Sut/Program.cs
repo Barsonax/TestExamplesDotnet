@@ -8,10 +8,7 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions()
     WebRootPath = "wwwroot/browser"
 });
 
-builder.Services.AddDbContext<BloggingContext>(options =>
-{
-    options.UseNpgsql(builder.Configuration["DbConnectionString"]);
-});
+builder.Services.AddDbContext<BloggingContext>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme);

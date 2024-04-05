@@ -3,7 +3,7 @@ using Microsoft.Extensions.ObjectPool;
 
 namespace TestExamplesDotnet;
 
-public sealed class PooledDatabase : IAsyncDisposable
+public sealed class PooledDatabase : IDisposable
 {
     private readonly IDatabase _database;
 
@@ -17,14 +17,18 @@ public sealed class PooledDatabase : IAsyncDisposable
 
     public string ConnectionString => _database.ConnectionString;
 
-    public void EnsureInitialized(IHost host)
+    public void EnsureDatabaseIsReadyForTest(IHost host)
     {
-        _database.Initialize(host);
+        _database.EnsureInitialized(host);
+        // Clean the database before and not after the test so that after a test is run you can inspect the database.
+        Utils.RunWithoutSynchronizationContext(() =>
+        {
+            _database.Clean().GetAwaiter().GetResult();
+        });
     }
 
-    public async ValueTask DisposeAsync()
+    public void Dispose()
     {
-        await _database.Clean();
         _pool.Return(_database);
     }
 }

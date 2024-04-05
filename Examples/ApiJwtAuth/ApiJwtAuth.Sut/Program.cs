@@ -10,10 +10,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
-builder.Services.AddDbContext<BloggingContext>(options =>
-{
-    options.UseNpgsql(builder.Configuration["DbConnectionString"]);
-});
+builder.Services.AddDbContext<BloggingContext>();
 
 var app = builder.Build();
 

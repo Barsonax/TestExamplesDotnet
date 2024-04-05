@@ -10,7 +10,6 @@ public sealed class MsSqlDatabasePoolPolicy : IPooledObjectPolicy<IDatabase>
     private readonly IDatabaseInitializer _databaseInitializer;
     private readonly RespawnerOptions _respawnerOptions;
 
-
     public MsSqlDatabasePoolPolicy(MsSqlContainer container, IDatabaseInitializer databaseInitializer, RespawnerOptions respawnerOptions)
     {
         _container = container;

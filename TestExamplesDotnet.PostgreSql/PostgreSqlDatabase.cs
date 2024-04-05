@@ -17,10 +17,10 @@ public sealed class PostgreSqlDatabase : IDatabase
     {
         _databaseInitializer = databaseInitializer;
         _respawnerOptions = respawnerOptions;
-        ConnectionString = $"Host=127.0.0.1;Port={container.GetMappedPublicPort(5432)};Database={Guid.NewGuid()};Username=postgres;Password=postgres;Include Error Detail=true";
+        ConnectionString = $"Host=127.0.0.1;Port={container.GetMappedPublicPort(5432)};Database={databaseInitializer.GetUniqueDataBaseName()};Username=postgres;Password=postgres;Include Error Detail=true";
     }
 
-    public void Initialize(IHost host)
+    public void EnsureInitialized(IHost host)
     {
         if (!_initialized)
         {
@@ -29,16 +29,13 @@ public sealed class PostgreSqlDatabase : IDatabase
         }
     }
 
-    public async ValueTask Clean()
+    public async Task Clean()
     {
-        if (_initialized)
-        {
-            await using var conn = new NpgsqlConnection(ConnectionString);
-            await conn.OpenAsync();
+        await using var conn = new NpgsqlConnection(ConnectionString);
+        await conn.OpenAsync();
 
-            _respawner ??= await Respawner.CreateAsync(conn, _respawnerOptions);
+        _respawner ??= await Respawner.CreateAsync(conn, _respawnerOptions);
 
-            await _respawner.ResetAsync(conn);
-        }
+        await _respawner.ResetAsync(conn);
     }
 }
