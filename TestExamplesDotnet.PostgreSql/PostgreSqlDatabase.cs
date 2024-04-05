@@ -20,7 +20,7 @@ public sealed class PostgreSqlDatabase : IDatabase
         ConnectionString = $"Host=127.0.0.1;Port={container.GetMappedPublicPort(5432)};Database={databaseInitializer.GetUniqueDataBaseName()};Username=postgres;Password=postgres;Include Error Detail=true";
     }
 
-    public void Initialize(IHost host)
+    public void EnsureInitialized(IHost host)
     {
         if (!_initialized)
         {

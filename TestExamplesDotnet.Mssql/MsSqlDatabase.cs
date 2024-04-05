@@ -21,7 +21,7 @@ public sealed class MsSqlDatabase : IDatabase
         ConnectionString = $"Server=127.0.0.1,{container.GetMappedPublicPort(1433)};Database={databaseInitializer.GetUniqueDataBaseName()};User Id=sa;Password=yourStrong(!)Password;TrustServerCertificate=True";
     }
 
-    public void Initialize(IHost host)
+    public void EnsureInitialized(IHost host)
     {
         if (!_initialized)
         {

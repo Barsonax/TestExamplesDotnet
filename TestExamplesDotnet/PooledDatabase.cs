@@ -19,7 +19,8 @@ public sealed class PooledDatabase : IAsyncDisposable
 
     public void EnsureDatabaseIsReadyForTest(IHost host)
     {
-        _database.Initialize(host);
+        _database.EnsureInitialized(host);
+        // Clean the database before and not after the test so that after a test is run you can inspect the database.
         Utils.RunWithoutSynchronizationContext(() =>
         {
             _database.Clean().GetAwaiter().GetResult();
