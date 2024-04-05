@@ -3,7 +3,7 @@ using Microsoft.Extensions.ObjectPool;
 
 namespace TestExamplesDotnet;
 
-public sealed class PooledDatabase : IAsyncDisposable
+public sealed class PooledDatabase : IDisposable
 {
     private readonly IDatabase _database;
 
@@ -27,9 +27,8 @@ public sealed class PooledDatabase : IAsyncDisposable
         });
     }
 
-    public ValueTask DisposeAsync()
+    public void Dispose()
     {
         _pool.Return(_database);
-        return ValueTask.CompletedTask;
     }
 }

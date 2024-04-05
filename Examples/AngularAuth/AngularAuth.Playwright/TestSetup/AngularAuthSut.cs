@@ -56,10 +56,7 @@ public sealed class AngularAuthSut : WebApplicationFactory<Program>
         builder.UseEnvironment(Environments.Production);
         builder.ConfigureHostConfiguration(config =>
         {
-            config.AddInMemoryCollection(new Dictionary<string, string?>
-            {
-                { "DbConnectionString", _pooledDatabase.ConnectionString }
-            });
+            config.AddInMemoryCollection(new Dictionary<string, string?> { { "DbConnectionString", _pooledDatabase.ConnectionString } });
         });
 
         builder.ConfigureLogging(loggingBuilder =>
@@ -111,12 +108,6 @@ public sealed class AngularAuthSut : WebApplicationFactory<Program>
         return testHost;
     }
 
-    public override async ValueTask DisposeAsync()
-    {
-        await base.DisposeAsync();
-        await _pooledDatabase.DisposeAsync();
-    }
-
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);
@@ -128,6 +119,7 @@ public sealed class AngularAuthSut : WebApplicationFactory<Program>
                 _host?.Dispose();
             }
 
+            _pooledDatabase.Dispose();
             _disposed = true;
         }
     }

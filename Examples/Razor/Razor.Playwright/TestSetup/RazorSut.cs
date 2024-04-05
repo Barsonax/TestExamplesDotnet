@@ -107,12 +107,6 @@ public sealed class RazorSut : WebApplicationFactory<Program>
         return testHost;
     }
 
-    public override async ValueTask DisposeAsync()
-    {
-        await base.DisposeAsync();
-        await _pooledDatabase.DisposeAsync();
-    }
-
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);
@@ -123,7 +117,7 @@ public sealed class RazorSut : WebApplicationFactory<Program>
             {
                 _host?.Dispose();
             }
-
+            _pooledDatabase.Dispose();
             _disposed = true;
         }
     }

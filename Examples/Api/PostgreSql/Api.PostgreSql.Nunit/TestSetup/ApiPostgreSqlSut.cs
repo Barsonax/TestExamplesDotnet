@@ -42,10 +42,10 @@ public sealed class ApiPostgreSqlSut : WebApplicationFactory<Program>
         return app;
     }
 
-    public override async ValueTask DisposeAsync()
+    protected override void Dispose(bool disposing)
     {
-        await base.DisposeAsync();
-        await _pooledDatabase.DisposeAsync();
+        base.Dispose(disposing);
+        _pooledDatabase.Dispose();
     }
 
     public void SeedData(Action<BloggingContext> seedAction)
