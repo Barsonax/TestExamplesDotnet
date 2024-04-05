@@ -26,8 +26,9 @@ public sealed class PooledDatabase : IAsyncDisposable
         });
     }
 
-    public async ValueTask DisposeAsync()
+    public ValueTask DisposeAsync()
     {
         _pool.Return(_database);
+        return ValueTask.CompletedTask;
     }
 }
