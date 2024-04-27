@@ -10,7 +10,7 @@ public class BloggingContext : DbContext
 
     public BloggingContext() { }
 
-    public BloggingContext(IConfiguration configuration)
+    public BloggingContext(DbContextOptions<BloggingContext> context, IConfiguration configuration) : base(context)
     {
         _connectionString = configuration["DbConnectionString"];
     }

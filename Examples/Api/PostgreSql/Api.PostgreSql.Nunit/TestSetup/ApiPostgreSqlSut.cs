@@ -26,7 +26,8 @@ public sealed class ApiPostgreSqlSut : WebApplicationFactory<Program>
         {
             config.AddInMemoryCollection(new Dictionary<string, string?>
             {
-                { "DbConnectionString", _pooledDatabase.ConnectionString }
+                { "DbConnectionString", _pooledDatabase.ConnectionString },
+                { "Logging:LogLevel:Microsoft.AspNetCore.Routing", "Information" },
             });
         });
 

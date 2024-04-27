@@ -56,7 +56,11 @@ public sealed class VueSut : WebApplicationFactory<Program>
         builder.UseEnvironment(Environments.Production);
         builder.ConfigureHostConfiguration(config =>
         {
-            config.AddInMemoryCollection(new Dictionary<string, string?> { { "DbConnectionString", _pooledDatabase.ConnectionString } });
+            config.AddInMemoryCollection(new Dictionary<string, string?>
+            {
+                { "DbConnectionString", _pooledDatabase.ConnectionString },
+                { "Logging:LogLevel:Microsoft.AspNetCore.Routing", "Information" },
+            });
         });
 
         builder.ConfigureLogging(loggingBuilder =>
