@@ -1,0 +1,30 @@
+﻿{
+    "$schema": "https://json.schemastore.org/launchsettings.json",
+    "profiles": {
+        "Clean": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "commandLineArgs": "--target Clean"
+        },
+        "Restore": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "commandLineArgs": "--target Restore"
+        },
+        "VerifyStyle": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "commandLineArgs": "--target VerifyStyle"
+        },
+        "Compile": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "commandLineArgs": "--target Compile"
+        },
+        "Test": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "commandLineArgs": "--target Test"
+        }
+    }
+}
