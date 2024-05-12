@@ -6,3 +6,4 @@ riderModule.iml
 *.user
 **/wwwroot/lib/
 .vs
+.nuke/temp
