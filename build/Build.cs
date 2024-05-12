@@ -16,6 +16,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 [GitHubActions("Build and test", GitHubActionsImage.Ubuntu2204,
     OnPushBranches = ["master", "feature/*"],
+    OnPushIncludePaths = ["**/*"],
     OnPushExcludePaths = ["**.md"],
     InvokedTargets = [nameof(Test), nameof(VerifyStyle)],
     CacheKeyFiles = ["**/global.json", "**/*.csproj", "**/Directory.Build.props", "**/package-lock.json", ".nvmrc"],
