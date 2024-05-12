@@ -50,5 +50,7 @@ jobs:
             ~/.nuget/packages
             **/obj/*
           key: ${{ runner.os }}-nuget_obj-${{ hashFiles('**/global.json', '**/*.csproj', '**/Directory.Build.props') }}
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
       - name: 'Run: Test, VerifyStyle'
         run: ./build.cmd Test VerifyStyle

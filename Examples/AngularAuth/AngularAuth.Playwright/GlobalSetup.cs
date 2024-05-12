@@ -41,7 +41,7 @@ public class GlobalSetup
 
         while (true)
         {
-            var exitCode = Microsoft.Playwright.Program.Main(new[] { "install", "--with-deps", "chromium" });
+            var exitCode = Microsoft.Playwright.Program.Main(["install", "--with-deps", "chromium"]);
 
             if (exitCode != 0)
             {
@@ -58,6 +58,7 @@ public class GlobalSetup
             }
             else
             {
+                Console.WriteLine($"Playwright installation failed with code {exitCode}");
                 return;
             }
 
