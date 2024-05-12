@@ -31,14 +31,24 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-      - name: 'Cache: .nuke/temp, ~/.nuget/packages, **/obj/*, **/node_modules'
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+      - name: Cache npm packages
+        id: cache-npm
+        uses: actions/cache@v3
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json', '.nvmrc') }}
+      - name: Cache nuget packages
+        id: cache-nuget
         uses: actions/cache@v3
         with:
           path: |
             .nuke/temp
             ~/.nuget/packages
             **/obj/*
-            **/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj', '**/Directory.Build.props', '**/package-lock.json', '.nvmrc') }}
+          key: ${{ runner.os }}-nuget_obj-${{ hashFiles('**/global.json', '**/*.csproj', '**/Directory.Build.props') }}
       - name: 'Run: Test, VerifyStyle'
         run: ./build.cmd Test VerifyStyle

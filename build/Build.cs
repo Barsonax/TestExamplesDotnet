@@ -14,20 +14,20 @@ using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
-[GitHubActions("Build and test", GitHubActionsImage.Ubuntu2204,
-    OnPushBranches = ["master", "feature/*"],
-    OnPushIncludePaths = ["**/*"],
-    OnPushExcludePaths = ["**.md"],
-    InvokedTargets = [nameof(Test), nameof(VerifyStyle)],
-    CacheKeyFiles = ["**/global.json", "**/*.csproj", "**/Directory.Build.props", "**/package-lock.json", ".nvmrc"],
-    CacheIncludePatterns = [".nuke/temp", "~/.nuget/packages", "**/obj/*", "**/node_modules"],
-    CacheExcludePatterns = new string[0])]
+//[GitHubActions("Build and test", GitHubActionsImage.Ubuntu2204,
+//    OnPushBranches = ["master", "feature/*"],
+//    OnPushIncludePaths = ["**/*"],
+//    OnPushExcludePaths = ["**.md"],
+//    InvokedTargets = [nameof(Test), nameof(VerifyStyle)],
+//    CacheKeyFiles = ["**/global.json", "**/*.csproj", "**/Directory.Build.props", "**/package-lock.json", ".nvmrc"],
+//    CacheIncludePatterns = [".nuke/temp", "~/.nuget/packages", "**/obj/*", "**/node_modules"],
+//    CacheExcludePatterns = [])]
 class Build : NukeBuild
 {
     public static int Main() => Execute<Build>(x => x.Compile);
 
     [Solution]
-    readonly Solution Solution; 
+    readonly Solution Solution;
 
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
